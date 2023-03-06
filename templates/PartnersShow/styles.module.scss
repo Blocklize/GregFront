@@ -1,0 +1,27 @@
+@import '@/styles/variables.scss';
+
+.partnersShow {
+    background: $contrast;
+    padding: 50px 0;
+
+    &__desc {
+        margin: 0 auto 48px;
+        text-align: center;
+    }
+
+    &__carousel {
+        width: 100%;
+        overflow-x: scroll;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    &__logo {
+        opacity: .5;
+    }
+}

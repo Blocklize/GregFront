@@ -1,0 +1,21 @@
+// Palette
+$blue: #002231;
+$light: #869399;
+$darker: #051A24;
+$primary: #FF4900;
+$secondary: #FF206E;
+
+// Colors
+$white: #FFFFFF;
+$black: #000000;
+$contrast: #041219;
+
+// SemiColors
+$gray-shade: rgba($color: #3E3E3E, $alpha: .3);
+$secondary-shade: rgba($color: $secondary, $alpha: .06);
+
+// Gradients
+$primary-secondary: linear-gradient(to right, $primary, $secondary);
+$darker-blue-darker: linear-gradient(to bottom, $darker, $blue, $darker);
+$none-secondary-none: linear-gradient(to right, transparent, $secondary, transparent);
+$gray-shade-secondary: linear-gradient(to bottom, $gray-shade, $secondary-shade, transparent);

@@ -1,0 +1,174 @@
+@import '@/styles/variables.scss';
+
+.stepCascade {
+    padding: 50px 0;
+    overflow: hidden;
+    position: relative;
+
+    &__desc {
+        margin: 24px 0;
+    }
+}
+
+.stepByStepList {
+    list-style: none;
+    padding: 0;
+
+    &__item {
+        color: $white;
+        padding: 12px 24px;
+        border-radius: 8px;
+        padding-left: 36px;
+        max-width: max-content;
+        position: relative;
+
+        &::before {
+            content: " ";
+            display: block;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            position: absolute;
+            left: 18px;
+            top: calc(50% - 3px);
+            background: $primary-secondary;
+        }
+    }
+}
+
+.highlighted {
+    background: rgba($color: $black, $alpha: .4);
+}
+
+.secondaryShade {
+    width: 50vw;
+    background: $gray-shade-secondary;
+    height: 500px;
+    border-radius: 24px 0 0 24px;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    @media (max-width: 992px) {
+        display: none;
+    }
+}
+
+.walletCard {
+    max-width: 500px;
+    height: 240px;
+    border-radius: 12px;
+    backdrop-filter: blur(5rem);
+    background: rgba($color: $black, $alpha: .2);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+
+    &__image {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    &__content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem 2rem;
+    }
+
+    &__separator {
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        bottom: 30px;
+        left: 0;
+        background: $primary-secondary;
+    }
+
+    @media (max-width: 992px) {
+        width: 100%;
+    }
+}
+
+.pictureHolder {
+    padding: .8rem .6rem;
+    border-radius: 16px;
+    background: rgba($color: $white, $alpha: .05);
+    backdrop-filter: blur(5rem);
+
+    &__image {
+        width: 100px;
+        border-radius: 50%;
+        box-shadow: 0 5px 25px $darker;
+    }
+}
+
+.profileInfo {
+    margin-left: 1rem;
+
+    &__title {
+        color: $white;
+        font-weight: 600;
+        font-size: 30px;
+    }
+
+    &__id {
+        color: $white;
+
+        strong {
+            font-weight: 600;
+            margin-right: .5rem;
+        }
+
+        span {
+            font-weight: 300;
+        }
+    }
+}
+
+.stepCard {
+    border-radius: 12px;
+    backdrop-filter: blur(5rem);
+    background: rgba($color: $black, $alpha: .2);
+    overflow: hidden;
+    padding: 1.8rem 1.8rem 3rem;
+
+    &__separator {
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        bottom: 30px;
+        left: 0;
+        background: $primary-secondary;
+    }
+}
+
+.stepList {
+    padding-left: 80px;
+
+    & > div {
+        margin-top: 20px;
+    }
+
+    @media (max-width: 992px) {
+        padding: 0;
+    }
+}
+
+.reducedSize {
+    font-size: 20px !important;
+    margin: 0 !important;
+}
+
+.secondCTA {
+    background: rgba($color: $white, $alpha: .05);
+    box-shadow: none;
+    color: $light;
+    margin-bottom: 32px;
+
+    &:hover {
+        background: rgba($color: $white, $alpha: .09);
+        color: $white;
+    }
+}

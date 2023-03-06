@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="455" height="361" viewBox="0 0 455 361">
+  <defs>
+    <filter id="Backdrop" x="0" y="0" width="455" height="361" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="12.5" result="blur"/>
+      <feFlood flood-opacity="0.302"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <linearGradient id="linear-gradient" x1="1" y1="0.5" x2="0" y2="0.5" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ff4900"/>
+      <stop offset="1" stop-color="#ff206e"/>
+    </linearGradient>
+  </defs>
+  <g id="Card" transform="translate(-927.896 -355.272)">
+    <g transform="matrix(1, 0, 0, 1, 927.9, 355.27)" filter="url(#Backdrop)">
+      <rect id="Backdrop-2" data-name="Backdrop" width="380" height="286" rx="16" transform="translate(37.5 34.5)" fill="rgba(255,255,255,0.03)"/>
+    </g>
+    <rect id="Mancha" width="380" height="3" transform="translate(965.396 642.772)" fill="url(#linear-gradient)"/>
+    <g id="Loader" transform="translate(230.396 -191.228)">
+      <g id="Grupo_5" data-name="Grupo 5" transform="matrix(0.978, 0.208, -0.208, 0.978, 193.678, -172.612)">
+        <circle id="Elipse_3" data-name="Elipse 3" cx="3.5" cy="3.5" r="3.5" transform="translate(926 791)" fill="rgba(223,223,223,0.15)"/>
+        <circle id="Elipse_4" data-name="Elipse 4" cx="2.5" cy="2.5" r="2.5" transform="translate(914 783)" fill="rgba(85,85,85,0.05)"/>
+        <circle id="Elipse_5" data-name="Elipse 5" cx="3" cy="3" r="3" transform="translate(920.67 784.858)" fill="rgba(223,223,223,0.1)"/>
+        <circle id="Elipse_6" data-name="Elipse 6" cx="4" cy="4" r="4" transform="translate(925 801)" fill="rgba(223,223,223,0.2)"/>
+      </g>
+      <g id="Grupo_6" data-name="Grupo 6" transform="translate(899.765 812.349) rotate(-81)">
+        <circle id="Elipse_3-2" data-name="Elipse 3" cx="5" cy="5" r="5" transform="translate(-0.694 10.011)" fill="rgba(223,223,223,0.3)"/>
+        <circle id="Elipse_4-2" data-name="Elipse 4" cx="6" cy="6" r="6" transform="translate(21.54 3.725)" fill="rgba(223,223,223,0.4)"/>
+        <circle id="Elipse_5-2" data-name="Elipse 5" cx="5.5" cy="5.5" r="5.5" transform="translate(8.398 2.199)" fill="rgba(223,223,223,0.35)"/>
+        <circle id="Elipse_6-2" data-name="Elipse 6" cx="4.5" cy="4.5" r="4.5" transform="translate(-1.685 21.304)" fill="rgba(223,223,223,0.25)"/>
+      </g>
+    </g>
+    <g id="Form" transform="translate(2.073 9.638)">
+      <g id="Form-2" data-name="Form" transform="translate(990.426 518.772)">
+        <g id="Grupo_3" data-name="Grupo 3" transform="translate(0)">
+          <rect id="Retângulo_3" data-name="Retângulo 3" width="51" height="43" rx="6" transform="translate(-0.103 0.362)" fill="rgba(255,255,255,0.03)"/>
+          <text id="_" data-name="•" transform="translate(25.897 30.362)" fill="rgba(223,223,223,0.6)" font-size="24" font-family="Work Sans"><tspan x="-5.16" y="0">•</tspan></text>
+        </g>
+      </g>
+      <g id="Form-3" data-name="Form" transform="translate(1045.771 518.772)">
+        <g id="Grupo_3-2" data-name="Grupo 3" transform="translate(0)">
+          <rect id="Retângulo_3-2" data-name="Retângulo 3" width="51" height="43" rx="6" transform="translate(-0.448 0.362)" fill="rgba(255,255,255,0.03)"/>
+          <text id="_2" data-name="•" transform="translate(25.552 30.362)" fill="rgba(223,223,223,0.6)" font-size="24" font-family="Work Sans"><tspan x="-5.16" y="0">•</tspan></text>
+        </g>
+      </g>
+      <g id="Form-4" data-name="Form" transform="translate(1101.116 518.772)">
+        <g id="Grupo_3-3" data-name="Grupo 3" transform="translate(0)">
+          <rect id="Retângulo_3-3" data-name="Retângulo 3" width="51" height="43" rx="6" transform="translate(0.207 0.362)" fill="rgba(255,255,255,0.03)"/>
+          <text id="_3" data-name="•" transform="translate(25.207 30.362)" fill="rgba(223,223,223,0.6)" font-size="24" font-family="Work Sans"><tspan x="-5.16" y="0">•</tspan></text>
+        </g>
+      </g>
+      <g id="Form-5" data-name="Form" transform="translate(1156.461 518.772)">
+        <g id="Grupo_3-4" data-name="Grupo 3" transform="translate(0)">
+          <rect id="Retângulo_3-4" data-name="Retângulo 3" width="51" height="43" rx="6" transform="translate(-0.138 0.362)" fill="rgba(255,255,255,0.03)"/>
+          <text id="_4" data-name="•" transform="translate(25.862 30.362)" fill="rgba(223,223,223,0.6)" font-size="24" font-family="Work Sans"><tspan x="-5.16" y="0">•</tspan></text>
+        </g>
+      </g>
+      <g id="Form-6" data-name="Form" transform="translate(1211.806 518.772)">
+        <g id="Grupo_3-5" data-name="Grupo 3" transform="translate(0)">
+          <rect id="Retângulo_3-5" data-name="Retângulo 3" width="51" height="43" rx="6" transform="translate(-0.483 0.362)" fill="rgba(255,255,255,0.03)"/>
+          <text id="_5" data-name="•" transform="translate(25.517 30.362)" fill="rgba(223,223,223,0.6)" font-size="24" font-family="Work Sans"><tspan x="-5.16" y="0">•</tspan></text>
+        </g>
+      </g>
+      <g id="Form-7" data-name="Form" transform="translate(1267.151 518.772)">
+        <g id="Grupo_3-6" data-name="Grupo 3" transform="translate(0)">
+          <rect id="Retângulo_3-6" data-name="Retângulo 3" width="51" height="43" rx="6" transform="translate(0.172 0.362)" fill="rgba(255,255,255,0.03)"/>
+          <text id="_6" data-name="•" transform="translate(25.172 30.362)" fill="rgba(223,223,223,0.6)" font-size="24" font-family="Work Sans"><tspan x="-5.16" y="0">•</tspan></text>
+        </g>
+      </g>
+    </g>
+    <text id="Text" transform="translate(1155.396 478.772)" fill="rgba(255,255,255,0.6)" font-size="18" font-family="Work Sans" font-weight="300"><tspan x="-101.799" y="0">Check your e-mail inobx</tspan><tspan x="-132.129" y="21">and type the code you received</tspan></text>
+    <g id="Header" transform="translate(966.048 402.772)">
+      <line id="Scanline" x2="380" transform="translate(-0.152 38.5)" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+      <text id="Get_the_code" data-name="Get the code" transform="translate(190.348 19)" fill="#fff" font-size="20" font-family="Work Sans"><tspan x="-63.46" y="0">Get the code</tspan></text>
+    </g>
+  </g>
+</svg>

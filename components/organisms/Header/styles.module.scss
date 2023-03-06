@@ -1,0 +1,32 @@
+@import '@/styles/variables.scss';
+
+.header {
+    min-width: 100vw;
+    top: 0;
+    left: 0;
+    z-index: 1031;
+    position: fixed;
+
+    &__left {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.list {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+
+    &__item {
+        padding: .5rem;
+    }
+}
+
+.anchor {
+    color: $white;
+    text-decoration: none;
+    font-weight: 500;
+}
