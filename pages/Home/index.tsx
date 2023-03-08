@@ -15,7 +15,6 @@ const Home = () => {
       <HomeIntro />
       <PartnersShow />
       <ServiceComparison />
-      <StepCascade />
       <BoxAdvertisement />
       <CodeCascade />
       <Footer />
