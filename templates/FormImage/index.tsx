@@ -12,6 +12,7 @@ import Apple from '@/assets/img/apple-white.png'
 import Twitter from '@/assets/img/twitter-white.png'
 import Facebook from '@/assets/img/facebook-white.png'
 import Logo from '@/assets/img/logo-branco.png'
+import Illustration from '@/assets/img/group.svg'
 
 const FormImage = () => {
   const handleFormCtaClick = () => {
@@ -20,6 +21,13 @@ const FormImage = () => {
 
   return (
     <section className={Styles.formImage}>
+      <Image
+        src={Illustration}
+        height={undefined}
+        width={400}
+        className={Styles.formImage__illlust}
+        alt="Ilustração"
+      />
       <div className="container">
         <div className="row d-flex justify-content-center">
           <div className={Styles.secondaryShade}>
