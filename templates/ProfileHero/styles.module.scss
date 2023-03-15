@@ -2,7 +2,7 @@
 
 .profileHero {
     padding-top: 100px;
-    min-height: 90vh;
+    min-height: 750px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -81,12 +81,16 @@
     }
 
     &__body {
-        max-height: 500px;
+        height: 500px;
         overflow-y: scroll;
 
         &::-webkit-scrollbar {
             display: none;
         }
+    }
+
+    @media (max-width: 1024px) {
+        margin-top: 3rem;
     }
 }
 

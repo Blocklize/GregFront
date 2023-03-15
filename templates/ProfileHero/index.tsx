@@ -6,9 +6,16 @@ import WalletIcon from '@/assets/img/wallet-outline.png'
 import Image from 'next/image'
 import Button from '@/components/atoms/Button'
 import Search from '@/components/atoms/Search'
-import TokenShow from '@/components/molecules/TokenShow'
+import TokenList from '@/components/organisms/TokenList'
+import TokenInfo from '@/components/organisms/TokenInfo'
 
 const ProfileHero = () => {
+  const [step, setStep] = React.useState(0)
+
+  const onClickHandler = () => {
+    setStep(step + 1)
+  }
+
   return (
     <div className={Styles.profileHero}>
       <div className="container">
@@ -62,13 +69,8 @@ const ProfileHero = () => {
                 </div>
               </div>
               <div className={Styles.wallet__body}>
-                <TokenShow />
-                <TokenShow />
-                <TokenShow />
-                <TokenShow />
-                <TokenShow />
-                <TokenShow />
-                <TokenShow />
+                {step == 0 && <TokenList onClick={onClickHandler} />}
+                {step == 1 && <TokenInfo />}
               </div>
             </div>
           </div>

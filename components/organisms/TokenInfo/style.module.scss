@@ -1,0 +1,93 @@
+@import '@/styles/variables.scss';
+
+.tokenInfo {
+    &__image {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.tokenData {
+    background: rgba($color: #000000, $alpha: .2);
+    padding: 1.4rem;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    border-radius: 10px;
+
+    &__name {
+        h1 {
+            color: $white;
+            font-size: 30px;
+            font-weight: bold;
+            margin-bottom: 0;
+        }
+
+        p {
+            color: $clay-gray;
+            font-weight: 300;
+            font-size: 20px;
+        }
+    }
+
+    &__info {
+        width: 100%;
+        background: rgba($color: #000000, $alpha: .4);
+        padding: .7rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: 8px;
+        margin-bottom: 6px;
+
+        span {
+            color: $clay-gray;
+        }
+
+        strong {
+            color: $white;
+        }
+    }
+}
+
+.customCTA {
+    width: 100%;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.secondCTA {
+    background: rgba($color: $white, $alpha: .05);
+    box-shadow: none;
+    color: $light;
+
+    &:hover {
+        background: rgba($color: $white, $alpha: .09);
+        color: $white;
+    }
+}
+
+.tokenHistory {
+    background: $gray-void;
+    padding: 1.4rem;
+    height: 100%;
+    border-radius: 10px;
+    max-height: 150px;
+
+    &__body {
+        max-height: 150px;
+        overflow: scroll;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    &__title {
+        color: $clay-gray;
+        font-weight: bold;
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+}

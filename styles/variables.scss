@@ -10,15 +10,18 @@ $white: #FFFFFF;
 $black: #000000;
 $contrast: #041219;
 $off-black: #111111;
+$clay-gray: #919FA6;
 
 // SemiColors
+$semi-black: rgba($color: $black, $alpha: .2);
 $gray-shade: rgba($color: #3E3E3E, $alpha: .3);
-$secondary-shade: rgba($color: $secondary, $alpha: .06);
 $semi-gray-one: rgba($color: #8D8888, $alpha: .1);
 $semi-gray-two: rgba($color: #9F9494, $alpha: .2);
 $semi-gray-thr: rgba($color: #808080, $alpha: .1);
+$secondary-shade: rgba($color: $secondary, $alpha: .06);
 
 // Gradients
+$gray-void: linear-gradient(to bottom, $semi-black, transparent);
 $primary-secondary: linear-gradient(to right, $primary, $secondary);
 $darker-blue-darker: linear-gradient(to bottom, $darker, $blue, $darker);
 $none-secondary-none: linear-gradient(to right, transparent, $secondary, transparent);

@@ -6,9 +6,20 @@ import Image from 'next/image'
 import Icon from '@/assets/img/avax.png'
 import Arrow from '@/assets/img/chevron-forward-outline.png'
 
-const TokenShow = () => {
+type Props = {
+  onClick?: any
+}
+
+const TokenShow = ({ onClick }: Props) => {
+  const handleClickFunction = () => {
+    onClick()
+  }
+
   return (
-    <div className={Styles.tokenShow}>
+    <div
+      className={Styles.tokenShow}
+      onClick={() => { handleClickFunction() }}
+    >
       <div className={Styles.tokenShow__info}>
         <Image
           src={Icon}
@@ -23,12 +34,12 @@ const TokenShow = () => {
           32.12456
         </h2>
         <Image
-            width={7}
-            src={Arrow}
-            height={undefined}
-            className={Styles.chevron}
-            alt="AVAX Icon"
-          />
+          width={7}
+          src={Arrow}
+          height={undefined}
+          className={Styles.chevron}
+          alt="AVAX Icon"
+        />
       </div>
     </div>
   )
