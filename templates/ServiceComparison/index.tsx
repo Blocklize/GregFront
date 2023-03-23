@@ -63,7 +63,7 @@ const ServiceComparison = () => {
                         </div>
                         <Paragraph
                           className="m-0 ps-3"
-                          text={Content.short}
+                          text={Content.short_one}
                           size={16}
                           width={60}
                           height={1}
@@ -80,7 +80,7 @@ const ServiceComparison = () => {
                         </div>
                         <Paragraph
                           className="m-0 ps-3"
-                          text={Content.short}
+                          text={Content.short_two}
                           size={16}
                           width={60}
                           height={1}
@@ -97,7 +97,7 @@ const ServiceComparison = () => {
                         </div>
                         <Paragraph
                           className="m-0 ps-3"
-                          text={Content.short}
+                          text={Content.short_thr}
                           size={16}
                           width={60}
                           height={1}

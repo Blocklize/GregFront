@@ -8,6 +8,7 @@ import Button from '@/components/atoms/Button'
 import Search from '@/components/atoms/Search'
 import TokenList from '@/components/organisms/TokenList'
 import TokenInfo from '@/components/organisms/TokenInfo'
+import Checkout from '@/components/organisms/Checkout'
 
 const ProfileHero = () => {
   const [step, setStep] = React.useState(0)
@@ -70,7 +71,8 @@ const ProfileHero = () => {
               </div>
               <div className={Styles.wallet__body}>
                 {step == 0 && <TokenList onClick={onClickHandler} />}
-                {step == 1 && <TokenInfo />}
+                {step == 1 && <TokenInfo buy={onClickHandler} />}
+                {step == 2 && <Checkout />}
               </div>
             </div>
           </div>

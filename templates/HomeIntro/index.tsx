@@ -31,8 +31,8 @@ const HomeIntro = () => {
             id='homeIntro-title'
             className={Styles.homeIntro__title}
             text={Content.title}
-            size={72}
-            width={18}
+            size={60}
+            width={36}
             height={1}
           />
           <Paragraph

@@ -12,6 +12,23 @@
         align-items: center;
         justify-content: center;
     }
+
+    &__logged {
+        .anchor {
+            align-items: center;
+
+            &:hover {
+                color: $white;
+            }
+        }
+
+        .picture {
+            width: 40px;
+            height: 40px;
+            border: 3px solid $primary;
+            border-radius: 50%;
+        }
+    }
 }
 
 .list {

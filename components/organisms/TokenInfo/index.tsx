@@ -6,10 +6,13 @@ import Icon from '@/assets/img/avax-2.png'
 import Button from '@/components/atoms/Button'
 import TokenList from '../TokenList'
 
-const TokenInfo = () => {
-  const handleClickAction = () => {
-    console.log("Click")
-  }
+type Props = {
+  buy?: any,
+  sell?: any,
+  transfer?: any
+}
+
+const TokenInfo = ({ buy, sell, transfer }: Props) => {
   return (
     <div className={Styles.tokenInfo}>
       <div className="row d-flex justify-content-center">
@@ -46,7 +49,7 @@ const TokenInfo = () => {
                   hidden={false}
                   text="Comprar"
                   className={Styles.customCTA}
-                  onClick={() => { handleClickAction() }}
+                  onClick={() => { buy() }}
                 />
                 <Button
                   id='cta-vender'
@@ -54,7 +57,7 @@ const TokenInfo = () => {
                   hidden={false}
                   text="Vender"
                   className={`${Styles.customCTA} ${Styles.secondCTA}`}
-                  onClick={() => { handleClickAction() }}
+                  onClick={() => { sell() }}
                 />
                 <Button
                   id='cta-transferir'
@@ -62,7 +65,7 @@ const TokenInfo = () => {
                   hidden={false}
                   text="Transferir"
                   className={`${Styles.customCTA} ${Styles.secondCTA}`}
-                  onClick={() => { handleClickAction() }}
+                  onClick={() => { transfer() }}
                 />
               </div>
             </div>
