@@ -5,7 +5,7 @@ import FormImage from '@/templates/FormImage'
 import { useRouter } from 'next/router'
 import UserContext from '@/context/UserContext'
 import Styles from './styles.module.scss'
-import { Head } from 'next/document'
+import Head from 'next/head'
 
 const Home = () => {
   const router = useRouter()
