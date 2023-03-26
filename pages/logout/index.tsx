@@ -4,6 +4,7 @@ import UserContext from '@/context/UserContext'
 import Header from '@/components/organisms/Header'
 import Footer from '@/components/organisms/Footer'
 import Styles from './styles.module.scss'
+import Head from 'next/head'
 
 const Logout = () => {
   const router = useRouter()
@@ -25,6 +26,13 @@ const Logout = () => {
 
   return (
     <>
+      <Head>
+        <title>Greg | Desconectando</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name="theme-color" content="#FF4900" />
+        <meta name="robots" content="no-index, no-follow" />
+        <meta name="description" content="Greg | Desconectando." />
+      </Head>
       <Header />
       <div className={Styles.loadScreen}>
         <div className={Styles.loadScreen__loader} />
