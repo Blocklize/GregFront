@@ -6,10 +6,27 @@ import Title from '@/components/atoms/Title'
 import Paragraph from '@/components/atoms/Paragraph'
 import Image from 'next/image'
 
-import LoginImage from '@/assets/img/form_login.png'
 import { PersonAddOutline, CubeOutline, SyncOutline, PhonePortrait, CashOutline, WalletOutline } from 'react-ionicons'
 
+import LoginImage from '@/assets/img/form_login.png'
+import WalletImage from '@/assets/img/form_wallet.png'
+import CheckoutImage from '@/assets/img/form_checkout.png'
+import RampImage from '@/assets/img/form_ramp.png'
+import TransactionImage from '@/assets/img/form_transaction.png'
+import CustomizeImage from '@/assets/img/form_customize.png'
+
 const FeaturesAccordion = () => {
+  const images = [
+    LoginImage,
+    WalletImage,
+    CheckoutImage,
+    RampImage,
+    TransactionImage,
+    CustomizeImage
+  ]
+
+  const [option, setOption] = React.useState(0)
+
   return (
     <section className={Styles.featuresAccordion}>
       <div className="container">
@@ -36,7 +53,7 @@ const FeaturesAccordion = () => {
             <div className={`${Styles.accordion} row`}>
               <div className="col-lg-6 d-flex justify-content-center">
                 <Image
-                  src={LoginImage}
+                  src={images[option]}
                   width={485}
                   height={undefined}
                   alt="Picture"
@@ -50,6 +67,7 @@ const FeaturesAccordion = () => {
                   <div className={`${Styles.accordion__item} accordion-item`}>
                     <h2 className={`${Styles.accordion__clicker} accordion-header`}>
                       <button
+                        onClick={() => setOption(0)}
                         className="accordion-button"
                         type="button"
                         data-bs-toggle="collapse"
@@ -74,6 +92,7 @@ const FeaturesAccordion = () => {
                   <div className={`${Styles.accordion__item} accordion-item`}>
                     <h2 className={`${Styles.accordion__clicker} accordion-header`}>
                       <button
+                        onClick={() => setOption(1)}
                         className="accordion-button collapsed"
                         type="button"
                         data-bs-toggle="collapse"
@@ -98,6 +117,7 @@ const FeaturesAccordion = () => {
                   <div className={`${Styles.accordion__item} accordion-item`}>
                     <h2 className={`${Styles.accordion__clicker} accordion-header`}>
                       <button
+                        onClick={() => setOption(2)}
                         className="accordion-button collapsed"
                         type="button"
                         data-bs-toggle="collapse"
@@ -122,6 +142,7 @@ const FeaturesAccordion = () => {
                   <div className={`${Styles.accordion__item} accordion-item`}>
                     <h2 className={`${Styles.accordion__clicker} accordion-header`}>
                       <button
+                        onClick={() => setOption(3)}
                         className="accordion-button collapsed"
                         type="button"
                         data-bs-toggle="collapse"
@@ -146,6 +167,7 @@ const FeaturesAccordion = () => {
                   <div className={`${Styles.accordion__item} accordion-item`}>
                     <h2 className={`${Styles.accordion__clicker} accordion-header`}>
                       <button
+                        onClick={() => setOption(4)}
                         className="accordion-button collapsed"
                         type="button"
                         data-bs-toggle="collapse"
@@ -170,6 +192,7 @@ const FeaturesAccordion = () => {
                   <div className={`${Styles.accordion__item} accordion-item`}>
                     <h2 className={`${Styles.accordion__clicker} accordion-header`}>
                       <button
+                        onClick={() => setOption(5)}
                         className="accordion-button collapsed"
                         type="button"
                         data-bs-toggle="collapse"

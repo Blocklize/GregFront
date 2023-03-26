@@ -26,7 +26,14 @@
     }
 
     &__logo {
-        opacity: .5;
+        filter: grayscale(1);
+        opacity: .4;
+        transition: .4s;
+
+        &:hover {
+            opacity: 1;
+            filter: grayscale(0);
+        }
 
         @media (max-width: 992px) {
             margin: 0 1rem;

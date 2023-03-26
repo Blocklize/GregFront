@@ -5,6 +5,15 @@ import Content from './content.json'
 import Logo from '@/assets/img/logo-branco.png'
 import Image from 'next/image'
 
+// 
+
+import bsc from '@/assets/img/partners/bsc.png'
+import cl from '@/assets/img/partners/cl.png'
+import ethereum from '@/assets/img/partners/ethereum.png'
+import polygon from '@/assets/img/partners/polygon.png'
+import soulprime from '@/assets/img/partners/soulprime.png'
+import stellar from '@/assets/img/partners/stellar.png'
+
 const PartnersShow = () => {
   return (
     <section className={Styles.partnersShow}>
@@ -18,12 +27,12 @@ const PartnersShow = () => {
           height={1}
         />
         <div className={Styles.partnersShow__carousel}>
-          <Image src={Logo} height={undefined} width={120} className={Styles.partnersShow__logo} alt="Card com formulário de login" />
-          <Image src={Logo} height={undefined} width={120} className={Styles.partnersShow__logo} alt="Card com formulário de login" />
-          <Image src={Logo} height={undefined} width={120} className={Styles.partnersShow__logo} alt="Card com formulário de login" />
-          <Image src={Logo} height={undefined} width={120} className={Styles.partnersShow__logo} alt="Card com formulário de login" />
-          <Image src={Logo} height={undefined} width={120} className={Styles.partnersShow__logo} alt="Card com formulário de login" />
-          <Image src={Logo} height={undefined} width={120} className={Styles.partnersShow__logo} alt="Card com formulário de login" />
+          <Image src={bsc} height={undefined} width={120} className={Styles.partnersShow__logo} alt="Card com formulário de login" />
+          <Image src={cl} height={undefined} width={120} className={Styles.partnersShow__logo} alt="Card com formulário de login" />
+          <Image src={ethereum} height={undefined} width={120} className={Styles.partnersShow__logo} alt="Card com formulário de login" />
+          <Image src={polygon} height={undefined} width={120} className={Styles.partnersShow__logo} alt="Card com formulário de login" />
+          <Image src={soulprime} height={undefined} width={120} className={Styles.partnersShow__logo} alt="Card com formulário de login" />
+          <Image src={stellar} height={undefined} width={120} className={Styles.partnersShow__logo} alt="Card com formulário de login" />
         </div>
       </div>
     </section>
