@@ -7,7 +7,7 @@ import Paragraph from '@/components/atoms/Paragraph'
 import Button from '@/components/atoms/Button'
 import Image from 'next/image'
 
-import { CopyBlock, sunburst } from "react-code-blocks";
+import { CopyBlock, xt256 } from "react-code-blocks";
 
 import JSX from '@/assets/img/logo-javascript.svg'
 import REACT from '@/assets/img/logo-react.svg'
@@ -19,13 +19,15 @@ const CodeCascade = () => {
   }
 
   const code =
-    `   import Web3 from 'web3';
-   import { Magic } from 'magic-sdk';
-   const magic = new Magic('YOUR_API_KEY',  {
-     network: 'goerli',
-   });
-   const web3 = new Web3(magic.rpcProvider);
-   web3.eth.getAccounts();
+    `   const config = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ "email": email })
+    }
+    fetch('https://greg.blocklize.io/auth/requestLogin', config);
+    .then((response) => {
+      return response.ok ? "Email sent" : "Try again";
+    })
   `
 
   return (
@@ -105,7 +107,7 @@ const CodeCascade = () => {
                     showLineNumbers={true}
                     wrapLines
                     codeBlock
-                    theme={sunburst}
+                    theme={xt256}
                   />
                 </div>
               </div>
