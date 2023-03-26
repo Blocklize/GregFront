@@ -7,10 +7,12 @@ import Icon from '@/assets/img/avax.png'
 import Arrow from '@/assets/img/chevron-forward-outline.png'
 
 type Props = {
-  onClick?: any
+  onClick?: any,
+  value?: number,
+  data: any
 }
 
-const TokenShow = ({ onClick }: Props) => {
+const TokenShow = ({ onClick, data, value = 0 }: Props) => {
   const handleClickFunction = () => {
     onClick()
   }
@@ -22,17 +24,18 @@ const TokenShow = ({ onClick }: Props) => {
     >
       <div className={Styles.tokenShow__info}>
         <Image
-          src={Icon}
+          src={data.logoURI}
           width={40}
-          height={undefined}
+          height={40}
           alt="AVAX Icon"
         />
-        <h2>AVAX</h2>
+        <h2>{data.symbol}</h2>
       </div>
       <div className={Styles.tokenShow__balance}>
-        <h2>
-          32.12456
-        </h2>
+        <input
+          readOnly
+          value={value.toFixed(5)}
+        />
         <Image
           width={7}
           src={Arrow}

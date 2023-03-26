@@ -20,7 +20,8 @@ export default function App({ Component, pageProps }: AppProps) {
         'Authorization': 'Bearer ' + token
       }
     }
-    fetch('https://greg.blocklize.io/auth/userInfo', config)
+    if (token) {
+      fetch('https://greg.blocklize.io/auth/userInfo', config)
       .then(resp => resp.json())
       .then(json => {
         setUserInfo(json)
@@ -31,6 +32,9 @@ export default function App({ Component, pageProps }: AppProps) {
           router.push('/carteira')
         }
       })
+    } else {
+      setLoggedIn(false)
+    }
   }, [])
 
   useEffect(() => {
