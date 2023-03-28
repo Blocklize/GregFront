@@ -24,7 +24,6 @@ const Home = () => {
       <PartnersShow />
       <ServiceComparison />
       <FeaturesAccordion />
-      <BoxAdvertisement />
       <CodeCascade />
       <Footer />
     </>
