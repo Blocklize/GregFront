@@ -40,27 +40,27 @@ const Footer = () => {
                 <div className="col-lg-4 col-6 mb-5 mb-lg-0">
                   <div className={Styles.linkColumn}>
                     <h1 className={Styles.linkColumn__title}>
-                      Link category
+                      Sobre o Greg
                     </h1>
                     <ul className={Styles.linkList}>
                       <li className={Styles.linkList__item}>
                         <Link href="#" className={Styles.standardLink}>
-                          Lorem dolor ipsum
+                          Quem somos
+                        </Link>
+                      </li>
+                      <li className={Styles.linkList__item}>
+                        <Link href="https://blocklize.io/" className={Styles.standardLink}>
+                         Blocklize
                         </Link>
                       </li>
                       <li className={Styles.linkList__item}>
                         <Link href="#" className={Styles.standardLink}>
-                          Lorem ipsum dolor
+                          
                         </Link>
                       </li>
                       <li className={Styles.linkList__item}>
                         <Link href="#" className={Styles.standardLink}>
-                          Lorem ipsum
-                        </Link>
-                      </li>
-                      <li className={Styles.linkList__item}>
-                        <Link href="#" className={Styles.standardLink}>
-                          Lorem dolor
+                         
                         </Link>
                       </li>
                     </ul>
@@ -69,27 +69,27 @@ const Footer = () => {
                 <div className="col-lg-4 col-6 mb-5 mb-lg-0">
                   <div className={Styles.linkColumn}>
                     <h1 className={Styles.linkColumn__title}>
-                      Link category
+                      Ajuda
                     </h1>
                     <ul className={Styles.linkList}>
                       <li className={Styles.linkList__item}>
-                        <Link href="#" className={Styles.standardLink}>
-                          Lorem dolor ipsum
+                        <Link href="mailto:contato@blocklize.tech" className={Styles.standardLink}>
+                          Fale conosco
                         </Link>
                       </li>
                       <li className={Styles.linkList__item}>
                         <Link href="#" className={Styles.standardLink}>
-                          Lorem ipsum dolor
+                        
                         </Link>
                       </li>
                       <li className={Styles.linkList__item}>
                         <Link href="#" className={Styles.standardLink}>
-                          Lorem ipsum
+                        
                         </Link>
                       </li>
                       <li className={Styles.linkList__item}>
                         <Link href="#" className={Styles.standardLink}>
-                          Lorem dolor
+                          
                         </Link>
                       </li>
                     </ul>
@@ -98,27 +98,27 @@ const Footer = () => {
                 <div className="col-lg-4 col-6 mb-5 mb-lg-0">
                   <div className={Styles.linkColumn}>
                     <h1 className={Styles.linkColumn__title}>
-                      Link category
+                      Compliance
                     </h1>
                     <ul className={Styles.linkList}>
                       <li className={Styles.linkList__item}>
-                        <Link href="#" className={Styles.standardLink}>
-                          Lorem dolor ipsum
+                        <Link href="mailto:contato@blocklize.tech" className={Styles.standardLink}>
+                          Ouvidoria
                         </Link>
                       </li>
                       <li className={Styles.linkList__item}>
                         <Link href="#" className={Styles.standardLink}>
-                          Lorem ipsum dolor
+                          
                         </Link>
                       </li>
                       <li className={Styles.linkList__item}>
                         <Link href="#" className={Styles.standardLink}>
-                          Lorem ipsum
+                          
                         </Link>
                       </li>
                       <li className={Styles.linkList__item}>
                         <Link href="#" className={Styles.standardLink}>
-                          Lorem dolor
+                          
                         </Link>
                       </li>
                     </ul>
