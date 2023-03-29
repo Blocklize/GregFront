@@ -13,6 +13,7 @@ import ethereum from '@/assets/img/partners/ethereum.png'
 import polygon from '@/assets/img/partners/polygon.png'
 import soulprime from '@/assets/img/partners/soulprime.png'
 import stellar from '@/assets/img/partners/stellar.png'
+import nforest from '@/assets/img/partners/nforest.png'
 
 const PartnersShow = () => {
   return (
@@ -33,6 +34,7 @@ const PartnersShow = () => {
           <Image src={polygon} height={undefined} width={120} className={Styles.partnersShow__logo} alt="Card com formulário de login" />
           <Image src={soulprime} height={undefined} width={120} className={Styles.partnersShow__logo} alt="Card com formulário de login" />
           <Image src={stellar} height={undefined} width={120} className={Styles.partnersShow__logo} alt="Card com formulário de login" />
+          <Image src={nforest} height={undefined} width={120} className={Styles.partnersShow__logo} alt="Card com formulário de login" />
         </div>
       </div>
     </section>
