@@ -23,7 +23,7 @@ const Header = () => {
           <Link href="/">
             <Image src={Logo} height={undefined} width={150} alt="Logo - Greg" />
           </Link>
-          <ul className={`${Styles.list} d-lg-flex d-none`}>
+          {/* <ul className={`${Styles.list} d-lg-flex d-none`}>
             <li className={Styles.list__item}>
               <Link href="#" className={Styles.anchor}>Produtos</Link>
             </li>
@@ -33,11 +33,11 @@ const Header = () => {
             <li className={Styles.list__item}>
               <Link href="#" className={Styles.anchor}>Preços</Link>
             </li>
-          </ul>
+          </ul> */}
         </div>
         {!logged && (
           <div className={Styles.header__right}>
-            <Link href="#" className={`${Styles.anchor} d-lg-inline-block d-none me-3`}>Preços</Link>
+            {/* <Link href="#" className={`${Styles.anchor} d-lg-inline-block d-none me-3`}>Preços</Link> */}
             <Button
               id='cta'
               label='Sign up'

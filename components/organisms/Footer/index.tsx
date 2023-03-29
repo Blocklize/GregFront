@@ -19,16 +19,16 @@ const Footer = () => {
             <div className={Styles.footer__top}>
               <Image src={Logo} height={undefined} width={120} alt="Logo - Greg" />
               <div className={Styles.socialLinks}>
-                <Link href="#" className={Styles.socialLinks__item}>
+                <Link id='twitter' href="#" className={Styles.socialLinks__item}>
                   <Image src={ImageOne} height={undefined} width={20} alt="Icon" />
                 </Link>
-                <Link href="#" className={Styles.socialLinks__item}>
+                <Link id='github' href="#" className={Styles.socialLinks__item}>
                   <Image src={ImageTwo} height={undefined} width={20} alt="Icon" />
                 </Link>
-                <Link href="#" className={Styles.socialLinks__item}>
+                <Link id='discord' href="#" className={Styles.socialLinks__item}>
                   <Image src={ImageThree} height={undefined} width={20} alt="Icon" />
                 </Link>
-                <Link href="#" className={Styles.socialLinks__item}>
+                <Link id='linkedin' href="#" className={Styles.socialLinks__item}>
                   <Image src={ImageFour} height={undefined} width={20} alt="Icon" />
                 </Link>
               </div>
@@ -36,7 +36,7 @@ const Footer = () => {
           </div>
           <div className="col-lg-6">
             <div className={Styles.footer__middle}>
-              <div className="row d-flex align-items-center justify-content-between">
+              <div className="row d-flex align-items-start justify-content-between">
                 <div className="col-lg-4 col-6 mb-5 mb-lg-0">
                   <div className={Styles.linkColumn}>
                     <h1 className={Styles.linkColumn__title}>

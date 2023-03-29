@@ -15,7 +15,7 @@ import APPLE from '@/assets/img/logo-apple.svg'
 
 const CodeCascade = () => {
   const handleHeaderCtaClick = () => {
-    console.log("Click")
+    window.open(Content.call_to_action.url)
   }
 
   const code =
@@ -55,13 +55,13 @@ const CodeCascade = () => {
             <div className={Styles.codeCascade__list}>
               <ul className={Styles.stepByStepList}>
                 <li className={Styles.stepByStepList__item}>
-                  Some list item descripted here
+                  {Content.list.item_1}
                 </li>
                 <li className={`${Styles.stepByStepList__item} ${Styles.highlighted}`}>
-                  Some list item descripted here
+                  {Content.list.item_2}
                 </li>
                 <li className={Styles.stepByStepList__item}>
-                  Some list item descripted here
+                  {Content.list.item_3}
                 </li>
               </ul>
             </div>
@@ -69,7 +69,7 @@ const CodeCascade = () => {
               id='cta'
               label='Call to Action'
               hidden={false}
-              text="Call to Action"
+              text={Content.call_to_action.text}
               className={Styles.secondCTA}
               onClick={() => { handleHeaderCtaClick() }}
             />

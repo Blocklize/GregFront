@@ -14,31 +14,26 @@ const LoginToken = () => {
   const [logged, setLoggedIn] = loggedIn
 
   const handleUserLogin = () => {
-    if (!logged) {
-      const config = {
-        method: 'post',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          'tokenId': token
-        })
-      }
-      fetch('https://greg.blocklize.io/auth/login', config)
-        .then(resp => resp.json())
-        .then(json => {
-          console.log(json)
-          if (json.accessToken && json.refreshToken) {
-            localStorage.setItem('accessToken', json.accessToken)
-            localStorage.setItem('refreshToken', json.refreshToken)
-            setUserInfo(json.usuarioInfo)
-            setLoggedIn(true)
-          }
-        })
-        .finally(() => {
-          router.push('/carteira')
-        })
-    } else {
-      router.push('/')
+    const config = {
+      method: 'post',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        'tokenId': token
+      })
     }
+    fetch('https://greg.blocklize.io/auth/login', config)
+      .then(resp => resp.json())
+      .then(json => {
+        if (json.accessToken && json.refreshToken) {
+          localStorage.setItem('accessToken', json.accessToken)
+          localStorage.setItem('refreshToken', json.refreshToken)
+          setUserInfo(json.usuarioInfo)
+          setLoggedIn(true)
+          router.push('/carteira')
+        } else {
+          router.push("/login")
+        }
+      })
   }
 
   React.useEffect(() => {

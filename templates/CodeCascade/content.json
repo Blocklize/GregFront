@@ -1,4 +1,13 @@
 {
     "title": "Comece agora",
-    "description": "A integração com o Greg é muito fácil, simples e rápida!"
+    "description": "A integração com o Greg é muito fácil, simples e rápida!",
+    "list": {
+        "item_1": "Acesse a nossa API",
+        "item_2": "Siga as instruções passo a passo",
+        "item_3": "Disponibilize carteiras rapidamente"
+    },
+    "call_to_action": {
+        "text": "Entre em contato",
+        "url": "mailto:contato@blocklize.tech"
+    }
 }
