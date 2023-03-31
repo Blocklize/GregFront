@@ -3,7 +3,7 @@ import Content from './content.json'
 import Styles from './styles.module.scss'
 
 import Image from 'next/image'
-import Picture from '@/assets/img/Picture.png'
+import Picture from '@/assets/img/Picture2.png'
 import Isologo from '@/assets/img/simbolo-padrao.png'
 
 
@@ -49,7 +49,7 @@ const FormImage = () => {
                 </div>
                 <div className={Styles.profileInfo}>
                   <h1 className={Styles.profileInfo__title}>
-                    Liu Huang
+                    João F. Manflin
                   </h1>
                   <p className={Styles.profileInfo__id}>
                     Sr. Software Engineer, Decrypt

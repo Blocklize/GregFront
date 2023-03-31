@@ -7,8 +7,7 @@ import Link from 'next/link'
 
 import ImageOne from '@/assets/img/Imagem 1.png'
 import ImageTwo from '@/assets/img/Imagem 2.png'
-import ImageThree from '@/assets/img/Imagem 3.png'
-import ImageFour from '@/assets/img/Imagem 5.png'
+import ImageThree from '@/assets/img/Imagem 4.png'
 
 const Footer = () => {
   return (
@@ -22,14 +21,11 @@ const Footer = () => {
                 <Link id='twitter' href="#" className={Styles.socialLinks__item}>
                   <Image src={ImageOne} height={undefined} width={20} alt="Icon" />
                 </Link>
-                <Link id='github' href="#" className={Styles.socialLinks__item}>
+                <Link id='instagram' href="#" className={Styles.socialLinks__item}>
                   <Image src={ImageTwo} height={undefined} width={20} alt="Icon" />
                 </Link>
-                <Link id='discord' href="#" className={Styles.socialLinks__item}>
-                  <Image src={ImageThree} height={undefined} width={20} alt="Icon" />
-                </Link>
                 <Link id='linkedin' href="#" className={Styles.socialLinks__item}>
-                  <Image src={ImageFour} height={undefined} width={20} alt="Icon" />
+                  <Image src={ImageThree} height={undefined} width={20} alt="Icon" />
                 </Link>
               </div>
             </div>

@@ -4,10 +4,10 @@ import PartnersShow from '@/templates/PartnersShow'
 import ServiceComparison from '@/templates/ServiceComparison'
 import Footer from '@/components/organisms/Footer'
 import React from 'react'
-import BoxAdvertisement from '@/templates/BoxAdvertisement'
 import CodeCascade from '@/templates/CodeCascade'
 import FeaturesAccordion from '@/templates/FeaturesAccordion'
 import Head from 'next/head'
+import DepoimentsCarousel from '@/templates/DepoimentsCarousel'
 
 const Home = () => {
   return (
@@ -24,6 +24,7 @@ const Home = () => {
       <PartnersShow />
       <ServiceComparison />
       <FeaturesAccordion />
+      <DepoimentsCarousel />
       <CodeCascade />
       <Footer />
     </>

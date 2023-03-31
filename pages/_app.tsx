@@ -22,16 +22,20 @@ export default function App({ Component, pageProps }: AppProps) {
     }
     if (token) {
       fetch('https://greg.blocklize.io/auth/userInfo', config)
-      .then(resp => resp.json())
-      .then(json => {
-        setUserInfo(json)
-        setLoggedIn(true)
-      })
-      .finally(() => {
-        if (loggedIn) {
-          router.push('/carteira')
-        }
-      })
+        .then(resp => resp.json())
+        .then(json => {
+          if (json.email) {
+            setUserInfo(json)
+            setLoggedIn(true)
+          } else {
+            localStorage.clear()
+          }
+        })
+        .finally(() => {
+          if (loggedIn) {
+            router.push('/carteira')
+          }
+        })
     } else {
       setLoggedIn(false)
     }
