@@ -1,0 +1,17 @@
+[
+    {
+        "image": 0,
+        "title": "Polygon Labs",
+        "description": "Lorem ipsum dolor site amet lorem ipsum dolor lorem ipsum dolor sit amet lorem ipsum dolor"
+    },
+    {
+        "image": 1,
+        "title": "Ethereum Labs",
+        "description": "Lorem ipsum dolor site amet lorem ipsum dolor lorem ipsum dolor sit amet lorem ipsum dolor"
+    },
+    {
+        "image": 2,
+        "title": "Stellar Foundation",
+        "description": "Lorem ipsum dolor site amet lorem ipsum dolor lorem ipsum dolor sit amet lorem ipsum dolor"
+    }
+]

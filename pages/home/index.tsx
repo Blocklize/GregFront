@@ -8,6 +8,7 @@ import CodeCascade from '@/templates/CodeCascade'
 import FeaturesAccordion from '@/templates/FeaturesAccordion'
 import Head from 'next/head'
 import DepoimentsCarousel from '@/templates/DepoimentsCarousel'
+import PartnersCarousel from '@/templates/PartnersCarousel'
 
 const Home = () => {
   return (
@@ -24,6 +25,7 @@ const Home = () => {
       <PartnersShow />
       <ServiceComparison />
       <FeaturesAccordion />
+      <PartnersCarousel />
       <DepoimentsCarousel />
       <CodeCascade />
       <Footer />
