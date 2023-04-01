@@ -166,3 +166,14 @@
         }
     }
 }
+
+.alternative {
+    background: rgba($color: $white, $alpha: .05);
+    box-shadow: none;
+    color: $light;
+
+    &:hover {
+        background: rgba($color: $white, $alpha: .09);
+        color: $white;
+    }
+}

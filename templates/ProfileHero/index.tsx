@@ -65,20 +65,30 @@ const ProfileHero = () => {
                       <input type="text" readOnly value={info?.walletAddress || "Error, try refresh the page"} />
                     </span>
                   </div>
-                  <div>
-                    <span>
-                      <strong>Stellar wallet: </strong>
-                      <input type="text" readOnly value={info?.stellarWalletAddress || "Error, try refresh the page"} />
-                    </span>
-                  </div>
                 </div>
                 <Button
                   id='cta'
-                  label='Desconectar'
-                  text='Desconectar'
+                  label='Comprar'
+                  text='Comprar'
                   hidden={false}
-                  onClick={() => { router.push('/logout') }}
-                  className="fw-bold"
+                  onClick={() => { console.log("Click") }}
+                  className={`${Styles.alternative} fw-bold w-100 mb-2`}
+                />
+                <Button
+                  id='cta'
+                  label='Vender'
+                  text='Vender'
+                  hidden={false}
+                  onClick={() => { console.log("Click") }}
+                  className={`${Styles.alternative} fw-bold w-100 mb-2`}
+                />
+                <Button
+                  id='cta'
+                  label='Transferir'
+                  text='Transferir'
+                  hidden={false}
+                  onClick={() => { console.log("Click") }}
+                  className={`${Styles.alternative} fw-bold w-100 mb-2`}
                 />
               </div>
             </div>
