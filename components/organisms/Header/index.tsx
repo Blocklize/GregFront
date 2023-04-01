@@ -54,6 +54,16 @@ const Header = () => {
               <span className='me-3'>{info.email}</span>
               <div className={Styles.picture} />
             </Link>
+            <div className={Styles.dropdown}>
+              <ul>
+                <Link href={'/carteira'}>
+                  <li>Minha carteira</li>
+                </Link>
+                <Link href={'/logout'}>
+                  <li>Desconectar</li>
+                </Link>
+              </ul>
+            </div>
           </div>
         )}
       </div>
