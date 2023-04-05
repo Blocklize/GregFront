@@ -14,7 +14,7 @@ const PartnersCarousel = () => {
           <Title
             id='partnersCarousel-title'
             className={Styles.partnersCarousel__title}
-            text='Section title'
+            text='Projetos plugados no Greg'
             size={48}
             width={100}
             height={1}
@@ -22,7 +22,7 @@ const PartnersCarousel = () => {
           <Paragraph
             id='partnersCarousel-desc'
             className={Styles.partnersCarousel__desc}
-            text='This is a section description.This is a section description.This is a section description.This is a section description.'
+            text=''
             size={16}
             width={60}
             height={1}

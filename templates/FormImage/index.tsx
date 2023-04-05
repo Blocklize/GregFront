@@ -52,7 +52,7 @@ const FormImage = () => {
                     João F. Manflin
                   </h1>
                   <p className={Styles.profileInfo__id}>
-                    Sr. Software Engineer, Decrypt
+                    Especialista em investimentos
                   </p>
                 </div>
               </div>

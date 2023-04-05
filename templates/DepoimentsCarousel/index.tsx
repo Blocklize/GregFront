@@ -15,7 +15,7 @@ const DepoimentsCarousel = () => {
           <Title
             id='depoimentsCarousel-title'
             className={Styles.depoimentsCarousel__title}
-            text='Section title'
+            text='Depoimentos de parceiros'
             size={48}
             width={100}
             height={1}
@@ -23,7 +23,7 @@ const DepoimentsCarousel = () => {
           <Paragraph
             id='depoimentsCarousel-desc'
             className={Styles.depoimentsCarousel__desc}
-            text='This is a section description.This is a section description.This is a section description.This is a section description.'
+            text=''
             size={16}
             width={60}
             height={1}

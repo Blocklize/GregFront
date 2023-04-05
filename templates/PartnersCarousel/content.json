@@ -1,17 +1,17 @@
 [
     {
         "image": 0,
-        "title": "Polygon Labs",
-        "description": "Lorem ipsum dolor site amet lorem ipsum dolor lorem ipsum dolor sit amet lorem ipsum dolor"
+        "title": "CoinLivre",
+        "description": "Tokenizadora de ativos financeiros de alta performance, utilizando a tecnologia blockchain."
     },
     {
         "image": 1,
-        "title": "Ethereum Labs",
-        "description": "Lorem ipsum dolor site amet lorem ipsum dolor lorem ipsum dolor sit amet lorem ipsum dolor"
+        "title": "NForests",
+        "description": "Plataforma baseada em blockchain, projetada para vender tokens de carbono agroflorestal."
     },
     {
         "image": 2,
-        "title": "Stellar Foundation",
-        "description": "Lorem ipsum dolor site amet lorem ipsum dolor lorem ipsum dolor sit amet lorem ipsum dolor"
+        "title": "SoulPrime",
+        "description": "Rede social descentralizada, no conceito web 3.0, desenvolvida para tokenizar e recompensar o tempo."
     }
 ]

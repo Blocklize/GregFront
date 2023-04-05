@@ -13,7 +13,7 @@ import ethereum from '@/assets/img/partners/ethereum.png'
 import polygon from '@/assets/img/partners/polygon.png'
 import soulprime from '@/assets/img/partners/soulprime.png'
 import stellar from '@/assets/img/partners/stellar.png'
-import nforest from '@/assets/img/partners/nforest.png'
+import celo1 from '@/assets/img/partners/celo1.png'
 
 const PartnersShow = () => {
   return (
@@ -29,12 +29,11 @@ const PartnersShow = () => {
         />
         <div className={Styles.partnersShow__carousel}>
           <Image src={bsc} height={undefined} width={120} className={Styles.partnersShow__logo} alt="Card com formulário de login" />
-          <Image src={cl} height={undefined} width={120} className={Styles.partnersShow__logo} alt="Card com formulário de login" />
+          <Image src={celo1} height={undefined} width={120} className={Styles.partnersShow__logo} alt="Card com formulário de login" />
           <Image src={ethereum} height={undefined} width={120} className={Styles.partnersShow__logo} alt="Card com formulário de login" />
           <Image src={polygon} height={undefined} width={120} className={Styles.partnersShow__logo} alt="Card com formulário de login" />
-          <Image src={soulprime} height={undefined} width={120} className={Styles.partnersShow__logo} alt="Card com formulário de login" />
           <Image src={stellar} height={undefined} width={120} className={Styles.partnersShow__logo} alt="Card com formulário de login" />
-          <Image src={nforest} height={undefined} width={120} className={Styles.partnersShow__logo} alt="Card com formulário de login" />
+          
         </div>
       </div>
     </section>

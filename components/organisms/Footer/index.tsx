@@ -6,8 +6,9 @@ import Logo from '@/assets/img/logo-branco.png'
 import Link from 'next/link'
 
 import ImageOne from '@/assets/img/Imagem 1.png'
-import ImageTwo from '@/assets/img/Imagem 2.png'
+import ImageTwo from '@/assets/img/Imagem 5.png'
 import ImageThree from '@/assets/img/Imagem 4.png'
+
 
 const Footer = () => {
   return (
@@ -18,13 +19,13 @@ const Footer = () => {
             <div className={Styles.footer__top}>
               <Image src={Logo} height={undefined} width={120} alt="Logo - Greg" />
               <div className={Styles.socialLinks}>
-                <Link id='twitter' href="#" className={Styles.socialLinks__item}>
+                <Link id='twitter' href="https://twitter.com/blocklize" target="_blank" className={Styles.socialLinks__item}>
                   <Image src={ImageOne} height={undefined} width={20} alt="Icon" />
                 </Link>
-                <Link id='instagram' href="#" className={Styles.socialLinks__item}>
+                <Link id='instagram' href="https://www.instagram.com/blocklize.io/" target="_blank" className={Styles.socialLinks__item}>
                   <Image src={ImageTwo} height={undefined} width={20} alt="Icon" />
                 </Link>
-                <Link id='linkedin' href="#" className={Styles.socialLinks__item}>
+                <Link id='linkedin' href="https://www.linkedin.com/company/blocklize/?viewAsMember=true" target="_blank" className={Styles.socialLinks__item}>
                   <Image src={ImageThree} height={undefined} width={20} alt="Icon" />
                 </Link>
               </div>

@@ -3,9 +3,9 @@ import Image from 'next/image'
 import Styles from './styles.module.scss'
 import Isologo from '@/assets/img/simbolo-padrao.png'
 
-import One from '@/assets/img/Picture.png'
-import Two from '@/assets/img/Picture2.png'
-import Three from '@/assets/img/Picture3.png'
+import One from '@/assets/img/Picture3fabio.png'
+import Two from '@/assets/img/Picture2fabiano.png'
+import Three from '@/assets/img/Picture2.png'
 
 type Props = {
   content: any

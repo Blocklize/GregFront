@@ -2,9 +2,9 @@ import React from 'react'
 import Styles from './styles.module.scss'
 import Image from 'next/image'
 
-import Ethereum from '@/assets/img/eth.png'
-import Polygon from '@/assets/img/polygon.png'
-import Stellar from '@/assets/img/stellar.png'
+import cl from '@/assets/img/partners/cl.png'
+import nf from '@/assets/img/partners/nf.png'
+import sp from '@/assets/img//partners/sp.png'
 
 type Props = {
   image: number,
@@ -13,7 +13,7 @@ type Props = {
 }
 
 const PartnerCard = ({ image, title, desc }: Props) => {
-  const Images = [Polygon, Ethereum, Stellar]
+  const Images = [cl, nf, sp]
 
   return (
     <div className={Styles.partnerCard}>
