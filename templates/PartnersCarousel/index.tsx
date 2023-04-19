@@ -5,8 +5,18 @@ import Paragraph from '@/components/atoms/Paragraph'
 import Carousel from '@/components/organisms/Carousel'
 import content from './content.json'
 import PartnerCard from '@/components/molecules/PartnerCard'
+import { useRouter } from 'next/router'
+
+// languages
+import en from '../../public/locales/en/common.json'
+import pt from '../../public/locales/pt/common.json'
 
 const PartnersCarousel = () => {
+  const router = useRouter();
+
+  const { locale } = router;
+
+  const t = locale === 'en' ? en : pt
   return (
     <div className='container'>
       <div className={Styles.partnersCarousel}>
@@ -14,7 +24,7 @@ const PartnersCarousel = () => {
           <Title
             id='partnersCarousel-title'
             className={Styles.partnersCarousel__title}
-            text='Projetos plugados no Greg'
+            text={t.plugProjects}
             size={48}
             width={100}
             height={1}
@@ -35,7 +45,7 @@ const PartnersCarousel = () => {
                 key={index}
                 image={card.image}
                 title={card.title}
-                desc={card.description}
+                desc={t.cardProjects[index]}
               />
             ))}
         </Carousel>

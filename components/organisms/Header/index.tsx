@@ -6,6 +6,7 @@ import Link from 'next/link'
 import Button from '@/components/atoms/Button'
 import UserContext from '@/context/UserContext'
 import Router from 'next/router'
+import Language from '@/components/molecules/Language'
 
 const Header = () => {
   const { userInfo, loggedIn } = React.useContext(UserContext)
@@ -48,24 +49,27 @@ const Header = () => {
           </div>
 
         )}
-        {logged && (
-          <div className={Styles.header__logged}>
-            <Link href="/carteira" className={`${Styles.anchor} d-lg-inline-flex d-none`}>
-              <span className='me-3'>{info.email}</span>
-              <div className={Styles.picture} />
-            </Link>
-            <div className={Styles.dropdown}>
-              <ul>
-                <Link href={'/carteira'}>
-                  <li>Minha carteira</li>
-                </Link>
-                <Link href={'/logout'}>
-                  <li>Desconectar</li>
-                </Link>
-              </ul>
+        <div style={{display: 'flex', alignItems: 'center', gap: '20px'}}>
+          {logged && (
+            <div className={Styles.header__logged}>
+              <Link href="/carteira" className={`${Styles.anchor} d-lg-inline-flex d-none`}>
+                <span className='me-3'>{info.email}</span>
+                <div className={Styles.picture} />
+              </Link>
+              <div className={Styles.dropdown}>
+                <ul>
+                  <Link href={'/carteira'}>
+                    <li>Minha carteira</li>
+                  </Link>
+                  <Link href={'/logout'}>
+                    <li>Desconectar</li>
+                  </Link>
+                </ul>
+              </div>
             </div>
-          </div>
-        )}
+          )}
+          <Language />
+        </div>
       </div>
     </header>
   )

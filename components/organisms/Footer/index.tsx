@@ -8,9 +8,18 @@ import Link from 'next/link'
 import ImageOne from '@/assets/img/Imagem 1.png'
 import ImageTwo from '@/assets/img/Imagem 5.png'
 import ImageThree from '@/assets/img/Imagem 4.png'
+import { useRouter } from 'next/router'
 
+// languages
+import en from '../../../public/locales/en/common.json'
+import pt from '../../../public/locales/pt/common.json'
 
 const Footer = () => {
+  const router = useRouter();
+
+  const { locale } = router;
+
+  const t = locale === 'en' ? en : pt
   return (
     <footer className={Styles.footer}>
       <div className="container">
@@ -37,12 +46,14 @@ const Footer = () => {
                 <div className="col-lg-4 col-6 mb-5 mb-lg-0">
                   <div className={Styles.linkColumn}>
                     <h1 className={Styles.linkColumn__title}>
-                      Sobre o Greg
+                      {/* Sobre o Greg */}
+                      {t.aboutGreg}
                     </h1>
                     <ul className={Styles.linkList}>
                       <li className={Styles.linkList__item}>
                         <Link href="#" className={Styles.standardLink}>
-                          Quem somos
+                          {/* Quem somos */}
+                          {t.aboutUs}
                         </Link>
                       </li>
                       <li className={Styles.linkList__item}>
@@ -66,12 +77,14 @@ const Footer = () => {
                 <div className="col-lg-4 col-6 mb-5 mb-lg-0">
                   <div className={Styles.linkColumn}>
                     <h1 className={Styles.linkColumn__title}>
-                      Ajuda
+                      {/* Ajuda */}
+                      {t.help}
                     </h1>
                     <ul className={Styles.linkList}>
                       <li className={Styles.linkList__item}>
                         <Link href="mailto:contato@blocklize.tech" className={Styles.standardLink}>
-                          Fale conosco
+                          {/* Fale conosco */}
+                          {t.contactInfo}
                         </Link>
                       </li>
                       <li className={Styles.linkList__item}>
@@ -100,7 +113,8 @@ const Footer = () => {
                     <ul className={Styles.linkList}>
                       <li className={Styles.linkList__item}>
                         <Link href="mailto:contato@blocklize.tech" className={Styles.standardLink}>
-                          Ouvidoria
+                          {/* Ouvidoria */}
+                          {t.legalContact}
                         </Link>
                       </li>
                       <li className={Styles.linkList__item}>
