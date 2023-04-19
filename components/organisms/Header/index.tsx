@@ -36,6 +36,7 @@ const Header = () => {
             </li>
           </ul> */}
         </div>
+        <div style={{display: 'flex', alignItems: 'center', gap: '20px'}}>
         {!logged && (
           <div className={Styles.header__right}>
             {/* <Link href="#" className={`${Styles.anchor} d-lg-inline-block d-none me-3`}>Preços</Link> */}
@@ -49,7 +50,7 @@ const Header = () => {
           </div>
 
         )}
-        <div style={{display: 'flex', alignItems: 'center', gap: '20px'}}>
+        
           {logged && (
             <div className={Styles.header__logged}>
               <Link href="/carteira" className={`${Styles.anchor} d-lg-inline-flex d-none`}>
