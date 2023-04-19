@@ -14,6 +14,11 @@ import CheckoutImage from '@/assets/img/form_checkout.png'
 import RampImage from '@/assets/img/form_ramp.png'
 import TransactionImage from '@/assets/img/form_transaction.png'
 import CustomizeImage from '@/assets/img/form_customize.png'
+import { useRouter } from 'next/router'
+
+// languages
+import en from '../../public/locales/en/common.json'
+import pt from '../../public/locales/pt/common.json'
 
 const FeaturesAccordion = () => {
   const images = [
@@ -27,6 +32,12 @@ const FeaturesAccordion = () => {
 
   const [option, setOption] = React.useState(0)
 
+  const router = useRouter();
+
+  const { locale } = router;
+
+  const t = locale === 'en' ? en : pt
+
   return (
     <section className={Styles.featuresAccordion}>
       <div className="container">
@@ -34,7 +45,7 @@ const FeaturesAccordion = () => {
           <Title
             id='featuresAccordion-title'
             className={Styles.featuresAccordion__title}
-            text={Content.title}
+            text={t.resourcesGreg}
             size={48}
             width={100}
             height={1}
@@ -85,7 +96,8 @@ const FeaturesAccordion = () => {
                       className="accordion-collapse collapse show"
                       data-bs-parent="#accordion">
                       <div className={`${Styles.accordion__body} accordion-body`}>
-                        Praticidade de fazer login e se cadastrar apenas com um endereço de e-mail.
+                        {/* Praticidade de fazer login e se cadastrar apenas com um endereço de e-mail. */}
+                        {t.practicality}
                       </div>
                     </div>
                   </div>
@@ -102,7 +114,10 @@ const FeaturesAccordion = () => {
                         <CubeOutline
                           color="#C9C9C9"
                         />
-                        <span className="ms-3">Gestão dos ativos (Cripto e NFT)</span>
+                        <span className="ms-3">
+                          {/* Gestão dos ativos (Cripto e NFT) */}
+                          {t.criptoNFT}
+                        </span>
                       </button>
                     </h2>
                     <div
@@ -110,7 +125,8 @@ const FeaturesAccordion = () => {
                       className="accordion-collapse collapse"
                       data-bs-parent="#accordion">
                       <div className={`${Styles.accordion__body} accordion-body`}>
-                        Fluxos intuitivos e simplificados para a gestão de ativos, criptomoedas, tokens e NFTs.
+                        {/* Fluxos intuitivos e simplificados para a gestão de ativos, criptomoedas, tokens e NFTs. */}
+                        {t.flow}
                       </div>
                     </div>
                   </div>
@@ -135,7 +151,8 @@ const FeaturesAccordion = () => {
                       className="accordion-collapse collapse"
                       data-bs-parent="#accordion">
                       <div className={`${Styles.accordion__body} accordion-body`}>
-                        Compre criptomoedas e tokens facilmente, com mais conveniência e agilidade.
+                        {/* Compre criptomoedas e tokens facilmente, com mais conveniência e agilidade. */}
+                        {t.buyCripto}
                       </div>
                     </div>
                   </div>
@@ -160,7 +177,8 @@ const FeaturesAccordion = () => {
                       className="accordion-collapse collapse"
                       data-bs-parent="#accordion">
                       <div className={`${Styles.accordion__body} accordion-body`}>
-                        Com o Fiat on-ramp, a conversão de Real para criptomoedas nunca foi tão fácil e acessível, permitindo transações rápidas e seguras através do PIX.
+                        {/* Com o Fiat on-ramp, a conversão de Real para criptomoedas nunca foi tão fácil e acessível, permitindo transações rápidas e seguras através do PIX. */}
+                        {t.fiatOnRamp}
                       </div>
                     </div>
                   </div>
@@ -177,7 +195,10 @@ const FeaturesAccordion = () => {
                         <CashOutline
                           color="#C9C9C9"
                         />
-                        <span className="ms-3">Transação</span>
+                        <span className="ms-3">
+                          {/* Transação */}
+                          {t.transaction}
+                        </span>
                       </button>
                     </h2>
                     <div
@@ -185,7 +206,8 @@ const FeaturesAccordion = () => {
                       className="accordion-collapse collapse"
                       data-bs-parent="#accordion">
                       <div className={`${Styles.accordion__body} accordion-body`}>
-                        Processo de transação intuitivo e eficiente.
+                        {/* Processo de transação intuitivo e eficiente. */}
+                        {t.intuitiveTransaction}
                       </div>
                     </div>
                   </div>
@@ -202,7 +224,10 @@ const FeaturesAccordion = () => {
                         <WalletOutline
                           color="#C9C9C9"
                         />
-                        <span className="ms-3">Customização da carteira</span>
+                        <span className="ms-3">
+                          {/* Customização da carteira */}
+                          {t.walletCustom}
+                        </span>
                       </button>
                     </h2>
                     <div
@@ -210,7 +235,8 @@ const FeaturesAccordion = () => {
                       className="accordion-collapse collapse"
                       data-bs-parent="#accordion">
                       <div className={`${Styles.accordion__body} accordion-body`}>
-                        Customize sua carteira, personalize de acordo com a identidade da sua marca.
+                        {/* Customize sua carteira, personalize de acordo com a identidade da sua marca. */}
+                        {t.walletCustomText}
                       </div>
                     </div>
                   </div>

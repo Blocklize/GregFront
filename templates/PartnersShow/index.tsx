@@ -15,14 +15,25 @@ import soulprime from '@/assets/img/partners/soulprime.png'
 import stellar from '@/assets/img/partners/stellar.png'
 import celo1 from '@/assets/img/partners/celo1.png'
 
+// languages
+import en from '../../public/locales/en/common.json'
+import pt from '../../public/locales/pt/common.json'
+import { useRouter } from 'next/router'
+
 const PartnersShow = () => {
+  const router = useRouter();
+
+  const { locale } = router;
+
+  const t = locale === 'en' ? en : pt
+
   return (
     <section className={Styles.partnersShow}>
       <div className="container">
         <Paragraph
           id='homeIntro-desc'
           className={Styles.partnersShow__desc}
-          text={Content.description}
+          text={t.useGreg}
           size={20}
           width={48}
           height={1}

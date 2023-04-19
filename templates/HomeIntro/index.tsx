@@ -14,8 +14,20 @@ import Isologo from '@/assets/img/simbolo-padrao.png'
 // Arrow
 import Arrow from '@/assets/img/arrow.svg'
 import Illustration from '@/assets/img/group.svg'
+import { useRouter } from 'next/router'
+
+// languages
+import en from '../../public/locales/en/common.json';
+import pt from '../../public/locales/pt/common.json';
+
 
 const HomeIntro = () => {
+  const router = useRouter();
+
+  const { locale } = router;
+
+  const t = locale === 'en' ? en : pt
+
   return (
     <section className={Styles.homeIntro}>
       <Image
@@ -30,7 +42,7 @@ const HomeIntro = () => {
           <Title
             id='homeIntro-title'
             className={Styles.homeIntro__title}
-            text={Content.title}
+            text={t.disp}
             size={60}
             width={36}
             height={1}
@@ -38,7 +50,7 @@ const HomeIntro = () => {
           <Paragraph
             id='homeIntro-desc'
             className={Styles.homeIntro__desc}
-            text={Content.description}
+            text={t.manage}
             size={20}
             width={48}
             height={1}

@@ -6,8 +6,18 @@ import React from 'react'
 
 import content from './content.json'
 import Styles from './styles.module.scss'
+import { useRouter } from 'next/router'
+
+// languages
+import en from '../../public/locales/en/common.json'
+import pt from '../../public/locales/pt/common.json'
 
 const DepoimentsCarousel = () => {
+  const router = useRouter();
+
+  const { locale } = router;
+
+  const t = locale === 'en' ? en : pt
   return (
     <div className="container">
       <div className={Styles.depoimentsCarousel}>
@@ -15,7 +25,7 @@ const DepoimentsCarousel = () => {
           <Title
             id='depoimentsCarousel-title'
             className={Styles.depoimentsCarousel__title}
-            text='Depoimentos de parceiros'
+            text={t.testimonials}
             size={48}
             width={100}
             height={1}
@@ -36,6 +46,8 @@ const DepoimentsCarousel = () => {
               <Depoiment
                 key={index}
                 content={card}
+                description={t.cardTestimonials[index]}
+                role={index === 2 ? t.role : ''} 
               />
             ))
           }

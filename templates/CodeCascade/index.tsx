@@ -12,6 +12,11 @@ import { CopyBlock, xt256 } from "react-code-blocks";
 import JSX from '@/assets/img/logo-javascript.svg'
 import REACT from '@/assets/img/logo-react.svg'
 import APPLE from '@/assets/img/logo-apple.svg'
+import { useRouter } from 'next/router'
+
+// languages
+import en from '../../public/locales/en/common.json'
+import pt from '../../public/locales/pt/common.json'
 
 const CodeCascade = () => {
   const handleHeaderCtaClick = () => {
@@ -30,6 +35,12 @@ const CodeCascade = () => {
     })
   `
 
+  const router = useRouter();
+
+  const { locale } = router;
+
+  const t = locale === 'en' ? en : pt
+
   return (
     <section className={Styles.codeCascade}>
       <div className="container">
@@ -39,7 +50,7 @@ const CodeCascade = () => {
             <Title
               id='codeCascade-title'
               className={Styles.codeCascade__title}
-              text={Content.title}
+              text={t.startNow}
               size={48}
               width={16}
               height={1}
@@ -47,7 +58,7 @@ const CodeCascade = () => {
             <Paragraph
               id='codeCascade-desc'
               className={Styles.codeCascade__desc}
-              text={Content.description}
+              text={t.integrationGreg}
               size={16}
               width={42}
               height={1}
@@ -55,13 +66,16 @@ const CodeCascade = () => {
             <div className={Styles.codeCascade__list}>
               <ul className={Styles.stepByStepList}>
                 <li className={Styles.stepByStepList__item}>
-                  {Content.list.item_1}
+                  {/* {Content.list.item_1} */}
+                  {t.accessAPI}
                 </li>
                 <li className={`${Styles.stepByStepList__item} ${Styles.highlighted}`}>
-                  {Content.list.item_2}
+                  {/* {Content.list.item_2} */}
+                  {t.stepByStep}
                 </li>
                 <li className={Styles.stepByStepList__item}>
-                  {Content.list.item_3}
+                  {/* {Content.list.item_3} */}
+                  {t.walletFastDisp}
                 </li>
               </ul>
             </div>
@@ -69,7 +83,8 @@ const CodeCascade = () => {
               id='cta'
               label='Call to Action'
               hidden={false}
-              text={Content.call_to_action.text}
+              // text={Content.call_to_action.text}
+              text={t.contact}
               className={Styles.secondCTA}
               onClick={() => { handleHeaderCtaClick() }}
             />

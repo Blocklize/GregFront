@@ -13,8 +13,19 @@ import Wallet from '@/assets/img/wallet.svg'
 
 import Metamask from '@/assets/img/metamask.svg'
 import Icons from '@/assets/img/icons.svg'
+import { useRouter } from 'next/router'
+
+// languages
+import en from '../../public/locales/en/common.json'
+import pt from '../../public/locales/pt/common.json'
 
 const ServiceComparison = () => {
+  const router = useRouter();
+
+  const { locale } = router;
+
+  const t = locale === 'en' ? en : pt
+
   return (
     <section className={Styles.serviceComparison}>
       <div className="container">
@@ -22,7 +33,7 @@ const ServiceComparison = () => {
           <Title
             id='serviceComparison-title'
             className={Styles.serviceComparison__title}
-            text={Content.title}
+            text={t.gregFacilities}
             size={48}
             width={100}
             height={1}
@@ -30,7 +41,7 @@ const ServiceComparison = () => {
           <Paragraph
             id='serviceComparison-desc'
             className={Styles.serviceComparison__desc}
-            text={Content.description}
+            text={t.offerToClients}
             size={16}
             width={60}
             height={1}
@@ -63,7 +74,7 @@ const ServiceComparison = () => {
                         </div>
                         <Paragraph
                           className="m-0 ps-3"
-                          text={Content.short_one}
+                          text={t.register}
                           size={16}
                           width={60}
                           height={1}
@@ -80,7 +91,7 @@ const ServiceComparison = () => {
                         </div>
                         <Paragraph
                           className="m-0 ps-3"
-                          text={Content.short_two}
+                          text={t.confirmEmail}
                           size={16}
                           width={60}
                           height={1}
@@ -97,7 +108,7 @@ const ServiceComparison = () => {
                         </div>
                         <Paragraph
                           className="m-0 ps-3"
-                          text={Content.short_thr}
+                          text={t.accessWallet}
                           size={16}
                           width={60}
                           height={1}
@@ -109,7 +120,7 @@ const ServiceComparison = () => {
                     <Paragraph
                       className="text-center my-4"
                       color='#FFFFFF'
-                      text="Instantâneo"
+                      text={t.immediate}
                       size={16}
                       width={60}
                       height={1}
@@ -147,7 +158,7 @@ const ServiceComparison = () => {
                   <div className={Styles.gregFlux__footer}>
                     <Paragraph
                       className="text-center my-4"
-                      text="Ao menos 5 minutos"
+                      text={t.fiveMinutes}
                       size={16}
                       width={60}
                       height={1}

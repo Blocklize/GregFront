@@ -9,9 +9,11 @@ import Three from '@/assets/img/Picture2.png'
 
 type Props = {
   content: any
+  description: string;
+  role?: string
 }
 
-const Depoiment = ({ content }: Props) => {
+const Depoiment = ({ content, description, role }: Props) => {
   const Pictures = [One, Two, Three]
   return (
     <div className={Styles.walletCard}>
@@ -26,7 +28,8 @@ const Depoiment = ({ content }: Props) => {
         {content.title}
       </h1>
       <p className={Styles.walletCard__description}>
-        {content.description}
+        {/* {content.description} */}
+        {description}
       </p>
       <div className={Styles.walletCard__content}>
         <div className={Styles.pictureHolder}>
@@ -43,7 +46,7 @@ const Depoiment = ({ content }: Props) => {
             {content.name}
           </h1>
           <p className={Styles.profileInfo__id}>
-            {content.role}
+            {role || content.role}
           </p>
         </div>
       </div>
