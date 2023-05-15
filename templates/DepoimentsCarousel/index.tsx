@@ -43,12 +43,14 @@ const DepoimentsCarousel = () => {
           {
             content &&
             content.map((card, index: number) => (
+              <>
               <Depoiment
                 key={index}
                 content={card}
                 description={t.cardTestimonials[index]}
                 role={index === 2 ? t.role : ''} 
               />
+              </>
             ))
           }
         </Carousel>

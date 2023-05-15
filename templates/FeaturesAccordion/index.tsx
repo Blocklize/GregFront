@@ -88,7 +88,7 @@ const FeaturesAccordion = () => {
                         <PersonAddOutline
                           color="#C9C9C9"
                         />
-                        <span className="ms-3">Inscrição e Login com o E-mail</span>
+                        <span className="ms-3">{t.signupAndEmail}</span>
                       </button>
                     </h2>
                     <div
