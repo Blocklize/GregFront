@@ -9,7 +9,7 @@
     "accessWallet": "Access your wallet (Your wallet is ready)",
     "fiveMinutes": "At least 5 minutes",
     "resourcesGreg": "All Greg's features",
-    "signupAndEmail": "Email signup and login",
+    "signupAndEmail": "Registration and Login with E-mail",
     "practicality": "Convenience of logging in and signing up with just an email address.",
     "immediate": "Immediate",
     "criptoNFT": "Asset management (Crypto and NFT)",
@@ -29,8 +29,9 @@
     "testimonials": "Partner testimonials",
     "cardTestimonials": [
         "Greg facilitated the user's experience and entry into the Web3 and Blockchain universe, with just a few clicks you can trade cryptocurrencies quickly and simply.",
-        "O onboarding com a equipe e a integração foram muito simples. Agora, com um e-mail eu ofereço wallets para todos os usuários da Soul.",
-        "O Greg possibiltou a acessibilidade na Web3, pois permite que milhares de pessoas possam interagir com a blockchain, entregando uma UX incrível."
+        "The onboarding with the team and the integration were very simple. Now, with one email, I offer wallets to all Soul users.",
+        "Greg enabled accessibility in Web3, as it allows thousands of people to interact with the blockchain, delivering an amazing user experience."
+        
     ],
     "role": "Investment specialist",
     "startNow": "Get started now",
