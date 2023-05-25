@@ -24,7 +24,7 @@ const Loginform = () => {
       body: JSON.stringify({ "email": email })
     }
     setLoading(true)
-    fetch('https://greg.blocklize.io/auth/requestLogin', config)
+    fetch('https://greg-api.blocklize.io/auth/requestLogin', config)
       .then((resp) => {
         setFeedback(resp.ok)
       })

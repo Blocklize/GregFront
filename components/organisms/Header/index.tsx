@@ -12,7 +12,7 @@ const Header = () => {
   const { userInfo, loggedIn } = React.useContext(UserContext)
   const [info, setUserInfo] = userInfo
   const [logged, setLoggedIn] = loggedIn
-
+  console.log(info)
   const handleHeaderCtaClick = () => {
     Router.push('/login')
   }
@@ -54,7 +54,7 @@ const Header = () => {
           {logged && (
             <div className={Styles.header__logged}>
               <Link href="/carteira" className={`${Styles.anchor} d-lg-inline-flex d-none`}>
-                <span className='me-3'>{info.email}</span>
+                <span className='me-3'>Hello, {info.email}</span>
                 <div className={Styles.picture} />
               </Link>
               <div className={Styles.dropdown}>

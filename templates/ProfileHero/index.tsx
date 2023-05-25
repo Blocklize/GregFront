@@ -1,7 +1,9 @@
 import React from 'react'
 import Styles from './styles.module.scss'
+import { motion, LayoutGroup } from 'framer-motion'
 import { useRouter } from 'next/router'
 
+import MonkeyNFT from '@/assets/img/nft_monkey_test.png'
 import Picture from '@/assets/img/avatar.png'
 import WalletIcon from '@/assets/img/wallet-outline.png'
 import Image from 'next/image'
@@ -18,7 +20,9 @@ const ProfileHero = () => {
   const [info, setUserInfo] = userInfo
   const [logged, setLoggedIn] = loggedIn
   const [step, setStep] = React.useState(0)
-
+  const menuItems = ['TOKENS', 'NFT'];
+  const [word, setWord] = React.useState<Boolean>(false)
+  const [selected, setSelected] = React.useState(0);
   const onClickHandler = () => {
     setStep(step + 1)
   }
@@ -34,10 +38,42 @@ const ProfileHero = () => {
       router.push('/login')
     }
   }, [])
+  const MenuItem = ({ text, selected, onClick }: any) => (
+
+    <motion.div
+      className={Styles.underlined_menu__menu_item}
+      onClick={onClick}
+      animate={{ opacity: selected ? 1 : .5 }}
+    >
+      <p>
+        {text}
+      </p>
+      {selected && (
+        <motion.div
+          className={Styles.underlined_menu__underline}
+          layoutId={Styles.underlined_menu__underline}
+        />
+      )}
+    </motion.div>
+  )
 
   if (logged) {
     return (
       <div className={Styles.profileHero}>
+        <div className={Styles.underlined_menu}>
+          <div className={Styles.underlined_menu__wrapper}>
+            <LayoutGroup>
+              {menuItems.map((el, i) => (
+                <MenuItem
+                  text={el}
+                  key={el}
+                  selected={selected === i}
+                  onClick={() => { setSelected(i); setWord(!word) }}
+                />
+              ))}
+            </LayoutGroup>
+          </div>
+        </div>
         <div className="container">
           <div className="row d-flex justify-content-center">
             <div className="col-lg-3">
@@ -110,9 +146,134 @@ const ProfileHero = () => {
                   </div>
                 </div>
                 <div className={Styles.wallet__body}>
-                  {step == 0 && <TokenList onClick={onClickHandler} />}
-                  {step == 1 && <TokenInfo buy={onClickHandler} />}
-                  {step == 2 && <Checkout />}
+                  <div className={Styles.wallet__body}>
+                    {!word ?
+                     <div>
+                      {/* {step == 0 && <TokenList onClick={onClickHandler} />} */}
+                      {step == 1 && <TokenInfo buy={onClickHandler} />}
+                      {step == 2 && <Checkout />}   
+                    </div> :
+                      <motion.div className={Styles.wallet__nfts} whileInView={{ opacity: 1 }}>
+                        <ul>
+                          <li>
+                            <div className={Styles.wallet__nft}>
+                              <div className={Styles.wallet__info}>
+
+                                <p className={Styles.wallet__id}>
+                                  #42135534634
+                                </p>
+                                <p className={Styles.wallet__title} >
+                                  Lorem ipsum dolor
+                                </p>
+                                <p className={Styles.wallet__collection} >
+                                  NFT Collection name
+                                </p>
+                              </div>
+                              <div className={Styles.wallet__icon}>
+                                <Image src={MonkeyNFT} width={280} height={280} alt='NFT Icon' />
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <div className={Styles.wallet__nft}>
+                              <div className={Styles.wallet__info}>
+
+                                <p className={Styles.wallet__id}>
+                                  #42135534634
+                                </p>
+                                <p className={Styles.wallet__title} >
+                                  Lorem ipsum dolor
+                                </p>
+                                <p className={Styles.wallet__collection} >
+                                  NFT Collection name
+                                </p>
+                              </div>
+                              <div className={Styles.wallet__icon}>
+                                <Image src={MonkeyNFT} width={280} height={280} alt='NFT Icon' />
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <div className={Styles.wallet__nft}>
+                              <div className={Styles.wallet__info}>
+
+                                <p className={Styles.wallet__id}>
+                                  #42135534634
+                                </p>
+                                <p className={Styles.wallet__title} >
+                                  Lorem ipsum dolor
+                                </p>
+                                <p className={Styles.wallet__collection} >
+                                  NFT Collection name
+                                </p>
+                              </div>
+                              <div className={Styles.wallet__icon}>
+                                <Image src={MonkeyNFT} width={280} height={280} alt='NFT Icon' />
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <div className={Styles.wallet__nft}>
+                              <div className={Styles.wallet__info}>
+
+                                <p className={Styles.wallet__id}>
+                                  #42135534634
+                                </p>
+                                <p className={Styles.wallet__title} >
+                                  Lorem ipsum dolor
+                                </p>
+                                <p className={Styles.wallet__collection} >
+                                  NFT Collection name
+                                </p>
+                              </div>
+                              <div className={Styles.wallet__icon}>
+                                <Image src={MonkeyNFT} width={280} height={280} alt='NFT Icon' />
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <div className={Styles.wallet__nft}>
+                              <div className={Styles.wallet__info}>
+
+                                <p className={Styles.wallet__id}>
+                                  #42135534634
+                                </p>
+                                <p className={Styles.wallet__title} >
+                                  Lorem ipsum dolor
+                                </p>
+                                <p className={Styles.wallet__collection} >
+                                  NFT Collection name
+                                </p>
+                              </div>
+                              <div className={Styles.wallet__icon}>
+                                <Image src={MonkeyNFT} width={280} height={280} alt='NFT Icon' />
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <div className={Styles.wallet__nft}>
+                              <div className={Styles.wallet__info}>
+
+                                <p className={Styles.wallet__id}>
+                                  #42135534634
+                                </p>
+                                <p className={Styles.wallet__title} >
+                                  Lorem ipsum dolor
+                                </p>
+                                <p className={Styles.wallet__collection} >
+                                  NFT Collection name
+                                </p>
+                              </div>
+                              <div className={Styles.wallet__icon}>
+                                <Image src={MonkeyNFT} width={280} height={280} alt='NFT Icon' />
+                              </div>
+                            </div>
+                          </li>
+                         
+                        </ul>
+                      </motion.div>}
+
+                  </div>
                 </div>
               </div>
             </div>
