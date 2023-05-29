@@ -16,6 +16,7 @@ import UserContext from '@/context/UserContext'
 import NFTList from '@/components/organisms/NFTList/NFTList'
 
 const ProfileHero = () => {
+  const [showNFTList, setShowNFTList] = React.useState<boolean>(false);
   const router = useRouter()
   const { userInfo, loggedIn } = React.useContext(UserContext)
   const [info, setUserInfo] = userInfo
@@ -134,8 +135,17 @@ const ProfileHero = () => {
               <div className={Styles.wallet}>
                 <div className={Styles.wallet__header}>
                   <div className={Styles.wallet__dropdown}>
-                    <Search />
-          
+                    {step != 0 && (
+                      <Button 
+                      hidden={false}
+                      id='backToTokens'
+                      label='CLique para voltar aos tokens'
+                      onClick={() => {setStep(0)}}
+                      text='Voltar para tokens'
+                      className={Styles.alternative}
+                    />
+                    )}
+                    {step == 0 && (<Search />)}
                   </div>
 
                   <div className={Styles.balance}>
@@ -155,7 +165,6 @@ const ProfileHero = () => {
                   <div className={Styles.wallet__body}>
                     {!word ?
                       <div>
-
                         {step == 0 && <TokenList onClick={onClickHandler} />}
                         {step == 1 && <TokenInfo buy={onClickHandler} />}
                         {step == 2 && <Checkout />}
