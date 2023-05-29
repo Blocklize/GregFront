@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="60" height="53.569" viewBox="0 0 60 53.569">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ff4900"/>
+      <stop offset="1" stop-color="#ff206e"/>
+    </linearGradient>
+  </defs>
+  <g id="wallet" transform="translate(-31.5 -48.018)">
+    <path id="Caminho_3" data-name="Caminho 3" d="M40.071,55.516H82.929a11.75,11.75,0,0,1,1.5.1A8.839,8.839,0,0,0,74.045,48.17L38.8,54.187h-.04a8.839,8.839,0,0,0-5.5,3.5,11.728,11.728,0,0,1,6.813-2.171ZM82.929,58.73H40.071A8.581,8.581,0,0,0,31.5,67.3V93.016a8.581,8.581,0,0,0,8.571,8.571H82.929A8.581,8.581,0,0,0,91.5,93.016V67.3A8.581,8.581,0,0,0,82.929,58.73ZM76.567,84.444a4.286,4.286,0,1,1,4.286-4.286A4.286,4.286,0,0,1,76.567,84.444Z" fill="url(#linear-gradient)"/>
+  </g>
+</svg>

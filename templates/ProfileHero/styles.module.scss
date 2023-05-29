@@ -1,0 +1,319 @@
+@import '@/styles/variables.scss';
+
+.profileHero {
+    padding-top: 90px;
+    min-height: 750px;
+    align-items: center;
+    justify-content: center;
+}
+
+.profileInfo {
+    padding: 2rem;
+    border-radius: 12px;
+    background: $gray-shade-secondary;
+    text-align: center;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+    &__picture {
+        display: inline-block;
+        width: max-content;
+        padding: 1.2rem 1rem;
+        border-radius: 10px;
+        background: rgba($color: $white, $alpha: .05);
+        backdrop-filter: blur(3rem);
+    }
+
+    &__user {
+        margin: 1rem 0;
+
+        h1 {
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 24px;
+            margin: 0;
+            color: $white;
+        }
+
+        p {
+            color: $white;
+
+            strong {    
+                margin-right: .4rem;
+            }
+
+            span {
+                font-weight: 100;
+            }
+        }
+    }
+
+    &__data {
+        margin-bottom: 2rem;
+
+        div {
+            margin-bottom: .5rem;
+            flex-shrink: 0;
+            background: rgba($color: $white, $alpha: .03);
+            height: 2rem;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            padding: 0 .5rem;
+            overflow: hidden;
+
+            span {
+                width: 100%;
+                color: $white;
+                white-space: nowrap;
+
+                input {
+                    width: 100%;
+                    color: $white;
+                    background: transparent;
+                    border: none;
+
+                    &:focus {
+                        outline: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.wallet {
+    padding: 1.2rem;
+    border-radius: 12px;
+    background: $gray-shade-secondary;
+    margin-bottom: 3rem;
+    width: 950px;
+
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1.5rem;
+
+        @media (max-width: 992px) {
+            display: block;
+        }
+    }
+
+    &__body {
+        height: 500px;
+        overflow-y: scroll;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+    &__nfts {
+       display: grid;
+       opacity: 0;
+       > ul {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 5px;
+        padding-left: 10px;
+        list-style: none;
+        
+     
+        > li {
+            border-radius: 12px;
+            margin-top: 12px;
+            width: 283px;
+            height: 384px;
+            background-color: $semi-black;
+            > p {
+                margin-bottom: 0;
+            }
+        }
+       }
+    }
+    &__nft {
+        padding: 10px;
+        padding-top: 15px;
+    }
+    &__info {
+        padding-bottom: 15px;
+        margin-top: 5px;
+    }
+    &__id {
+        color: rgb(255, 73, 0);
+        font-size: 12px;
+        margin-bottom: 0;
+    }
+    &__title {
+        color: rgb(255, 255, 255);
+        font-size: 20px;
+        margin-bottom: 0;
+    }
+    &__collection {
+        color: $light;
+        font-size: 16px;
+        margin-bottom: 0;
+    }
+    &__icon {
+        background-color: rgba($color: $white, $alpha: .05);
+        align-self: center;
+        height: 260px;
+        padding-top: 10px;
+        margin: 3px;
+        border-radius: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+
+    @media (max-width: 1024px) {
+        margin-top: 3rem;
+    }
+}
+
+.balance {
+    &__value {
+        color: $white;
+        font-weight: bold;
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        span {
+            margin: 0 .5rem;
+        }
+    }
+
+    @media (max-width: 992px) {
+        margin-top: 1rem;
+    }
+}
+
+.rounded {
+    border-radius: 50%;
+}
+.underlined {
+    background-color: orange;
+    height: 4px;
+    border-radius: 12px;
+    display: flex;
+    position: absolute;
+
+    
+}
+.selector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+   
+    padding-bottom: 40px;
+    &__button{
+        display: flex;
+        text-align: center;
+        gap: 50px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    p {
+        font-size: 20px;
+        text-align: center;
+        color: white;
+        font-size: 20px;
+        margin-bottom: 0;
+    }
+    button {
+        background-color: transparent;
+        border: 0;
+    }
+
+
+}
+.loadScreen {
+    position: relative;
+    height: 400px;
+
+    &__loader {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        border: 16px solid $contrast;
+        border-top: 16px solid $primary;
+        animation: spin 2s linear infinite;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: translateX(-50%) translateY(-50%) rotate(0deg);
+        }
+
+        100% {
+            transform: translateX(-50%) translateY(-50%) rotate(360deg);
+        }
+    }
+}
+
+.alternative {
+    background: rgba($color: $white, $alpha: .05);
+    box-shadow: none;
+    color: $light;
+
+    &:hover {
+        background: rgba($color: $white, $alpha: .09);
+        color: $white;
+    }
+}
+.underlined_menu {
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    place-items: center left;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color: rgba($color: #171717, $alpha: .8);
+
+    p {
+        color: white;
+        margin-bottom: 0;
+    }
+    
+    &__wrapper {
+      display: flex;
+      justify-content: space-evenly;
+      padding-bottom: 52px;
+    }
+    &__menu_item {
+      margin: 0 1.5rem;
+      font-size: 20px;
+      font-weight: 700;
+      cursor: pointer;
+      position: relative;
+      &:first-child {
+        margin-left: 3rem;
+      }
+    }
+    &__underline {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      border-radius: 15px; 
+      background: linear-gradient(270.00deg, rgba(255,73,0,1.00) 20.899%,rgba(255,32,110,1.00) 71.201%);
+      opacity: 0.85;
+    }
+  }

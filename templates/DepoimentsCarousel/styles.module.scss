@@ -1,0 +1,16 @@
+@import '@/styles/variables.scss';
+
+.depoimentsCarousel {
+    &__content {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+
+    &__title,
+    &__desc {
+        width: 100% !important;
+        text-align: start;
+    }
+}

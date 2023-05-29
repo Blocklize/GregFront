@@ -1,0 +1,29 @@
+@import '@/styles/variables.scss';
+
+.loadScreen {
+    position: relative;
+    height: 100vh;
+
+    &__loader {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        border: 16px solid $contrast;
+        border-top: 16px solid $primary;
+        animation: spin 2s linear infinite;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: translateX(-50%) translateY(-50%) rotate(0deg);
+        }
+
+        100% {
+            transform: translateX(-50%) translateY(-50%) rotate(360deg);
+        }
+    }
+}

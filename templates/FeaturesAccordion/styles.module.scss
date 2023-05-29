@@ -1,0 +1,74 @@
+@import '@/styles/variables.scss';
+
+.featuresAccordion {
+    padding: 90px 0;
+
+    &__content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    &__title,
+    &__desc {
+        width: 100% !important;
+        text-align: center !important;
+    }
+}
+
+.accordion {
+    border-radius: 20px;
+    background: $gray-shade-secondary;
+    margin-top: 100px;
+
+    &__image {
+        position: relative;
+        top: -50px;
+    }
+
+    &__wrapper {
+        --bs-accordion-bg: none;
+        --bs-accordion-color: #869399;
+        --bs-accordion-border-color: none;
+        --bs-accordion-border-width: 0;
+        --bs-accordion-border-radius: 0;
+        --bs-accordion-inner-border-radius: 0;
+        padding-top: 30px;
+        padding-right: 14px;
+
+        @media (max-width: 992px) {
+            padding-left: 14px;
+        }
+    }
+    &__item {
+        background: rgba($color: #000000, $alpha: .3) !important;
+        border-radius: .5rem !important;
+        margin-bottom: .5rem;
+    }
+
+    &__clicker {
+        button {
+            background: transparent !important;
+            color: $light;
+
+            &[aria-expanded="true"] {
+                border-radius: .5rem .5rem 0 0 !important;
+                color: $white !important;
+            }
+
+            &:focus {
+                box-shadow: none !important;
+            }
+
+            &:not(.collapsed)::after {
+                background-image: var(--bs-accordion-btn-icon) !important;
+            }
+        }
+    }
+
+    &__body {
+        border-radius: 0 0 .5rem .5rem;
+        padding-top: 0;
+    }
+}
