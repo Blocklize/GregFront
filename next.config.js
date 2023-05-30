@@ -6,15 +6,7 @@ const nextConfig = {
     defaultLocale: 'pt'
   },
   images: {
-    domains: ['tokens.1inch.io'],
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'tokens.1inch.io',
-        port: '',
-        pathname: '*',
-      },
-    ],
+    domains: ['www.datocms-assets.com', 'logos.covalenthq.com'],
   }
 }
 

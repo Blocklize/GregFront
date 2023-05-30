@@ -10,7 +10,7 @@ import CardOne from '@/assets/img/card-1.svg'
 import CardTwo from '@/assets/img/card-2.svg'
 import Picture from '@/assets/img/Picture.png'
 import Isologo from '@/assets/img/simbolo-padrao.png'
-import LogoBranco from '@/assets/img/logo-branco.svg'
+import LogoBranco from '@/assets/img/logo-branco.png'
 import LoadingIcon from '@/assets/img/loading-example.png'
 
 // Arrow
@@ -88,9 +88,9 @@ const HomeIntro = () => {
                       text={t.poweredBy}
                       size={18}
                     />
-                    <div style={{ position: 'relative', width: 50, height: 50, marginBottom: 15 }}>
-                      <Image src={LogoBranco} fill alt='Logo Greg' />
-                    </div>
+
+                      <Image src={LogoBranco} alt='Logo Greg' width={50} height={20} />
+                  
                     <div className={Styles.walletCard__separator} />
                   </div>
                 </div>
@@ -108,7 +108,7 @@ const HomeIntro = () => {
                       text={t.getCode}
                     />
                     <div className={Styles.example__line} />
-                    <div style={{ width: 260, marginRight: 'auto', marginLeft: 'auto', paddingTop: 12, paddingBottom: 18 }}>
+                    <div style={{ width: 260, marginRight: 'auto', marginLeft: 'auto', paddingTop: 12, paddingBottom: 6 }}>
 
                       <Paragraph
                         size={14}
@@ -142,7 +142,7 @@ const HomeIntro = () => {
                     </div>
                     <div className={Styles.example__loading}>
 
-                    <Image src={LoadingIcon} width={100} height={60} alt='Loading Icon Example' />
+                    <Image src={LoadingIcon} width={90} height={50} alt='Loading Icon Example' />
                     </div>
                     <div className={Styles.walletCard__separatorBody}>
                     <div className={Styles.walletCard__separator} />

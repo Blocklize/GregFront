@@ -12,7 +12,7 @@ const Header = () => {
   const { userInfo, loggedIn } = React.useContext(UserContext)
   const [info, setUserInfo] = userInfo
   const [logged, setLoggedIn] = loggedIn
-  console.log(info)
+ 
   const handleHeaderCtaClick = () => {
     Router.push('/login')
   }
