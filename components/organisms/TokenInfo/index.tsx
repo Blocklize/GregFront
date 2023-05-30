@@ -79,7 +79,7 @@ const TokenInfo = ({ buy, sell, transfer }: Props) => {
               Histórico de transações
             </h1>
             <div className={Styles.tokenHistory__body}>
-              <TokenList />
+              {/* <TokenList /> */}
             </div>
           </div>
         </div>
