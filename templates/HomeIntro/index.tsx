@@ -119,22 +119,22 @@ const HomeIntro = () => {
                     <div className={Styles.example__code}>
 
                     <ul>
-                      <li>
+                      <li key={1}>
                         <div className={Styles.example__point} />
                       </li>
-                      <li>
+                      <li key={2}>
                         <div className={Styles.example__point} />
                       </li>
-                      <li>
+                      <li key={3}>
                         <div className={Styles.example__point} />
                       </li>
-                      <li>
+                      <li key={4}>
                         <div className={Styles.example__point} />
                       </li>
-                      <li>
+                      <li key={5}>
                         <div className={Styles.example__point} />
                       </li>
-                      <li>
+                      <li key={6}>
                         <div className={Styles.example__point} />
                       </li>
                      
