@@ -29,7 +29,7 @@ const CodeCascade = () => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ "email": email })
     }
-    fetch('https://greg.blocklize.io/auth/requestLogin', config);
+    fetch('https://greg-api.blocklize.io/auth/requestLogin', config);
     .then((response) => {
       return response.ok ? "Email sent" : "Try again";
     })

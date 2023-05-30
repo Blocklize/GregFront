@@ -1,4 +1,9 @@
 {
+    "checkEmail": "Verifique sua caixa de entrada de e-mails e digite o código que você recebeu",
+    "getCode": "Pegue o código",
+    "poweredBy": "Desenvolvido por",
+    "signIn": "Inscreva-se",
+    "continueEmail": "Continue com e-mail",
     "disp": "Disponibilize uma wallet prática e segura para seus clientes",
     "manage": "Gerenciar ativos digitais na Web3 nunca foi tão simples. Esqueça as complicações, senhas difíceis e frases confusas.",
     "useGreg": "Você pode usar o Greg nas seguintes redes",

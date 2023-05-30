@@ -4,32 +4,32 @@ import CoinWallet from '@/components/molecules/CoinWallet'
 import Styles from './styles.module.scss'
 
 type Props = {
-  onClick?: any
+  onClick?: any,
+  chain: string
 }
-
-const TokenList = ({ onClick }: Props) => {
+const TokenList = ({ onClick, chain }: Props) => {
   const [tokens, setTokens] = React.useState<any>([]);
   const [loading, setLoading] = React.useState(false);
-
-  const handleTokens = async () => {
+  const [text, setText] = React.useState('eth-mainnet')
+  
+  
+  
+  
+  React.useEffect(() => {
+    console.log(chain)
+    
+    console.log('api text: ',text)
+    const url = `https://api.covalenthq.com/v1/${chain}/address/0xA74e9c2C1854260316f9e2333F30E2F30754dbEa/balances_v2/?&key=cqt_rQDFycmjQqmCmxHw46TqrcHW4rBQ`
     setLoading(true)
-    await fetch("https://api.1inch.io/v4.0/137/tokens")
-      .then((resp) => resp.json())
+     fetch(url)
+      .then((res) => res.json())
       .then((json) => {
-        const strJson = Object.values(json.tokens);
-        const mappedItems: any[] = [];
-        strJson.forEach((item: any) => {
-          if (acceptedTokens.includes(item.symbol)) mappedItems.push(item);
-        });
-        function compare(a: any, b: any) {
-          if (a.symbol < b.symbol) return -1;
-          if (a.symbol > b.symbol) return 1;
-          return 0;
-        }
-        mappedItems.sort(compare);
-        setTimeout(() => {
-          setTokens(mappedItems);
-        }, 1500);
+        console.log(json)
+        const strJson = Object?.values(json.data.items);
+        console.log('json: ',json)
+        console.log('strJson: ', strJson)
+        console.log(tokens)
+        setTokens(strJson)
       })
       .catch((error) => {
         throw error
@@ -39,20 +39,20 @@ const TokenList = ({ onClick }: Props) => {
           setLoading(false)
         }, 3000);
       })
-  };
+      
+      setText(chain);
 
-  React.useEffect(() => {
-    handleTokens();
-  }, []);
-
+  }, [chain]);
+ console.log(tokens)
   return (
     <>
       {!loading &&
         tokens.length > 0 &&
         tokens.map((t: any) => (
           <CoinWallet
+            onClick={onClick}
             props={t}
-            key={t.symbol}
+            key={t.contract_ticker_symbol}
           />
         ))}
       {loading && (

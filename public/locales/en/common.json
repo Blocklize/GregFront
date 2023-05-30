@@ -1,4 +1,9 @@
 {
+    "checkEmail": "Check your e-mail inbox and type the code you received",
+    "getCode": "Get the code",
+    "poweredBy": "Powered by",
+    "signIn": "Sign In",
+    "continueEmail": "Continue with email",
     "disp": "Provide a practical and secure wallet for your customers",
     "manage": "Managing digital assets in Web3 has never been so simple. Forget about complications, difficult passwords, and confusing phrases",
     "useGreg": "Use Greg on the following networks",

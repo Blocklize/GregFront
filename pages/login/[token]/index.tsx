@@ -21,7 +21,7 @@ const LoginToken = () => {
         'tokenId': token
       })
     }
-    fetch('https://greg.blocklize.io/auth/login', config)
+    fetch('https://greg-api.blocklize.io/auth/login', config)
       .then(resp => resp.json())
       .then(json => {
         if (json.accessToken && json.refreshToken) {

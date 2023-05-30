@@ -95,7 +95,7 @@ const Checkout = () => {
                 hidden={false}
                 text="Cancelar"
                 className={`${Styles.customCTA} ${Styles.secondCTA}`}
-                onClick={() => { console.log('click') }}
+                onClick={() => {  }}
               />
             </div>
           </form>
