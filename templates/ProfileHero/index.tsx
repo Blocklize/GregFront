@@ -179,7 +179,7 @@ const handleToggle = (t: string) => {
                         <p style={{ fontSize: 14, paddingTop: 13 }}>
                           {text}
                         </p>
-                        {isOpen ? <Image src={UpArrow} width={20} height={20} alt="Arrow up icon" /> : <Image src={DownArrow} width={20} height={20} alt="Arrow down icon" />}
+                        {isOpen ? <Image src={UpArrow} width={20} height={20} alt="Arrow up icon" /> : <Image src={DownArrow} width={14} height={14} alt="Arrow down icon" />}
 
                       </div>
                       <motion.div className={Styles.dropdown__items}>
