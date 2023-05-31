@@ -3,6 +3,8 @@ import Styles from './styles.module.scss'
 import { motion, LayoutGroup } from 'framer-motion'
 import { useRouter } from 'next/router'
 
+// Aplicando botão de voltar no fluxo
+
 import MonkeyNFT from '@/assets/img/nft_monkey_test.png'
 import Picture from '@/assets/img/avatar.png'
 import WalletIcon from '@/assets/img/wallet-outline.png'
