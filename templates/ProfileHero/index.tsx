@@ -36,7 +36,8 @@ const ProfileHero = () => {
   const [selected, setSelected] = React.useState(0);
   const [chain, setChain] = React.useState('eth-mainnet')
   const [text, setText] = React.useState('Ethereum Main Net')
-  
+
+   const address = info.walletAddress
   const variants = {
     open: {
     opacity: 1,
@@ -253,7 +254,7 @@ const handleToggle = (t: string) => {
                     {!word ?
                       <div>
 
-                        {step == 0 && <TokenList onClick={onClickHandler} chain={chain} />}
+                        {step == 0 && <TokenList onClick={onClickHandler} chain={chain} address={address} />}
                         {step == 1 && <TokenInfo buy={onClickHandler} />}
                         {step == 2 && <Checkout />}
                       </div> :
