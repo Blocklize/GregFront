@@ -37,15 +37,15 @@ const ProfileHero = () => {
   const [chain, setChain] = React.useState('eth-mainnet')
   const [text, setText] = React.useState('Ethereum Main Net')
 
-   const address = info.walletAddress
+  const address = info.walletAddress
   const variants = {
     open: {
-    opacity: 1,
-  y: 0,
-  transition: {type: "spring", stiffness: 300, damping: 24 }
-},
-  closed: {opacity: 0, y: 20, transition: {duration: 0.2 } }
-};
+      opacity: 1,
+      y: 0,
+      transition: { type: "spring", stiffness: 300, damping: 24 }
+    },
+    closed: { opacity: 0, y: 20, transition: { duration: 0.2 } }
+  };
 
   const onClickHandler = () => {
     setStep(step + 1)
@@ -57,15 +57,15 @@ const ProfileHero = () => {
     }
   }
 
-const handleToggle = (t: string) => {
+  const handleToggle = (t: string) => {
 
-      switch (t) {
-        case "ETH": return 'Ethereum Main Net'
-        case "PLG": return 'Polygon Main Net'
-      }
- 
-  
-}
+    switch (t) {
+      case "ETH": return 'Ethereum Main Net'
+      case "PLG": return 'Polygon Main Net'
+    }
+
+
+  }
 
 
   React.useEffect(() => {
@@ -168,7 +168,17 @@ const handleToggle = (t: string) => {
               <div className={Styles.wallet}>
                 <div className={Styles.wallet__header}>
                   <div className={Styles.wallet__dropdown}>
-                    <Search />
+                    {step != 0 && (
+                      <Button
+                        hidden={false}
+                        id='backToTokens'
+                        label='CLique para voltar aos tokens'
+                        onClick={() => { setStep(0) }}
+                        text='Voltar para tokens'
+                        className={Styles.alternative}
+                      />
+                    )}
+                    {step == 0 && (<Search />)}
                     <motion.div
                       onClick={() => setIsOpen(!isOpen)}
                       animate={isOpen ? { height: 50 } : { height: 400 }}
@@ -232,7 +242,7 @@ const handleToggle = (t: string) => {
                         </motion.ul>
                       </motion.div>
                     </motion.div>
-                    
+
 
                   </div>
 
