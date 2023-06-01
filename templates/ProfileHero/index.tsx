@@ -36,15 +36,16 @@ const ProfileHero = () => {
   const [selected, setSelected] = React.useState(0);
   const [chain, setChain] = React.useState('eth-mainnet')
   const [text, setText] = React.useState('Ethereum Main Net')
-  
+
+  const address = info.walletAddress
   const variants = {
     open: {
-    opacity: 1,
-  y: 0,
-  transition: {type: "spring", stiffness: 300, damping: 24 }
-},
-  closed: {opacity: 0, y: 20, transition: {duration: 0.2 } }
-};
+      opacity: 1,
+      y: 0,
+      transition: { type: "spring", stiffness: 300, damping: 24 }
+    },
+    closed: { opacity: 0, y: 20, transition: { duration: 0.2 } }
+  };
 
   const onClickHandler = () => {
     setStep(step + 1)
@@ -56,15 +57,15 @@ const ProfileHero = () => {
     }
   }
 
-const handleToggle = (t: string) => {
+  const handleToggle = (t: string) => {
 
-      switch (t) {
-        case "ETH": return 'Ethereum Main Net'
-        case "PLG": return 'Polygon Main Net'
-      }
- 
-  
-}
+    switch (t) {
+      case "ETH": return 'Ethereum Main Net'
+      case "PLG": return 'Polygon Main Net'
+    }
+
+
+  }
 
 
   React.useEffect(() => {
@@ -167,7 +168,17 @@ const handleToggle = (t: string) => {
               <div className={Styles.wallet}>
                 <div className={Styles.wallet__header}>
                   <div className={Styles.wallet__dropdown}>
-                    <Search />
+                    {step != 0 && (
+                      <Button
+                        hidden={false}
+                        id='backToTokens'
+                        label='CLique para voltar aos tokens'
+                        onClick={() => { setStep(0) }}
+                        text='Voltar para tokens'
+                        className={Styles.alternative}
+                      />
+                    )}
+                    {step == 0 && (<Search />)}
                     <motion.div
                       onClick={() => setIsOpen(!isOpen)}
                       animate={isOpen ? { height: 50 } : { height: 400 }}
@@ -179,7 +190,7 @@ const handleToggle = (t: string) => {
                         <p style={{ fontSize: 14, paddingTop: 13 }}>
                           {text}
                         </p>
-                        {isOpen ? <Image src={UpArrow} width={20} height={20} alt="Arrow up icon" /> : <Image src={DownArrow} width={20} height={20} alt="Arrow down icon" />}
+                        {isOpen ? <Image src={UpArrow} width={20} height={20} alt="Arrow up icon" /> : <Image src={DownArrow} width={14} height={14} alt="Arrow down icon" />}
 
                       </div>
                       <motion.div className={Styles.dropdown__items}>
@@ -231,7 +242,7 @@ const handleToggle = (t: string) => {
                         </motion.ul>
                       </motion.div>
                     </motion.div>
-                    
+
 
                   </div>
 
@@ -253,7 +264,7 @@ const handleToggle = (t: string) => {
                     {!word ?
                       <div>
 
-                        {step == 0 && <TokenList onClick={onClickHandler} chain={chain} />}
+                        {step == 0 && <TokenList onClick={onClickHandler} chain={chain} address={address} />}
                         {step == 1 && <TokenInfo buy={onClickHandler} />}
                         {step == 2 && <Checkout />}
                       </div> :

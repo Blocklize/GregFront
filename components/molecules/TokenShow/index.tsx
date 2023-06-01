@@ -22,7 +22,7 @@ type Props = {
 }
 
 const TokenShow = ({ onClick, data }: Props) => {
-  console.log('data: ', data)
+ 
   const handleClickFunction = () => {
     onClick()
   }
