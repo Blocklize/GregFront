@@ -19,7 +19,7 @@ export default function NFTList({ result }: any) {
                                 <div className={Styles.wallet__info}>
 
                                     <p className={Styles.wallet__id}>
-                                        #{nft._data.tokenHash}
+                                        #{nft._data.tokenId}
                                     </p>
                                     <p className={Styles.wallet__title} >
                                         {nft._data.metadata.name}
@@ -30,7 +30,7 @@ export default function NFTList({ result }: any) {
                                 </div>
                                 <div className={Styles.wallet__icon}>
                                     <div style={{ position: 'absolute', width: 250, height: 250, borderRadius: 1000 }}>
-                                        <Image src={`https://ipfs.io/${nft._data.metadata.image.replace('ipfs://', 'ipfs/')}`} fill alt='NFT Icon' style={{ borderRadius: 1000, objectFit: 'cover'}} />
+                                        <Image src={`https://ipfs.io/${nft._data.metadata.image.replace('ipfs://', 'ipfs/')}`} fill alt='NFT Icon' style={{ borderRadius: 1000, objectFit: 'cover' }} />
                                     </div>
                                 </div>
                             </div>
