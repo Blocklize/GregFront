@@ -5,6 +5,7 @@ import type { AppProps } from 'next/app'
 import { useState, useEffect } from "react"
 import UserContext from '@/context/UserContext'
 import { useRouter } from 'next/router'
+import Moralis from "moralis";
 
 export default function App({ Component, pageProps }: AppProps) {
   const [userInfo, setUserInfo] = useState()
@@ -40,7 +41,13 @@ export default function App({ Component, pageProps }: AppProps) {
       setLoggedIn(false)
     }
   }, [])
-
+  useEffect(() => {
+    if (!Moralis.Core.isStarted) {
+      Moralis.start({
+        apiKey: "EsNPkCODy4SDaU3UhFO1syIL4ikFKvNtDZYqqoQGp1Yc2XyCAyOgxRIJolpgzQSs"
+      })
+    }
+  }, [])
   useEffect(() => {
     require("bootstrap/dist/js/bootstrap.bundle.min.js");
   }, []);

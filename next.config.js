@@ -6,7 +6,7 @@ const nextConfig = {
     defaultLocale: 'pt'
   },
   images: {
-    domains: ['www.datocms-assets.com', 'logos.covalenthq.com'],
+    domains: ['www.datocms-assets.com', 'logos.covalenthq.com', 'ipfs.io'],
   }
 }
 
