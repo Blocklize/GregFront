@@ -3,8 +3,8 @@ import Styles from './styles.module.scss'
 import { motion, LayoutGroup, Variants } from 'framer-motion'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
-
-
+import Moralis from "moralis";
+import { EvmChain, EvmNft } from "@moralisweb3/common-evm-utils";
 
 import Button from '@/components/atoms/Button'
 import Search from '@/components/atoms/Search'
@@ -23,6 +23,20 @@ import BNBIcon from '@/assets/img/BNB-Icon.svg'
 import DownArrow from '@/assets/img/down-arrow.svg'
 import UpArrow from '@/assets/img/up-arrow.svg'
 
+type TokensProps = {
+  contract_address: string,
+  balance_24h: string
+  contract_decimals: number
+  contract_name: string
+  contract_ticker_symbol: string
+  pretty_quote: string
+  pretty_quote_24h: string
+  quote: number
+  quote_24h: number
+  quote_rate: number
+  quote_rate_24h: number
+}[]
+
 
 const ProfileHero = () => {
   const router = useRouter()
@@ -34,18 +48,52 @@ const ProfileHero = () => {
   const [word, setWord] = React.useState<boolean>(false)
   const [isOpen, setIsOpen] = React.useState<boolean>(true)
   const [selected, setSelected] = React.useState(0);
-  const [chain, setChain] = React.useState('eth-mainnet')
-  const [text, setText] = React.useState('Ethereum Main Net')
+  const [chain, setChain] = React.useState('matic-mainnet')
+  const [evm, setEvm] = React.useState(EvmChain.POLYGON)
+  const [text, setText] = React.useState('Polygon Main Net')
+  const [tokens, setTokens] = React.useState<TokensProps>([]);
+  const [loading, setLoading] = React.useState(false);
+  const [nfts, setNfts] = React.useState<EvmNft[]>();
 
-  const address = info.walletAddress
-  const variants = {
-    open: {
-      opacity: 1,
-      y: 0,
-      transition: { type: "spring", stiffness: 300, damping: 24 }
-    },
-    closed: { opacity: 0, y: 20, transition: { duration: 0.2 } }
-  };
+  React.useEffect(() => {
+
+    async function runApp() {
+      const address = await info?.walletAddress
+      const chain = evm
+      if (address) {
+
+        const response = await Moralis.EvmApi.nft.getWalletNFTs({
+          address: address,
+          chain: chain,
+        });
+        setNfts(response.result)
+      }
+
+    };
+    runApp()
+  }, [text])
+  React.useEffect(() => {
+
+
+    async function getWalletBalance() {
+      const url = `https://api.covalenthq.com/v1/${chain}/address/${await info?.walletAddress}/balances_v2/?&key=cqt_rQDFycmjQqmCmxHw46TqrcHW4rBQ`
+      setLoading(true)
+      fetch(url)
+        .then((res) => res.json())
+        .then((json) => {
+          setTokens(json.data?.items)
+        })
+        .catch((error) => {
+          throw error
+        })
+        .finally(() => {
+          setTimeout(() => {
+            setLoading(false)
+          }, 3000);
+        })
+    }
+    getWalletBalance()
+  }, [chain]);
 
   const onClickHandler = () => {
     setStep(step + 1)
@@ -57,15 +105,6 @@ const ProfileHero = () => {
     }
   }
 
-  const handleToggle = (t: string) => {
-
-    switch (t) {
-      case "ETH": return 'Ethereum Main Net'
-      case "PLG": return 'Polygon Main Net'
-    }
-
-
-  }
 
 
   React.useEffect(() => {
@@ -195,48 +234,51 @@ const ProfileHero = () => {
                       </div>
                       <motion.div className={Styles.dropdown__items}>
 
-                        <motion.ul animate={isOpen ? { opacity: 0 } : { opacity: 1 }}>
+                        <motion.ul animate={isOpen ? { opacity: 0, pointerEvents: 'none' } : { opacity: 1, pointerEvents: 'auto' }}>
                           <motion.li>
-                            <div className={Styles.dropdown__item}>
+                            <motion.div className={Styles.dropdown__item} animate={isOpen ? { opacity: 0, pointerEvents: 'none' } : { opacity: 1, pointerEvents: 'auto' }}>
                               <Image src={ETHIcon} width={30} height={30} alt="ETH Icon" />
                               <button onClick={() => {
                                 setChain('eth-mainnet')
                                 setText('Ethereum Main Net')
+                                setEvm(EvmChain.ETHEREUM)
                               }}>
                                 <p>
                                   Ethereum Main Net
                                 </p>
                               </button>
 
-                            </div>
+                            </motion.div>
                           </motion.li>
                           <motion.li>
-                            <div className={Styles.dropdown__item}>
+                            <motion.div className={Styles.dropdown__item} animate={isOpen ? { opacity: 0, pointerEvents: 'none' } : { opacity: 1, pointerEvents: 'auto' }}>
                               <Image src={MaticIcon} width={30} height={30} alt="ETH Icon" />
                               <button onClick={() => {
                                 setChain('matic-mainnet')
                                 setText('Matic Main Net')
+                                setEvm(EvmChain.POLYGON)
                               }}>
                                 <p>
                                   Polygon Main Net
                                 </p>
                               </button>
 
-                            </div>
+                            </motion.div>
                           </motion.li>
                           <motion.li>
-                            <div className={Styles.dropdown__item}>
+                            <motion.div className={Styles.dropdown__item} animate={isOpen ? { opacity: 0, pointerEvents: 'none' } : { opacity: 1, pointerEvents: 'auto' }}>
                               <Image src={BNBIcon} width={30} height={30} alt="ETH Icon" />
                               <button onClick={() => {
                                 setChain('bsc-mainnet')
                                 setText('BSC Main Net')
+                                setEvm(EvmChain.BSC)
                               }}>
                                 <p>
                                   BNB Chain
                                 </p>
                               </button>
 
-                            </div>
+                            </motion.div>
                           </motion.li>
 
                         </motion.ul>
@@ -264,11 +306,11 @@ const ProfileHero = () => {
                     {!word ?
                       <div>
 
-                        {step == 0 && <TokenList onClick={onClickHandler} chain={chain} address={address} />}
+                        {step == 0 && <TokenList onClick={onClickHandler} tokens={tokens as TokensProps} />}
                         {step == 1 && <TokenInfo buy={onClickHandler} />}
                         {step == 2 && <Checkout />}
                       </div> :
-                      <NFTList />}
+                      <NFTList result={nfts as EvmNft[]} />}
 
                   </div>
                 </div>

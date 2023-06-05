@@ -4,41 +4,26 @@ import CoinWallet from '@/components/molecules/CoinWallet'
 import Styles from './styles.module.scss'
 
 type Props = {
+  tokens: {
+      contract_address: string,
+      balance_24h: string
+      contract_decimals: number
+      contract_name: string
+      contract_ticker_symbol: string
+      pretty_quote: string
+      pretty_quote_24h: string
+      quote: number
+      quote_24h: number
+      quote_rate: number
+      quote_rate_24h: number
+  }[]
   onClick?: any,
-  chain: string,
-  address: string
 }
-const TokenList = ({ onClick, chain, address }: Props) => {
-  const [tokens, setTokens] = React.useState<any>([]);
+const TokenList = ({ onClick, tokens }: Props) => {
   const [loading, setLoading] = React.useState(false);
-  const [text, setText] = React.useState('eth-mainnet')
+  const [text, setText] = React.useState('matic-mainnet')
   
   
-  
-  
-  React.useEffect(() => {
-    const url = `https://api.covalenthq.com/v1/${chain}/address/${address}/balances_v2/?&key=cqt_rQDFycmjQqmCmxHw46TqrcHW4rBQ`
-    setLoading(true)
-     fetch(url)
-      .then((res) => res.json())
-      .then((json) => {
-       
-        const strJson = Object?.values(json.data.items);
-   
-        setTokens(strJson)
-      })
-      .catch((error) => {
-        throw error
-      })
-      .finally(() => {
-        setTimeout(() => {
-          setLoading(false)
-        }, 3000);
-      })
-      
-      setText(chain);
-
-  }, [chain]);
   return (
     <>
       {!loading &&
