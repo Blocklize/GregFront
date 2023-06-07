@@ -173,15 +173,11 @@ function onclick() {
                 </div>
                 <div className={Styles.profileInfo__user}>
                   <h1>{handleUsername()}</h1>
-                  <p>
-                    <strong>ID</strong>
-                    <span>MISSING_INFO</span>
-                  </p>
                 </div>
                 <div className={Styles.profileInfo__data}>
                   <div>
                     <span>
-                      <strong>Main wallet: </strong>
+                      <strong>Wallet: </strong>
                       <input type="text" readOnly value={info?.walletAddress || "Error, try refresh the page"} />
                     </span>
                   </div>
