@@ -54,46 +54,51 @@ const ProfileHero = () => {
   const [tokens, setTokens] = React.useState<TokensProps>([]);
   const [loading, setLoading] = React.useState(false);
   const [nfts, setNfts] = React.useState<EvmNft[]>();
-
+  const [button, setButton] = React.useState(false)
+  const [show, setShow] = React.useState(false)
+  const address = info?.walletAddress
+  
+  React.useEffect(() => {
+     
+      async function getWalletBalance() {
+        if(address) {
+          
+          const url = `https://api.covalenthq.com/v1/${chain}/address/${await info?.walletAddress}/balances_v2/?&key=cqt_rQDFycmjQqmCmxHw46TqrcHW4rBQ`
+          setLoading(true)
+          fetch(url)
+            .then((res) => res.json())
+            .then((json) => {
+              setTokens(json.data?.items)
+            })
+            .catch((error) => {
+              throw error
+            })
+            .finally(() => {
+              setTimeout(() => {
+                setLoading(false)
+              }, 3000);
+            })
+        }
+      }
+      getWalletBalance()
+   
+  }, [chain]);
   React.useEffect(() => {
 
     async function runApp() {
       const address = await info?.walletAddress
       const chain = evm
       if (address) {
-
-        const response = await Moralis.EvmApi.nft.getWalletNFTs({
+        const responseNFT = await Moralis.EvmApi.nft.getWalletNFTs({
           address: address,
           chain: chain,
         });
-        setNfts(response.result)
+        setNfts(responseNFT.result)
       }
-
     };
     runApp()
   }, [text])
-  React.useEffect(() => {
 
-
-    async function getWalletBalance() {
-      const url = `https://api.covalenthq.com/v1/${chain}/address/${await info?.walletAddress}/balances_v2/?&key=cqt_rQDFycmjQqmCmxHw46TqrcHW4rBQ`
-      setLoading(true)
-      fetch(url)
-        .then((res) => res.json())
-        .then((json) => {
-          setTokens(json.data?.items)
-        })
-        .catch((error) => {
-          throw error
-        })
-        .finally(() => {
-          setTimeout(() => {
-            setLoading(false)
-          }, 3000);
-        })
-    }
-    getWalletBalance()
-  }, [chain]);
 
   const onClickHandler = () => {
     setStep(step + 1)
@@ -104,7 +109,10 @@ const ProfileHero = () => {
       return info.email.split("@")[0]
     }
   }
-
+function onclick() {
+  setButton(!button)
+  setShow(!show)
+}
 
 
   React.useEffect(() => {
@@ -112,6 +120,7 @@ const ProfileHero = () => {
       router.push('/login')
     }
   }, [])
+
   const MenuItem = ({ text, selected, onClick }: any) => (
 
     <motion.div
@@ -207,20 +216,20 @@ const ProfileHero = () => {
               <div className={Styles.wallet}>
                 <div className={Styles.wallet__header}>
                   <div className={Styles.wallet__dropdown}>
-                    {step != 0 && (
+                    {button ? (
                       <Button
                         hidden={false}
                         id='backToTokens'
                         label='CLique para voltar aos tokens'
-                        onClick={() => { setStep(0) }}
+                        onClick={() => { onclick() }}
                         text='Voltar para tokens'
                         className={Styles.alternative}
                       />
-                    )}
-                    {step == 0 && (<Search />)}
+                    ) : <Search />}
+                   
                     <motion.div
                       onClick={() => setIsOpen(!isOpen)}
-                      animate={isOpen ? { height: 50 } : { height: 400 }}
+                      animate={isOpen ? { height: 50 } : { height: 207 }}
                       className={Styles.dropdown}
 
                     >
@@ -229,10 +238,10 @@ const ProfileHero = () => {
                         <p style={{ fontSize: 14, paddingTop: 13 }}>
                           {text}
                         </p>
-                        {isOpen ? <Image src={UpArrow} width={20} height={20} alt="Arrow up icon" /> : <Image src={DownArrow} width={14} height={14} alt="Arrow down icon" />}
+                        {isOpen ? <Image src={DownArrow} width={18} height={18} alt="Arrow up icon" /> : <Image src={UpArrow} width={25} height={25} alt="Arrow down icon" />}
 
                       </div>
-                      <motion.div className={Styles.dropdown__items}>
+                      <motion.div className={Styles.dropdown__items} animate={isOpen ? { opacity: 0, pointerEvents: 'none' } : { opacity: 1, pointerEvents: 'auto' }}>
 
                         <motion.ul animate={isOpen ? { opacity: 0, pointerEvents: 'none' } : { opacity: 1, pointerEvents: 'auto' }}>
                           <motion.li>
@@ -303,16 +312,21 @@ const ProfileHero = () => {
                 </div>
                 <div className={Styles.wallet__body}>
                   <div className={Styles.wallet__body}>
-                    {!word ?
-                      <div>
+                    {/* <Checkout /> */}
 
-                        {step == 0 && <TokenList onClick={onClickHandler} tokens={tokens as TokensProps} />}
-                        {step == 1 && <TokenInfo buy={onClickHandler} />}
-                        {step == 2 && <Checkout />}
-                      </div> :
-                      <NFTList result={nfts as EvmNft[]} />}
+                    
+                      {!word ?
+                        <div onClick={(() => {
+                          setButton(true)
+                        })}>
+  
+                          <TokenList tokens={tokens as TokensProps} onClick={onclick} show={show}/>  
+                      
+                        </div> :
+                        <NFTList result={nfts as EvmNft[]} />}
+                    </div>
 
-                  </div>
+                  
                 </div>
               </div>
             </div>
