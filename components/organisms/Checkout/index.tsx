@@ -34,6 +34,7 @@ function chainIcon(data: any) {
 
   }
 }
+
 function formatteAddress(data: any) {
   switch (data) {
     case "ETH": return "0x2170ed08..."
@@ -44,10 +45,28 @@ function formatteAddress(data: any) {
     case "AAVE": return "0x7Fc66500..."
     case "CRV": return "0xD533a949..."
     case "DAI": return "0x6B175474..."
-
+    
   }
 }
 export default function Checkout({ tokens, value, dollarCot }: Props) {
+  const [number, setNumber] = React.useState(0)
+
+  function handleChange(event: any) {
+    setNumber(event.target.value)
+  }
+  function convertToken() {
+    const dollar = parseFloat(number.toString()) / dollarCot
+    const tokenValue = dollar / value[1].price
+    if(number == 0) {
+      return 0
+    }
+    return tokenValue.toFixed(7)
+  }
+
+  React.useEffect(() => {
+    console.log(number)
+  }, [number])
+
 
   return (
     <div className={Styles.checkout}>
@@ -98,7 +117,7 @@ export default function Checkout({ tokens, value, dollarCot }: Props) {
                 <input
                   id='brl'
                   type="number"
-           
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -107,8 +126,8 @@ export default function Checkout({ tokens, value, dollarCot }: Props) {
                 Você receberá
               </label>
               <div className={Styles.inputGroup__input}>
-                <span>AVAX</span>
-                <p>123</p>
+                <span>{tokens.contract_ticker_symbol}</span>
+                <p>{convertToken()}</p>
               </div>
             </div>
             <div className={`${Styles.inputGroup} mt-4`}>
