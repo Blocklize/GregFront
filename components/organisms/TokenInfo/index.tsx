@@ -19,12 +19,10 @@ import Checkout from '../Checkout'
 
 type Props = {
   tokens: any
-  buy?: any,
-  sell?: any,
-  transfer?: any
+
 }
 
-const TokenInfo = ({ buy, sell, transfer, tokens }: Props) => {
+const TokenInfo = ({ tokens }: Props) => {
  
   function tokenAddress(data: any) {
     switch (data) {
@@ -73,7 +71,8 @@ const TokenInfo = ({ buy, sell, transfer, tokens }: Props) => {
   const TICKET = "USD";
   const EthAddress = "0x2170Ed0880ac9A755fd29B2688956BD959F933F8"
   const ADDRESS = tokenAddress(tokens.contract_ticker_symbol)
-  const [penis, setPenis] = React.useState(false)
+  const [buy, setBuy] = React.useState(false)
+  const [dollarCot, setDollarCot] = React.useState(0)
   const url = "https://api.covalenthq.com/v1/pricing/historical_by_addresses_v2/" + EthMainnet + "/" + TICKET + "/" + ADDRESS + "/?from=" + dataHoje + "&to=" + dataOutroDia + "&key=" + API_KEY;
   const urlBsc = "https://api.covalenthq.com/v1/pricing/historical_by_addresses_v2/" + BscMainnet + "/" + TICKET + "/" + EthAddress + "/?from=" + dataHoje + "&to=" + dataOutroDia + "&key=" + API_KEY;
   const [value, setValue] = React.useState(tokens)
@@ -98,6 +97,14 @@ const TokenInfo = ({ buy, sell, transfer, tokens }: Props) => {
     }
 
   }, [])
+  React.useEffect(() => {
+    fetch('https://economia.awesomeapi.com.br/last/USD-BRL')
+    .then((resp) => resp.json())
+    .then((data => {
+      setDollarCot(data.USDBRL.bid)
+      
+    }))
+  }, [])
 
   function chainIcon(data: any) {
     switch (data) {
@@ -115,8 +122,8 @@ const TokenInfo = ({ buy, sell, transfer, tokens }: Props) => {
 
   return (
     <div>
-      {penis ?
-       <Checkout tokens={tokens} value={value} /> :
+      {buy ?
+       <Checkout tokens={tokens} value={value} dollarCot={dollarCot} /> :
         
        <div className={Styles.tokenInfo}>
       
@@ -169,7 +176,7 @@ const TokenInfo = ({ buy, sell, transfer, tokens }: Props) => {
                    text="Comprar"
                    className={Styles.customCTA}
                    onClick={(() => {
-                     setPenis(true)
+                     setBuy(true)
                    })}
                  />
                  <Button
@@ -179,7 +186,7 @@ const TokenInfo = ({ buy, sell, transfer, tokens }: Props) => {
                    text="Em breve"
                    disabled
                    className={`${Styles.customCTA} ${Styles.secondCTA}`}
-                   onClick={() => { sell() }}
+                   onClick={() => {  }}
                  />
                  <Button
                    id='cta-transferir'
@@ -188,7 +195,7 @@ const TokenInfo = ({ buy, sell, transfer, tokens }: Props) => {
                    text="Em breve"
                    disabled
                    className={`${Styles.customCTA} ${Styles.secondCTA}`}
-                   onClick={() => { transfer() }}
+                   onClick={() => { }}
                  />
                </div>
              </div>

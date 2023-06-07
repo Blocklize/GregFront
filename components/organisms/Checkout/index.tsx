@@ -19,6 +19,7 @@ import { CaretUp, CaretDown } from '@phosphor-icons/react'
 type Props = {
   tokens: any
   value: any
+  dollarCot: number
 }
 function chainIcon(data: any) {
   switch (data) {
@@ -46,7 +47,7 @@ function formatteAddress(data: any) {
 
   }
 }
-export default function Checkout({ tokens, value }: Props) {
+export default function Checkout({ tokens, value, dollarCot }: Props) {
 
   return (
     <div className={Styles.checkout}>
