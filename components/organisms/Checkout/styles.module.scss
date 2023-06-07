@@ -6,6 +6,7 @@
         padding: 2rem;
         border-radius: 8px;
         text-align: center;
+       
 
         h1 {
             color: $white;
@@ -76,7 +77,10 @@
             flex: 1;
             font-size: 18px;
         }
-
+        p {
+            margin-bottom: 0;
+            color: $white;
+        }
         input {
             flex: 1;
             text-align: end;

@@ -3,10 +3,17 @@ import Styles from './styles.module.scss'
 
 import Image from 'next/image'
 
-import Icon from '@/assets/img/avax.png'
+
 import EthIcon from '@/assets/img/eth.png'
 import BSCIcon from '@/assets/img/BNB-Icon.svg'
+import MaticIcon from '@/assets/img/polygon-matic-icon.svg'
+import AvaxIcon from '@/assets/img/avax.png'
+import CompIcon from '@/assets/img/comp.png'
+import AaveIcon from '@/assets/img/aave.png'
+import CrvIcon from '@/assets/img/crv.png'
+import DaiIcon from '@/assets/img/dai.png'
 import Arrow from '@/assets/img/chevron-forward-outline.png'
+
 
 type Props = {
   onClick?: any,
@@ -22,22 +29,23 @@ type Props = {
 }
 
 const TokenShow = ({ onClick, data }: Props) => {
- 
-  const handleClickFunction = () => {
-    onClick()
-  }
+
   function chainIcon(data: any) {
     switch (data.contract_ticker_symbol) {
       case "ETH": return EthIcon
-      case "MATIC": return data.logo_url
+      case "MATIC": return MaticIcon
       case "BNB": return BSCIcon
-
+      case "AVAX": return AvaxIcon
+      case "COMP": return CompIcon
+      case "AAVE": return AaveIcon
+      case "CRV": return CrvIcon
+      case "DAI": return DaiIcon
     }
   }
   return (
     <div
       className={Styles.tokenShow}
-      onClick={() => handleClickFunction()}
+   
     >
       <div className={Styles.tokenShow__info}>
         <Image
@@ -46,7 +54,7 @@ const TokenShow = ({ onClick, data }: Props) => {
           height={40}
           alt="Token Icon"
         />
-        <h2  >{data.contract_ticker_symbol}</h2>
+        <h2 >{data.contract_ticker_symbol}</h2>
       </div>
       <div className={Styles.tokenShow__balance}>
         <input

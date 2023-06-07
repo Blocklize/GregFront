@@ -29,8 +29,8 @@ export default function NFTList({ result }: any) {
                                     </p>
                                 </div>
                                 <div className={Styles.wallet__icon}>
-                                    <div style={{ position: 'absolute', width: 250, height: 250, borderRadius: 1000 }}>
-                                        <Image src={`https://ipfs.io/${nft._data.metadata.image.replace('ipfs://', 'ipfs/')}`} fill alt='NFT Icon' style={{ borderRadius: 1000, objectFit: 'cover' }} />
+                                    <div style={{ position: 'absolute', width: 240, height: 230, borderRadius: 12 }}>
+                                        <Image  src={`https://ipfs.io/${nft._data.metadata.image.replace('ipfs://', 'ipfs/')}`} fill alt='NFT Icon' style={{ borderRadius: 12 }} />
                                     </div>
                                 </div>
                             </div>
