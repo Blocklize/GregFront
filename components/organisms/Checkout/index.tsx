@@ -100,7 +100,7 @@ export default function Checkout({ tokens, value, dollarCot }: Props) {
 
     return cpf;
   }
-  console.log(formatarCPF('09727608906'))
+
 
   return (
 
