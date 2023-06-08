@@ -62,7 +62,7 @@ export default function Checkout({ tokens, value, dollarCot }: Props) {
       /(\d{3})(\d{3})(\d{3})(\d{2})/,
       '$1.$2.$3-$4'
     );
-
+    setNumber(event.target.value)
     setCpf(formattedValue);
   };
 
@@ -78,17 +78,19 @@ export default function Checkout({ tokens, value, dollarCot }: Props) {
     const dollar = parseFloat(number.toString()) / dollarCot
     const tokenValue = dollar / value[1].price
     if (number == 0) {
+     
       return 0
     }
     if (number < 400) {
-
+      
       return tokenValue * 0.04
-    } else if (number > 399) {
-
+    }
+     if (number > 399) {
+    
       return tokenValue * 0.03
 
     }
-    return tokenValue
+
   }
 
   function formatarCPF(cpf: any) {
