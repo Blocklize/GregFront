@@ -115,7 +115,6 @@ const TokenInfo = ({ tokens, coins, setCoins, allTokens, setStep, value, setValu
         .then((resp) => resp.json())
         .then((data) => {
           setValue(data.data[0].items)
-         
 
         })
 
