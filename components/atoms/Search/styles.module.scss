@@ -1,0 +1,31 @@
+@import '@/styles/variables.scss';
+
+.search {
+  
+    border-radius: 4px;
+    background: $gray-white-shade-fade;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:  01rem;
+    height: 50px;
+    @media (max-width: 992px) {
+        
+    }
+
+    &__input {
+        width: 87.5%;
+        border: none;
+        background: transparent;
+        color: $white;
+        font-weight: 300;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    @media (max-width: 992px) {
+        width: 75%;
+    }
+}

@@ -1,0 +1,15 @@
+@import '@/styles/variables.scss';
+
+.title {
+    font-size: 60px;
+    font-weight: 600;
+    line-height: 60px;
+    margin-bottom: .5rem;
+    position: relative;
+    color: $white;
+
+    @media (max-width: 992px) {
+        font-size: 28px; 
+        line-height: 38px; 
+    }
+}

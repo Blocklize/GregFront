@@ -1,0 +1,36 @@
+@import '@/styles/variables.scss';
+
+.boxAdvertisement {
+    padding: 120px 0 80px;
+
+    &__content {
+        border-radius: 20px;
+        background: rgba($color: $black, $alpha: .4);
+        padding: 3rem;
+        position: relative;
+
+        @media (max-width: 992px) {
+            padding: 2rem;
+        }
+    }
+
+    @media (max-width: 992px) {
+        padding: 40px 0;
+    }
+}
+
+.picture {
+    position: absolute;
+    bottom: 2rem;
+}
+
+.secondCTA {
+    background: rgba($color: $white, $alpha: .05);
+    box-shadow: none;
+    color: $light;
+
+    &:hover {
+        background: rgba($color: $white, $alpha: .09);
+        color: $white;
+    }
+}

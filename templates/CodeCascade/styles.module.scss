@@ -1,0 +1,104 @@
+@import '@/styles/variables.scss';
+
+.codeCascade {
+    padding: 50px 0;
+    overflow: hidden;
+    position: relative;
+
+    &__desc {
+        margin: 24px 0;
+    }
+}
+
+.stepByStepList {
+    list-style: none;
+    padding: 0;
+
+    &__item {
+        color: $white;
+        padding: 12px 24px;
+        border-radius: 8px;
+        padding-left: 36px;
+        max-width: max-content;
+        position: relative;
+
+        &::before {
+            content: " ";
+            display: block;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            position: absolute;
+            left: 18px;
+            top: calc(50% - 3px);
+            background: $primary-secondary;
+        }
+    }
+}
+
+.highlighted {
+    background: rgba($color: $black, $alpha: .4);
+}
+
+.secondaryShade {
+    width: 50vw;
+    background: $gray-shade-secondary;
+    height: 500px;
+    border-radius: 24px 0 0 24px;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    @media (max-width: 992px) {
+        display: none;
+    }
+}
+
+.secondCTA {
+    background: rgba($color: $white, $alpha: .05);
+    box-shadow: none;
+    color: $light;
+    margin-bottom: 30px;
+
+    &:hover {
+        background: rgba($color: $white, $alpha: .09);
+        color: $white;
+    }
+}
+
+.codeField {
+    padding-left: 80px;
+
+    @media (max-width: 992px) {
+        padding: 0;
+    }
+}
+
+.codeSnippet {
+    &__header {
+        background: rgba($color: #000000, $alpha: .8);
+        padding: 1rem;
+        width: 100%;
+        border-radius: 16px;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    &__body {
+        border-radius: 16px;
+        overflow: hidden;
+    }
+
+    @media (max-width: 992px) {
+        background: $gray-shade-secondary;
+        border-radius: 24px;
+        padding: 1.2rem;
+        margin: 30px 0;
+    }
+}
+
+.inactive {
+    filter: grayscale(1);
+}

@@ -1,0 +1,114 @@
+@import '@/styles/variables.scss';
+
+.header {
+    min-width: 100vw;
+    top: 0;
+    left: 0;
+    z-index: 1031;
+    position: fixed;
+    &__alternative {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        @media (max-width: 992px) {
+            gap: 10px;
+        }
+    }
+    &__left {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__logged {
+        position: relative;
+        height: 100%;
+
+        .anchor {
+            align-items: center;
+
+            &:hover {
+                color: $white;
+            }
+        }
+
+        .picture {
+            width: 40px;
+            height: 40px;
+            border: 3px solid $primary;
+            border-radius: 50%;
+            background-image: url("~/assets/img/avatar.png");
+            background-size: cover;
+        }
+
+        &:hover {
+            .dropdown {
+                opacity: 1;
+                touch-action: auto;
+                pointer-events: auto;
+            }
+        }
+
+        .dropdown {
+            position: absolute;
+            top: 2rem;
+            right: 0;
+            background-color: rgba($color: $black, $alpha: .8);
+            width: 100%;
+            padding: 1rem;
+            border-radius: 8px;
+            border-bottom: 2px solid $primary;
+            opacity: 0;
+            touch-action: none;
+            pointer-events: none;
+            transition: .4s;
+
+            ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+
+                a {
+                    text-decoration: none;
+                }
+
+                li {
+                    padding: .5rem;
+                    width: 100%;
+                    color: $white;
+
+                    &:not(:last-child) {
+                        margin-bottom: .5rem;
+                    }
+
+                    &:hover {
+                        border-radius: .4rem;
+                        background: rgba($color: $white, $alpha: .1);
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.list {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+
+    &__item {
+        padding: .5rem;
+    }
+}
+
+.anchor {
+    color: $white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    @media (max-width: 992px) {
+        font-size: .625rem;
+    }
+}

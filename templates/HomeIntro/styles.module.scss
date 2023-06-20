@@ -1,0 +1,318 @@
+@import '@/styles/variables.scss';
+
+.homeIntro {
+    background: $darker-blue-darker;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 140px 0 100px;
+    position: relative;
+    overflow: hidden;
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+    &__desc {
+        font-size: 2rem;
+        @media(max-width: 992px) {
+            font-size: 1rem;
+        }
+    }
+
+    &__content {
+        text-align: center;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    &__title {
+        margin-bottom: 38px;
+        line-height: 4.4rem;
+        font-size: 4.4rem;
+        
+        @media(max-width: 992px) {
+            line-height: 2rem;
+            font-size: 2rem;
+        }
+    }
+
+    &__carousel {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        overflow-x: scroll;
+        position: relative;
+        padding-top: 48px;
+        z-index: 2;
+      
+       
+          
+          
+        ul {
+            scroll-snap-type: x mandatory;
+            display: flex;
+            flex-direction: row;
+            list-style: none;
+            gap: 50px;
+            overflow-x: scroll;
+           
+              
+        
+            @media (max-width: 992px) {
+                gap: 30px;
+                
+                  
+                  
+                
+            }
+            li {
+                scroll-snap-align: center;
+                @media (max-width: 992px) {
+                    gap: 30px;
+            }
+           
+        }
+    }
+       
+
+        @media (max-width: 992px) {
+            justify-content: flex-start;
+        }
+    }
+
+    &__card {
+        backdrop-filter: blur(5rem);
+    }
+
+    &__illlust {
+        position: absolute;
+        bottom: -150px;
+        right: -100px;
+        z-index: 1;
+
+        @media (max-width: 992px) {
+            display: none;
+        }
+    }
+
+    @media (max-width: 992px) {
+        padding-bottom: 70px;
+    }
+}
+
+.walletCard {
+    min-width: 400px;
+    height: 240px;
+    border-radius: 12px;
+    backdrop-filter: blur(5rem);
+    background: rgba($color: $white, $alpha: .03);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    list-style: none;
+  
+    
+    &__userExample {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 95%;
+        padding-top: 10px;
+        
+       
+    }
+    &__image {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    &__content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem 2rem;
+    }
+    &__separatorBody {
+        padding-top: 5px;
+    }
+    &__separator {
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        bottom: 30px;
+        left: 0;
+        background: $primary-secondary;
+       
+    }
+
+    @media (max-width: 992px) {
+        min-width: 100%;
+    }
+}
+
+.pictureHolder {
+    padding: .8rem .6rem;
+    border-radius: 16px;
+    background: rgba($color: $white, $alpha: .05);
+    backdrop-filter: blur(5rem);
+
+    &__image {
+        width: 100px;
+        border-radius: 50%;
+        box-shadow: 0 5px 25px $darker;
+    }
+}
+.example {
+    display: flex;
+    width: 320px;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    @media (max-width: 992px) {
+        width: 280px;
+        
+        
+    }
+    &__loading {
+        margin-bottom: 4px;
+       
+    }
+    &__code {
+        width: 270px;
+        margin-right: auto;
+        margin-left: auto;
+
+        ul {
+           gap: 5px;
+            padding-left: 0;
+            li {
+                width: 42px;
+                height: 32.5px;
+                background-color: rgba($color: $white, $alpha: .03);
+                border-radius: 5px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+    &__point {
+        width: 5px;
+        height: 5px;
+        background-color: rgba(223, 223, 223, 0.6);
+        border-radius: 1000px;
+    }
+    &__poweredText {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        flex-direction: row;
+        padding-top: 10px;
+        gap: 10px;
+        p {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+    }
+    &__text {
+        padding-bottom: 10px;
+        p {
+            font-size: 20px;
+            color: rgb(255, 255, 255);
+            margin-bottom: 5px;
+        }
+    }
+    &__buttonBody {
+        border: none;
+
+        
+    }
+    &__confirmButton {
+        width: 260px;
+        height: 43px;
+        border-radius: 6px;
+        box-shadow: 0 1px 5px;
+        border: none;
+        background-color: rgb(17, 17, 17);
+        margin-top: 8px;
+        pointer-events: none;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        p {
+            font-size: 18px;
+            color: rgb(255, 255, 255);
+            margin-bottom: 0;
+        }
+
+    }
+    &__emailBody {
+        padding-top: 10px;
+    }
+    &__emailInput {
+        text-align: center;
+        background: rgba($color: $white, $alpha: .03);
+        border: none;
+        height: 43px;
+        width: 260px;
+        border-radius: 6px;
+        font-size: 16px;
+        text-decoration-style: red;
+        pointer-events: none;
+        
+    }
+    &__body {
+        padding-top: 6px;
+        padding-bottom: 20px;
+        background: rgba($color: $white, $alpha: .03);
+        backdrop-filter: blur(5rem);
+        border-radius: 16px;
+        width: 100%;
+        height: 240px;
+        text-align: center;
+        font-size: 20px;
+        @media (max-width: 992px) {
+            padding: 10px;
+            
+            
+        }
+      
+    }
+    &__line {
+        width: 100%;
+        height: 1px;
+        background-color: rgba(255, 255, 255, 0.2);;
+    }
+   
+    
+}
+.profileInfo {
+    margin-left: 1rem;
+
+    &__title {
+        color: $white;
+        font-weight: 600;
+        font-size: 30px;
+    }
+
+    &__id {
+        color: $white;
+
+        strong {
+            font-weight: 600;
+            margin-right: .5rem;
+        }
+
+        span {
+            font-weight: 300;
+        }
+    }
+}

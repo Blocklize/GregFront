@@ -1,0 +1,62 @@
+@import '@/styles/variables.scss';
+
+.footer {
+    background: $black;
+    padding: 60px 0 24px;
+
+    &__top {
+        margin-bottom: 70px;
+    }
+
+    &__middle {
+        margin-bottom: 70px;
+    }
+
+    &__separator {
+        height: 2px;
+        background: $none-secondary-none;
+    }
+
+    &__bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 36px;
+    }
+}
+
+.socialLinks {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 2rem;
+
+    &__item {
+        padding: 0 .25rem;
+    }
+}
+
+.linkColumn {
+    &__title {
+        text-transform: uppercase;
+        font-size: 18px;
+        color: $light;
+        margin-bottom: 24px;
+    }
+}
+
+.linkList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.standardLink {
+    text-decoration: none;
+    color: $white;
+}
+
+.tinyText {
+    color: $white;
+    font-size: 14px;
+}

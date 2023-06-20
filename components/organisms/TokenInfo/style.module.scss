@@ -1,0 +1,175 @@
+@import '@/styles/variables.scss';
+
+.tokenImg {
+    display: block !important;
+    padding: 8px !important;
+    
+    @media (min-width: 1200px) {
+        flex: 0 0 auto;
+        width: 33.33333333%;
+    }
+}
+.tokenInfo {
+  
+    &__image {
+        width: 100%;
+        height: 80%;
+        object-fit: fill;
+        @media (max-width: 992px) {
+            height: 100%;
+        }
+       
+    }
+}
+.loading {
+    transform: scale(.95);
+    opacity: 1;
+    cursor: default;
+    pointer-events: none;
+    touch-action: none;
+}
+.loadScreen {
+   
+    height: 50vh;
+
+    &__loader {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        border: 16px solid $contrast;
+        border-top: 16px solid $primary;
+        animation: spin 2s linear infinite;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: translateX(-50%) translateY(-50%) rotate(0deg);
+        }
+
+        100% {
+            transform: translateX(-50%) translateY(-50%) rotate(360deg);
+        }
+    }
+}
+.container {
+    justify-content: center !important;
+    display: flex !important;
+    flex-wrap: nowrap;
+    gap: 20px;
+    @media (max-width: 992px) {
+        flex-wrap: wrap;
+    }
+    &__data {
+        width: 100%;
+        margin-bottom: 24px !important;
+        box-sizing: border-box;
+
+    }
+   
+}
+.info {
+    justify-content: center !important;
+    display: flex !important;
+    flex-wrap: wrap;
+    
+}   
+.tokenData {
+    background: rgba($color: #000000, $alpha: .2);
+    padding: 22.4px;
+    height: 108%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    border-radius: 10px;
+    position: relative;
+   
+   
+    &__address {
+        strong {
+            @media (max-width: 992px) {
+                font-size: .875rem;
+            }
+        }
+    }
+    &__name {
+        h1 {
+            color: $white;
+            font-size: 30px;
+            font-weight: bold;
+            margin-bottom: 0;
+        }
+
+        p {
+            color: $clay-gray;
+            font-weight: 300;
+            font-size: 20px;
+        }
+    }
+    
+    &__info {
+        width: 100%;
+        background: rgba($color: #000000, $alpha: .4);
+        padding: .7rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: 8px;
+        margin-bottom: 6px;
+
+        span {
+            color: $clay-gray;
+            font-size: .875rem;
+            
+        }
+
+        strong {
+            color: $white;
+         
+        }
+    }
+}
+
+.customCTA {
+    width: 100%;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.secondCTA {
+    background: rgba($color: $white, $alpha: .05);
+    box-shadow: none;
+    color: $light;
+
+    &:hover {
+        background: rgba($color: $white, $alpha: .09);
+        color: $white;
+    }
+}
+
+.tokenHistory {
+    background: $gray-void;
+    padding: 1.4rem;
+    height: 100%;
+    border-radius: 10px;
+    max-height: 150px;
+
+    &__body {
+        max-height: 150px;
+        overflow: scroll;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    &__title {
+        color: $clay-gray;
+        font-weight: bold;
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+}

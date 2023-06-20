@@ -1,0 +1,17 @@
+
+.select {
+    background: #051B25;
+    padding: 5px;
+    border-radius: 6px;
+    border: 1px solid #FF4900;
+    color: #FF4900;
+    outline: none;
+    font-weight: 600;
+    @media (max-width: 992px) {
+        padding: 0px;
+    }
+    & option {
+        background: #051B25;
+        color: #FF4900;
+    }
+}

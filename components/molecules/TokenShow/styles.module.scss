@@ -1,0 +1,89 @@
+@import '@/styles/variables.scss';
+
+.token {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    p{
+         margin-bottom: 0;
+        font-size: 1.125rem;
+        font-weight: bold;
+        color: $white;
+        transition: .4s;
+        @media (max-width: 992px) {
+            font-size: .875rem
+        }
+        &:focus {
+            outline: none;
+        }
+    }
+}
+
+.tokenShow {
+    border-radius: 8px;
+    background: rgba($color: #000000, $alpha: .2);
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: .4s;
+    margin-bottom: .75rem;
+    
+    &__info {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        h2 {
+            margin: 0 .5rem;
+            font-size: 20px;
+            color: $white;
+        }
+    }
+
+    &__balance {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        input {
+            background: transparent;
+       
+            border: none;
+            width: 150px;
+            margin: 0;
+            
+            font-size: 1.125rem;
+            font-weight: bold;
+            color: $white;
+            transition: .4s;
+            @media (max-width: 992px) {
+                font-size: .875rem
+            }
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+
+    &:hover {
+        cursor: pointer;
+        background: rgba($color: #000000, $alpha: .4);
+
+       
+
+        .chevron {
+            opacity: 1;
+        }
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.chevron {
+    opacity: 0;
+    transition: .4s;
+}
