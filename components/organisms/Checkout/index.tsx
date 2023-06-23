@@ -91,7 +91,6 @@ export default function Checkout({ tokens, setStep, value, dollarCot }: Props) {
 
 
   const [show, setShow] = React.useState<boolean>(false)
-  c
   React.useEffect(() => {
     if (number > 0) {
       setShow(true)
