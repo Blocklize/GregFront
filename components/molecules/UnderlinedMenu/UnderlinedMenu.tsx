@@ -39,7 +39,7 @@ export default function UnderlinedMenu() {
                 key={el}
                 selected={selected === i}
                 onClick={() => { setSelected(i); }}
-                style={{ pointerEvents: selected ? 'none' : 'auto',  }}
+                style={{ pointerEvents: selected ? 'auto' : 'none',  }}
               />
             ))}
           </LayoutGroup>

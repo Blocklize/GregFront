@@ -33,6 +33,7 @@ type Props = {
   }
 
 const TokenInfo = ({ tokens, coins, setCoins, allTokens, setStep, value, setValue, dollarCot, setDollarCot }: Props) => {
+ 
   function handleCoins(data: any) {
     setCoins(data)
   }
@@ -107,6 +108,7 @@ const TokenInfo = ({ tokens, coins, setCoins, allTokens, setStep, value, setValu
         .then((resp) => resp.json())
         .then((data) => {
           setValue(data.data[0].items)
+          
           setLoading(false)
         })
 
@@ -115,7 +117,7 @@ const TokenInfo = ({ tokens, coins, setCoins, allTokens, setStep, value, setValu
         .then((resp) => resp.json())
         .then((data) => {
           setValue(data.data[0].items)
-
+          
         })
 
     }
@@ -170,13 +172,13 @@ const TokenInfo = ({ tokens, coins, setCoins, allTokens, setStep, value, setValu
                             {(value[1]?.price) * dollarCot > (value[2]?.price) * dollarCot ?
                               <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', gap: 7 }}>
                                 <p style={{ color: '#48cf69', marginBottom: 0 }}>
-                                  {(value[1]?.price * dollarCot).toString().slice(0,10)}
+                                  {(value[1]?.price * dollarCot + 0.20).toString().slice(0,10)}
                                 </p>
                                 <CaretUp size={20} color="#48cf69" weight="fill" />
                               </div> :
                               <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', gap: 7 }}>
                                 <p style={{ color: '#F04A4A', marginBottom: 0 }}>
-                                  {(value[1]?.price * dollarCot).toString().slice(0,10)}
+                                  {(value[1]?.price * dollarCot + 0.20).toString().slice(0,10)}
                                 </p>
                                 <CaretDown size={20} color="#F04A4A" weight="fill" />
                               </div>}

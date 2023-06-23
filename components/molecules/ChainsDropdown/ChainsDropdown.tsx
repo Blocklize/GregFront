@@ -36,7 +36,7 @@ export default function ChainsDropdown({ onClick }: any) {
             <button onClick={() => {
                   onClick('eth-mainnet', EvmChain.ETHEREUM)
                   // setChain('eth-mainnet')
-                   setText('Ethereum ')
+                   setText('Ether ')
                   // setEvm(EvmChain.ETHEREUM)
                 }}>
               <motion.div className={Styles.dropdown__item} animate={isOpen ? { opacity: 0, pointerEvents: 'none' } : { opacity: 1, pointerEvents: 'auto' }}>
@@ -47,7 +47,7 @@ export default function ChainsDropdown({ onClick }: any) {
               
                   <div style={{ marginRight: 'auto', marginLeft: 'auto' }}>
                   <p>
-                    Ethereum
+                    Ether
                   </p>
 
                   </div>

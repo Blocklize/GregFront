@@ -19,6 +19,7 @@ import Picture from '@/assets/img/avatar.png'
 import WalletIcon from '@/assets/img/wallet-outline.png'
 import UnderlinedMenu from '@/components/molecules/UnderlinedMenu/UnderlinedMenu'
 import ChainsDropdown from '@/components/molecules/ChainsDropdown/ChainsDropdown'
+import PaymentSection from '@/components/molecules/PaymentSection/PaymentSection'
 
 type TokensProps = {
   contract_address: string,
@@ -99,33 +100,35 @@ const ProfileHero = () => {
   const [tokens, setTokens] = React.useState<TokensProps>([]);
   const [loading, setLoading] = React.useState(false);
   const [nfts, setNfts] = React.useState<EvmNft[]>();
-  const [coins, setCoins] = React.useState(tokens)
+  const [coins, setCoins] = React.useState()
+  
   const address = info?.walletAddress
-
   React.useEffect(() => {
-
+    
     async function getWalletBalance() {
       if (address) {
         const url = `https://api.covalenthq.com/v1/${chain}/address/${await info?.walletAddress}/balances_v2/?&key=cqt_rQDFycmjQqmCmxHw46TqrcHW4rBQ`
         setLoading(true)
         fetch(url)
-          .then((res) => res.json())
-          .then((json) => {
-            setTokens(json.data?.items)
-          })
-          .catch((error) => {
-            throw error
+        .then((res) => res.json())
+        .then((json) => {
+          setTokens(json.data?.items)
+          setCoins(json.data?.items[0])
+        })
+        .catch((error) => {
+          throw error
           })
           .finally(() => {
             setTimeout(() => {
               setLoading(false)
             }, 3000);
           })
+        }
       }
-    }
-    getWalletBalance()
+      getWalletBalance()
+      
+    }, [chain]);
 
-  }, [chain]);
   const allTokens = [DAI, CRV, AAVE, COMP, AVAX, ...tokens]
   const [props, setProps] = React.useState(tokens)
   const [value, setValue] = React.useState(props)
@@ -135,14 +138,14 @@ const ProfileHero = () => {
     async function runApp() {
       const address = await info?.walletAddress
       const chain = evm
-      console.log(evm)
+      
       if (address) {
         const responseNFT = await Moralis.EvmApi.nft.getWalletNFTs({
           address: address,
           chain: chain,
         });
         setNfts(responseNFT.result)
-        console.log(responseNFT.result)
+  
       }
     };
     runApp()
@@ -242,7 +245,7 @@ const ProfileHero = () => {
               <div className={Styles.wallet}>
                 
                 <div className={Styles.wallet__header}>
-                  
+                <ChainsDropdown onClick={toggleChain} />
                   <div className={Styles.wallet__dropdown}>
 
                     <div>
@@ -263,10 +266,18 @@ const ProfileHero = () => {
                         text='Clique para voltar a seção de compra'
                         className={Styles.alternative2}
                       />}
+                      {step == 4 && <Button
+                        hidden={false}
+                        id='backToTokens'
+                        label='Clique para voltar a seção de compra'
+                        onClick={() => { setStep(2) }}
+                        text='Clique para voltar a seção de compra'
+                        className={Styles.alternative2}
+                      />}
 
 
+                
                     </div>
-                  <ChainsDropdown onClick={toggleChain} />
                   </div>
                   <div className={Styles.balance}>
                     <h1 className={Styles.balance__value}>
@@ -291,7 +302,7 @@ const ProfileHero = () => {
                         {step == 0 && <TokenList tokens={tokens as TokensProps} props={props} coins={coins} setCoins={setCoins} setProps={setProps} setStep={setStep}  />}
                         {step == 1 && <TokenInfo tokens={props} setCoins={setCoins} coins={coins} allTokens={allTokens} setStep={setStep} value={value} setValue={setValue} dollarCot={dollarCot} setDollarCot={setDollarCot} />}
                         {step == 2 && <Checkout tokens={coins} value={value} dollarCot={dollarCot as number} setStep={setStep} />}
-
+                        {step == 4 && <PaymentSection />}
                       </div> : 
                       <NFTList result={nfts as EvmNft[]} />}
                   </div>

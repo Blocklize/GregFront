@@ -85,21 +85,14 @@ export default function Checkout({ tokens, setStep, value, dollarCot }: Props) {
   })
   const [valor, setValor] = React.useState<number>()
 
-  const tokenValue = dollarCot * value[1].price
-  const tax4 = number * 0.04
-  const tax3 = number * 0.03
-  const receivedValue = number / tokenValue
+  const tokenValue = dollarCot * value[1].price + 0.20
+  const tax = (number * Number(`0.0${percentage}`) + 0.25)
+  const receivedValue = (number - 0.25)  / tokenValue - (((number - 0.25) / tokenValue * Number(`0.0${percentage}`)))
 
 
   const [show, setShow] = React.useState<boolean>(false)
-
+  c
   React.useEffect(() => {
-    if (number == null || undefined || NaN) {
-      setValor(0)
-    }
-    if (number == 0) {
-      setValor(0)
-    }
     if (number > 0) {
       setShow(true)
     } else if (number <= 0) {
@@ -107,15 +100,15 @@ export default function Checkout({ tokens, setStep, value, dollarCot }: Props) {
     }
     if (number < 400) {
       setPercentage(4)
-      setValor(Number(number) + Number(tax4) + 0.25)
+    
     }
     if (number > 399) {
       setPercentage(3)
-      setValor(Number(number) + Number(tax3) + 0.25)
+
 
     }
   })
-
+  
 
   return (
 
@@ -140,13 +133,13 @@ export default function Checkout({ tokens, setStep, value, dollarCot }: Props) {
                     {(value[1]?.price) * dollarCot > (value[2]?.price) * dollarCot ?
                       <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', gap: 7 }}>
                         <p style={{ color: '#48cf69', marginBottom: 0 }}>
-                          {(value[1]?.price * dollarCot).toString().slice(0,10)}
+                        {tokenValue.toFixed(5)}
                         </p>
                         <CaretUp size={20} color="#48cf69" weight="fill" />
                       </div> :
                       <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', gap: 7 }}>
                         <p style={{ color: '#F04A4A', marginBottom: 0 }}>
-                          {(value[1]?.price * dollarCot).toString().slice(0,10)}
+                          {tokenValue.toFixed(5)}
                         </p>
                         <CaretDown size={20} color="#F04A4A" weight="fill" />
                       </div>}
@@ -213,7 +206,7 @@ export default function Checkout({ tokens, setStep, value, dollarCot }: Props) {
                       text="CONTINUAR"
                       className={`${Styles.customCTA} me-3`}
                       onClick={() => {
-                        setPayment(true)
+                        setStep(4)
                       }}
                     />
                     <Button
@@ -247,13 +240,13 @@ export default function Checkout({ tokens, setStep, value, dollarCot }: Props) {
                   {value[1]?.price * dollarCot > value[2]?.price * dollarCot ?
                     <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', gap: 7 }}>
                       <p style={{ color: '#48cf69', marginBottom: 0 }}>
-                        {(value[1]?.price * dollarCot).toString().slice(0,10)}
+                        {(value[1]?.price * dollarCot + 0.20).toString().slice(0,10)}
                       </p>
                       <CaretUp size={20} color="#48cf69" weight="fill" />
                     </div> :
                     <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', gap: 7 }}>
                       <p style={{ color: '#F04A4A', marginBottom: 0 }}>
-                        {(value[1]?.price * dollarCot).toString().slice(0,10)}
+                        {(value[1]?.price * dollarCot + 0.20).toString().slice(0,10)}
                       </p>
                       <CaretDown size={20} color="#F04A4A" weight="fill" />
                     </div>}
@@ -276,6 +269,7 @@ export default function Checkout({ tokens, setStep, value, dollarCot }: Props) {
                   <span>BRL</span>
                   <input
                     id='brl'
+                    autoComplete='off'
                     type="number"
                     max={500}
                     onChange={handleChange}
@@ -288,7 +282,7 @@ export default function Checkout({ tokens, setStep, value, dollarCot }: Props) {
                 </label>
                 <div className={Styles.inputGroup__input}>
                   <span>{tokens.contract_ticker_symbol}</span>
-                  <p>{receivedValue}</p>
+                  <p>{receivedValue <= 0 ? 0 : receivedValue}</p>
                 </div>
               </div>
               <div className={`${Styles.inputGroup} mt-4`}>
@@ -299,21 +293,19 @@ export default function Checkout({ tokens, setStep, value, dollarCot }: Props) {
                   <div className={Styles.inputGroup__item}>
                     <span>Taxa de processamento</span>
                     <p style={{ color: 'whitesmoke', marginBottom: 0 }}>
-                      {percentage}%
+                      {number > 0 ? (((number) * Number(`0.0${percentage}`))).toFixed(2) : 0} BRL
                     </p>
                   </div>
                   <div className={Styles.inputGroup__item}>
                     <span>Taxa de gás da rede</span>
-                    <input
-                      type="text"
-                      defaultValue={0.25}
-                      readOnly
-                    />
+                    <p>
+                      0.25 BRL 
+                    </p>
                   </div>
                   <div className={Styles.inputGroup__item}>
                     <span>Total:</span>
                     <p style={{ color: 'whitesmoke', marginBottom: 0 }}>
-                      {show ? <p>R${valor}</p> : <p>R$0,00</p>}
+                      {number > 0 ? (number * Number(`0.0${percentage}`) + 0.25).toFixed(2) : 0} BRL
 
                     </p>
                   </div>

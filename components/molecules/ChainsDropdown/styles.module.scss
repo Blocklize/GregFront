@@ -29,11 +29,14 @@
  
   text-align: center;
   @media (max-width: 992px) {
-    width: 115px;
+    width: 105px;
     margin-left: 200px;
     border-radius: 12px;
   }
   &__chain {
+    @media (max-width: 992px) {
+      font-size: 0.8rem;
+    }
     font-size: 1rem;
     
   
