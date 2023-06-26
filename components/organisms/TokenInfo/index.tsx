@@ -30,9 +30,13 @@ type Props = {
   dollarCot: any
   setCoins: any
   coins: any
+  buy: any
+  setBuy: any
+  sell: any
+  setSell: any
   }
 
-const TokenInfo = ({ tokens, coins, setCoins, allTokens, setStep, value, setValue, dollarCot, setDollarCot }: Props) => {
+const TokenInfo = ({ tokens, coins, setCoins, allTokens, setStep, value, setValue, dollarCot, setDollarCot, buy, setBuy, sell, setSell }: Props) => {
  
   function handleCoins(data: any) {
     setCoins(data)
@@ -50,7 +54,7 @@ const TokenInfo = ({ tokens, coins, setCoins, allTokens, setStep, value, setValu
   const TICKET = "USD";
   const EthAddress = "0x2170Ed0880ac9A755fd29B2688956BD959F933F8"
   const ADDRESS = tokenAddress(coins?.contract_ticker_symbol)
-  const [buy, setBuy] = React.useState(false)
+  
 
   const url = "https://api.covalenthq.com/v1/pricing/historical_by_addresses_v2/" + EthMainnet + "/" + TICKET + "/" + ADDRESS + "/?from=" + todayDate + "&to=" + anotherDayDate + "&key=" + API_KEY;
   const urlBsc = "https://api.covalenthq.com/v1/pricing/historical_by_addresses_v2/" + BscMainnet + "/" + TICKET + "/" + EthAddress + "/?from=" + todayDate + "&to=" + anotherDayDate + "&key=" + API_KEY;
@@ -214,9 +218,11 @@ const TokenInfo = ({ tokens, coins, setCoins, allTokens, setStep, value, setValu
                           label='Call to Action'
                           hidden={false}
                           text="Vender"
-                          disabled
                           className={`${Styles.customCTA} ${Styles.secondCTA}`}
-                          onClick={() => { }}
+                          onClick={() => {
+                            setStep(2)
+                            setSell(true)
+                           }}
                         />
                         <Button
                           id='cta-transferir'

@@ -5,6 +5,7 @@
   align-items: flex-end;
   justify-content: space-between;
   gap: 10px;
+  padding-top: 5px;
 
   p {
     padding-top: 0;
@@ -15,11 +16,11 @@
 }
 
 .dropdown {
-
+ 
   background-color: #111a22;
-  border-radius: 15px;
+ 
   height: 200px;
-  width: 200px;
+  width: 100px;
   position: absolute;
   z-index: 1000;
   margin-left: 350px;
@@ -37,8 +38,9 @@
     @media (max-width: 992px) {
       font-size: 0.8rem;
     }
-    font-size: 1rem;
-    
+    font-size: .75rem;
+    align-items: center;
+    justify-content: center;
   
   }
   &__item {
@@ -48,7 +50,7 @@
     align-items: center;
     
     p {
-      font-size: 10px;
+      font-size: .375rem;
     }
   }
 
@@ -93,7 +95,7 @@
             align-self: center;
             padding-top: 0;
             color: white;
-            font-size: .875rem;
+            font-size: .75rem;
             height: 100%;
             @media (max-width: 992px) {
               font-size: .6875rem;

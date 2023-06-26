@@ -99,12 +99,9 @@ export default function Checkout({ tokens, setStep, value, dollarCot }: Props) {
     }
     if (number < 400) {
       setPercentage(4)
-    
     }
     if (number > 399) {
       setPercentage(3)
-
-
     }
   })
   
