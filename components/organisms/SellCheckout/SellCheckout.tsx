@@ -53,13 +53,12 @@ export default function SellCheckout({ tokens, value, dollarCot, setStep, setSel
     const [number, setNumber] = React.useState(0)
     const [percentage, setPercentage] = React.useState(0)
     const tokenValue = dollarCot * value[1].price + 0.20
-    console.log(tokenValue)
-    console.log((tokenValue * Number(`0.0${percentage}`)))
+  
     const receivedValue = (number - 0.25) *  tokenValue - (tokenValue * Number(`0.0${percentage}`))
     const handleChange3 = (event: any) => {
 
         setNumber(event.target.value)
-        console.log(event.target.value)
+      
     };
     const formatarCPF = (valor: any) => {
         // Remove todos os caracteres não numéricos
