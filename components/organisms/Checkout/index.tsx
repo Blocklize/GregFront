@@ -83,10 +83,8 @@ export default function Checkout({ tokens, setStep, value, dollarCot }: Props) {
       setPercentage(3)
     }
   })
-  const [valor, setValor] = React.useState<number>()
 
   const tokenValue = dollarCot * value[1].price + 0.20
-  const tax = (number * Number(`0.0${percentage}`) + 0.25)
   const receivedValue = (number - 0.25)  / tokenValue - (((number - 0.25) / tokenValue * Number(`0.0${percentage}`)))
 
 

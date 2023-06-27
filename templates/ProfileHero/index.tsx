@@ -222,9 +222,9 @@ const ProfileHero = () => {
                   id='cta'
                   label='Vender'
                   text='Vender'
-                  disabled
+               
                   hidden={false}
-                  onClick={() => { console.log("Click") }}
+                  onClick={() => { setStep(2); setSell(true) }}
                   className={`${Styles.profileAlternative} fw-bold w-100 mb-2`}
                 />
                 <Button
@@ -240,12 +240,12 @@ const ProfileHero = () => {
             </div>
 
             <div className="col-lg-8">
-              {screen.width < 992 && <div onClick={(() => {
+              {screen.width < 992 && <motion.div style={step >= 2 ? { opacity: 0 } : { opacity: 1 }} animate onClick={(() => {
                 setWord(word == true ? !word : word);
               })}>
 
                 <UnderlinedMenu selected={selected} setSelected={setSelected} />
-              </div>}
+              </motion.div>}
               <div className={Styles.wallet}>
 
                 <div className={Styles.wallet__header}>
