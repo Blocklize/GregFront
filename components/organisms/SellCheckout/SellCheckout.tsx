@@ -66,7 +66,7 @@ export default function SellCheckout({ tokens, value, dollarCot, setStep, setSel
     return (
         <div>
             <div className={Styles.checkout__container}>
-                <div style={{ width: '45%' }}>
+                <div className={Styles.checkout__tokenContainer}>
 
                     <div className={Styles.checkout__tokenInfo}>
                         <Image
@@ -102,7 +102,7 @@ export default function SellCheckout({ tokens, value, dollarCot, setStep, setSel
                     </div>
                 </div>
 
-                <div style={{ width: '55%', display: 'flex', flexDirection: 'column' }}>
+                <div className={Styles.formContainer}>
                     <form className={Styles.checkout__form}>
                         <h1>VENDER TOKEN</h1>
                         <div className={Styles.inputGroup}>
@@ -173,8 +173,8 @@ export default function SellCheckout({ tokens, value, dollarCot, setStep, setSel
                     </form>
 
                 </div>
-            
-             
+
+
             </div>
         </div>
     )
