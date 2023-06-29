@@ -34,9 +34,10 @@ type Props = {
   setBuy: any
   sell: any
   setSell: any
+  setTransfer: any
   }
 
-const TokenInfo = ({ tokens, coins, setCoins, allTokens, setStep, value, setValue, dollarCot, setDollarCot, buy, setBuy, sell, setSell }: Props) => {
+const TokenInfo = ({ tokens, coins, setCoins, allTokens, setStep, value, setValue, dollarCot, setDollarCot, buy, setBuy, sell, setSell, setTransfer }: Props) => {
  
   function handleCoins(data: any) {
     setCoins(data)
@@ -229,9 +230,9 @@ const TokenInfo = ({ tokens, coins, setCoins, allTokens, setStep, value, setValu
                           label='Call to Action'
                           hidden={false}
                           text="Transferir"
-                          disabled
+                          
                           className={`${Styles.customCTA} ${Styles.secondCTA}`}
-                          onClick={() => { }}
+                          onClick={() => { setStep(2); setTransfer(true); }}
                         />
                       <CoinsDropdown tokens={allTokens} token={coins} onClick={handleCoins} />
                         

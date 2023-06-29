@@ -1,0 +1,122 @@
+@import '@/styles/variables.scss';
+
+.checkout {
+    display: flex;
+    flex-direction: column;
+    /* Change the white to any color */
+    // input:-webkit-autofill,
+    // input:-webkit-autofill:hover, 
+    // input:-webkit-autofill:focus, 
+    // input:-webkit-autofill:active{
+    //     -webkit-box-shadow: 0 0 0 30px white inset !important;
+    // }
+    input:-webkit-autofill {
+        $background-color: #eb4646; // Cor de fundo
+        $text-color: #000000; // Cor do texto
+
+        background-color: $background-color;
+        color: $text-color;
+    }
+    &__container {
+        display: flex;
+        flex-direction: row;
+        @media (max-width: 992px) {
+            flex-direction: column;
+        }
+
+    }
+    &__tokenInfo {
+        background: rgba($color: $black, $alpha: .4);
+        padding: 32px;
+        border-radius: 8px;
+        text-align: center;
+        @media (max-width: 992px) {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+
+        h1 {
+            color: $white;
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 24px;
+            margin-bottom: 0;
+        }
+
+        p {
+            font-size: 20px;
+            color: $clay-gray;
+        }
+    }
+
+    &__form {
+        
+        @media (max-width: 992px) {
+            padding-top: 20px;
+        }
+
+        h1 {
+            color: $white;
+            font-weight: 700;
+            font-size: 2.125rem;
+            @media (max-width: 992px) {
+                font-size: 1.8rem;
+            }
+        }
+    }
+}
+
+.tokenData {
+    width: 100%;
+    
+    background: $darker;
+    padding: .7rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 8px;
+    margin-bottom: 6px;
+
+    &__code {
+        color: $clay-gray;
+        font-size: 1rem;
+        width: 100%;
+        background: $darker;
+        padding: .7rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: 8px;
+        margin-bottom: 6px;
+        span {
+            font-size: .75rem;
+            @media (max-width: 992px) {
+                font-size: 1rem;
+            }
+        }
+        strong {
+            font-size: 12px;
+            color: $white;
+        }
+    }
+
+    span {
+        color: $clay-gray;
+
+        font-size: 14px;
+
+    }
+
+    strong {
+        color: $white;
+        font-size: 12px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+}

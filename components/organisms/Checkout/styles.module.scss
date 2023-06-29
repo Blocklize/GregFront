@@ -53,7 +53,7 @@
     }
 
     &__form {
-        
+        width: 100%;
         @media (max-width: 992px) {
             padding-top: 20px;
         }
@@ -61,10 +61,24 @@
         h1 {
             color: $white;
             font-weight: 700;
+            font-size: 2.125rem;
+            @media (max-width: 992px) {
+                font-size: 1.8rem;
+            }
         }
     }
 }
 
+.formContainer {
+    width: 100%;
+}
+
+.tokenContainer {
+    width: 45%;
+    @media (max-width:992px) {
+        width: 100%;
+    }
+}
 .tokenData {
     width: 100%;
     background: $darker;
@@ -151,7 +165,10 @@
         span {
             color: $clay-gray;
             flex: 1;
-            font-size: 18px;
+            font-size: 1.125rem;
+            @media (max-width: 992px) {
+                font-size: .875rem;
+            }
 
         }
 
