@@ -19,6 +19,8 @@ import Picture from '@/assets/img/avatar.png'
 import WalletIcon from '@/assets/img/wallet-outline.png'
 import UnderlinedMenu from '@/components/molecules/UnderlinedMenu/UnderlinedMenu'
 import ChainsDropdown from '@/components/molecules/ChainsDropdown/ChainsDropdown'
+import PaymentSection from '@/components/molecules/PaymentSection/PaymentSection'
+import SellCheckout from '@/components/organisms/SellCheckout/SellCheckout'
 
 type TokensProps = {
   contract_address: string,
@@ -99,7 +101,10 @@ const ProfileHero = () => {
   const [tokens, setTokens] = React.useState<TokensProps>([]);
   const [loading, setLoading] = React.useState(false);
   const [nfts, setNfts] = React.useState<EvmNft[]>();
-  const [coins, setCoins] = React.useState(tokens)
+  const [coins, setCoins] = React.useState()
+  const [selected, setSelected] = React.useState('TOKENS');
+  const [buy, setBuy] = React.useState<boolean>()
+  const [sell, setSell] = React.useState<boolean>()
   const address = info?.walletAddress
 
   React.useEffect(() => {
@@ -112,6 +117,7 @@ const ProfileHero = () => {
           .then((res) => res.json())
           .then((json) => {
             setTokens(json.data?.items)
+            setCoins(json.data?.items[0])
           })
           .catch((error) => {
             throw error
@@ -126,6 +132,7 @@ const ProfileHero = () => {
     getWalletBalance()
 
   }, [chain]);
+
   const allTokens = [DAI, CRV, AAVE, COMP, AVAX, ...tokens]
   const [props, setProps] = React.useState(tokens)
   const [value, setValue] = React.useState(props)
@@ -135,14 +142,14 @@ const ProfileHero = () => {
     async function runApp() {
       const address = await info?.walletAddress
       const chain = evm
-      console.log(evm)
+
       if (address) {
         const responseNFT = await Moralis.EvmApi.nft.getWalletNFTs({
           address: address,
           chain: chain,
         });
         setNfts(responseNFT.result)
-        console.log(responseNFT.result)
+
       }
     };
     runApp()
@@ -159,26 +166,26 @@ const ProfileHero = () => {
     setChain(chain)
     setEvm(evm)
   }
- 
+
   React.useEffect(() => {
     if (!logged) {
       router.push('/login')
     }
   }, [])
   React.useEffect(() => {
-  
+
   }, [props])
 
   if (logged) {
     return (
       <div className={Styles.profileHero}>
-        {screen.width > 992 &&   <div onClick={(() => {
-          setWord(!word);
+        {screen.width > 992 && <div onClick={(() => {
+          setWord(word == true ? !word : word);
         })}>
 
-          <UnderlinedMenu />
+          <UnderlinedMenu selected={selected} setSelected={setSelected} />
         </div>}
-      
+
         <div className="container">
           <div className="row d-flex justify-content-center">
             <div className="col-lg-3">
@@ -215,9 +222,9 @@ const ProfileHero = () => {
                   id='cta'
                   label='Vender'
                   text='Vender'
-                  disabled
+               
                   hidden={false}
-                  onClick={() => { console.log("Click") }}
+                  onClick={() => { setStep(2); setSell(true) }}
                   className={`${Styles.profileAlternative} fw-bold w-100 mb-2`}
                 />
                 <Button
@@ -231,19 +238,19 @@ const ProfileHero = () => {
                 />
               </div>
             </div>
-           
+
             <div className="col-lg-8">
-            {screen.width < 992 &&   <div onClick={(() => {
-                setWord(!word);
+              {screen.width < 992 && <motion.div style={step >= 2 ? { opacity: 0 } : { opacity: 1 }} animate onClick={(() => {
+                setWord(word == true ? !word : word);
               })}>
-      
-                <UnderlinedMenu />
-              </div>}
+
+                <UnderlinedMenu selected={selected} setSelected={setSelected} />
+              </motion.div>}
               <div className={Styles.wallet}>
-                
+
                 <div className={Styles.wallet__header}>
-                  
                   <div className={Styles.wallet__dropdown}>
+                    <ChainsDropdown onClick={toggleChain} />
 
                     <div>
                       {step == 0 && <Search />}
@@ -259,14 +266,22 @@ const ProfileHero = () => {
                         hidden={false}
                         id='backToTokens'
                         label='Clique para voltar a seção de compra'
-                        onClick={() => { setStep(1) }}
+                        onClick={() => { setStep(1); setBuy(false); setSell(false); }}
+                        text='Clique para voltar a seção de compra'
+                        className={Styles.alternative2}
+                      />}
+                      {step == 4 && <Button
+                        hidden={false}
+                        id='backToTokens'
+                        label='Clique para voltar a seção de compra'
+                        onClick={() => { setStep(2) }}
                         text='Clique para voltar a seção de compra'
                         className={Styles.alternative2}
                       />}
 
 
+
                     </div>
-                  <ChainsDropdown onClick={toggleChain} />
                   </div>
                   <div className={Styles.balance}>
                     <h1 className={Styles.balance__value}>
@@ -282,17 +297,18 @@ const ProfileHero = () => {
                   </div>
                 </div>
                 <div className={Styles.wallet__body}>
-                    
-                  <div className={Styles.wallet__body} style={ step == 0 ? { overflowY: 'hidden' } : { overflowY: 'scroll' }}>
 
-                     {!word ?
+                  <div className={Styles.wallet__body} style={step == 0 ? { overflowY: 'hidden' } : { overflowY: 'scroll' }}>
+
+                    {selected == 'TOKENS' ?
                       <div>
 
-                        {step == 0 && <TokenList tokens={tokens as TokensProps} props={props} coins={coins} setCoins={setCoins} setProps={setProps} setStep={setStep}  />}
-                        {step == 1 && <TokenInfo tokens={props} setCoins={setCoins} coins={coins} allTokens={allTokens} setStep={setStep} value={value} setValue={setValue} dollarCot={dollarCot} setDollarCot={setDollarCot} />}
-                        {step == 2 && <Checkout tokens={coins} value={value} dollarCot={dollarCot as number} setStep={setStep} />}
-
-                      </div> : 
+                        {step == 0 && <TokenList tokens={tokens as TokensProps} props={props} coins={coins} setCoins={setCoins} setProps={setProps} setStep={setStep} />}
+                        {step == 1 && <TokenInfo tokens={props} setCoins={setCoins} coins={coins} allTokens={allTokens} setStep={setStep} value={value} setValue={setValue} dollarCot={dollarCot} setDollarCot={setDollarCot} buy={buy} setBuy={setBuy} sell={sell} setSell={setSell} />}
+                        {buy && <Checkout tokens={coins} value={value} dollarCot={dollarCot as number} setStep={setStep} />}
+                        {sell && <SellCheckout tokens={coins} value={value} dollarCot={dollarCot as number} setStep={setStep} setSell={setSell} />}
+                        {step == 4 && <PaymentSection />}
+                      </div> :
                       <NFTList result={nfts as EvmNft[]} />}
                   </div>
 

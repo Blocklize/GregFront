@@ -67,11 +67,11 @@ export default function CoinsDropdown({ tokens, token, onClick }: any) {
                   <button onClick={() => {
                     onClick(token)
                     // setChain('eth-mainnet')
-                     setText(token.contract_name)
+                     setText(token.contract_name == 'Ether' ? 'Ethereum Token' : token.contract_name)
                     // setEvm(EvmChain.ETHEREUM)
                   }}>
                     <p>
-                      {token.contract_name}
+                      {token.contract_name == 'Ether' ? 'Ethereum Token' : token.contract_name}
                     </p>
                   </button>
 

@@ -16,7 +16,9 @@
         color: white;
         margin-bottom: 0;
     }
-    
+    &__word {
+
+    }
     &__wrapper {
       display: flex;
       justify-content: space-evenly;
@@ -30,15 +32,16 @@
       margin: 0 1.5rem;
       font-size: 20px;
       font-weight: 700;
-      cursor: pointer;
       position: relative;
+      display: flex;
+      gap: 30px;
       &:first-child {
         margin-left: 3rem;
       }
     }
     &__underline {
-      position: absolute;
-      top: 100%;
+      position: relative;
+     
       left: 0;
       width: 100%;
       height: 4px;
@@ -47,3 +50,4 @@
       opacity: 0.85;
     }
   }
+  

@@ -2,14 +2,22 @@
 
 .partnersCarousel {
     padding: 50px 0 150px;
+    
     &__content {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-wrap: wrap;
+        
+        @media (max-width: 992px) {
+            padding-bottom: 35px;
+        }
+        
     }
 
-    &__title,
+    &__title {
+        font-size: 3rem !important;
+        @media (max-width: 992px) {
+            font-size: 1.5rem !important;
+        }
+        text-align: center;
+    }
     &__desc {
         width: 100% !important;
         text-align: center;

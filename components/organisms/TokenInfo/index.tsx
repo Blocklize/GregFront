@@ -30,9 +30,14 @@ type Props = {
   dollarCot: any
   setCoins: any
   coins: any
+  buy: any
+  setBuy: any
+  sell: any
+  setSell: any
   }
 
-const TokenInfo = ({ tokens, coins, setCoins, allTokens, setStep, value, setValue, dollarCot, setDollarCot }: Props) => {
+const TokenInfo = ({ tokens, coins, setCoins, allTokens, setStep, value, setValue, dollarCot, setDollarCot, buy, setBuy, sell, setSell }: Props) => {
+ 
   function handleCoins(data: any) {
     setCoins(data)
   }
@@ -49,7 +54,7 @@ const TokenInfo = ({ tokens, coins, setCoins, allTokens, setStep, value, setValu
   const TICKET = "USD";
   const EthAddress = "0x2170Ed0880ac9A755fd29B2688956BD959F933F8"
   const ADDRESS = tokenAddress(coins?.contract_ticker_symbol)
-  const [buy, setBuy] = React.useState(false)
+  
 
   const url = "https://api.covalenthq.com/v1/pricing/historical_by_addresses_v2/" + EthMainnet + "/" + TICKET + "/" + ADDRESS + "/?from=" + todayDate + "&to=" + anotherDayDate + "&key=" + API_KEY;
   const urlBsc = "https://api.covalenthq.com/v1/pricing/historical_by_addresses_v2/" + BscMainnet + "/" + TICKET + "/" + EthAddress + "/?from=" + todayDate + "&to=" + anotherDayDate + "&key=" + API_KEY;
@@ -107,6 +112,7 @@ const TokenInfo = ({ tokens, coins, setCoins, allTokens, setStep, value, setValu
         .then((resp) => resp.json())
         .then((data) => {
           setValue(data.data[0].items)
+          
           setLoading(false)
         })
 
@@ -115,7 +121,7 @@ const TokenInfo = ({ tokens, coins, setCoins, allTokens, setStep, value, setValu
         .then((resp) => resp.json())
         .then((data) => {
           setValue(data.data[0].items)
-
+          
         })
 
     }
@@ -170,13 +176,13 @@ const TokenInfo = ({ tokens, coins, setCoins, allTokens, setStep, value, setValu
                             {(value[1]?.price) * dollarCot > (value[2]?.price) * dollarCot ?
                               <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', gap: 7 }}>
                                 <p style={{ color: '#48cf69', marginBottom: 0 }}>
-                                  {(value[1]?.price * dollarCot).toString().slice(0,10)}
+                                  {(value[1]?.price * dollarCot + 0.20).toString().slice(0,10)}
                                 </p>
                                 <CaretUp size={20} color="#48cf69" weight="fill" />
                               </div> :
                               <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', gap: 7 }}>
                                 <p style={{ color: '#F04A4A', marginBottom: 0 }}>
-                                  {(value[1]?.price * dollarCot).toString().slice(0,10)}
+                                  {(value[1]?.price * dollarCot + 0.20).toString().slice(0,10)}
                                 </p>
                                 <CaretDown size={20} color="#F04A4A" weight="fill" />
                               </div>}
@@ -212,9 +218,11 @@ const TokenInfo = ({ tokens, coins, setCoins, allTokens, setStep, value, setValu
                           label='Call to Action'
                           hidden={false}
                           text="Vender"
-                          disabled
                           className={`${Styles.customCTA} ${Styles.secondCTA}`}
-                          onClick={() => { }}
+                          onClick={() => {
+                            setStep(2)
+                            setSell(true)
+                           }}
                         />
                         <Button
                           id='cta-transferir'

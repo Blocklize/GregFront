@@ -17,7 +17,7 @@ export default function ChainsDropdown({ onClick }: any) {
     return (
         <motion.div
         onClick={() => setIsOpen(!isOpen)}
-        animate={isOpen ? { height: 50 } : { height: 207 }}
+        animate={isOpen ? { height: 50, borderRadius: 50 } : { height: 207, borderRadius: 20 } }
         className={Styles.dropdown}
 
       >
@@ -26,7 +26,7 @@ export default function ChainsDropdown({ onClick }: any) {
           <p className={Styles.dropdown__chain}>
             {text}
           </p>
-          {isOpen ? <Image src={DownArrow} width={18} height={18} alt="Arrow up icon" /> : <Image src={UpArrow} width={25} height={25} alt="Arrow down icon" />}
+          {isOpen ? <Image src={DownArrow} width={14} height={14} alt="Arrow up icon" /> : <Image src={UpArrow} width={21} height={21} alt="Arrow down icon" />}
 
         </div>
         <motion.div className={Styles.dropdown__items} animate={isOpen ? { opacity: 0, pointerEvents: 'none' } : { opacity: 1, pointerEvents: 'auto' }}>
@@ -36,18 +36,18 @@ export default function ChainsDropdown({ onClick }: any) {
             <button onClick={() => {
                   onClick('eth-mainnet', EvmChain.ETHEREUM)
                   // setChain('eth-mainnet')
-                   setText('Ethereum ')
+                   setText('Ether ')
                   // setEvm(EvmChain.ETHEREUM)
                 }}>
               <motion.div className={Styles.dropdown__item} animate={isOpen ? { opacity: 0, pointerEvents: 'none' } : { opacity: 1, pointerEvents: 'auto' }}>
                 <div>
 
-                <Image src={ETHIcon} width={30} height={30} alt="ETH Icon" />
+                <Image src={ETHIcon} width={20} height={20} alt="ETH Icon" />
                 </div>
               
                   <div style={{ marginRight: 'auto', marginLeft: 'auto' }}>
                   <p>
-                    Ethereum
+                    Ether
                   </p>
 
                   </div>
@@ -66,7 +66,7 @@ export default function ChainsDropdown({ onClick }: any) {
               <motion.div className={Styles.dropdown__item} animate={isOpen ? { opacity: 0, pointerEvents: 'none' } : { opacity: 1, pointerEvents: 'auto' }}>
                 <div>
 
-                <Image src={MaticIcon} width={30} height={30} alt="ETH Icon" />
+                <Image src={MaticIcon} width={20} height={20} alt="Polygon Icon" />
                 </div>
               
                   <div style={{ marginRight: 'auto', marginLeft: 'auto' }}>
@@ -90,7 +90,7 @@ export default function ChainsDropdown({ onClick }: any) {
               <motion.div className={Styles.dropdown__item} animate={isOpen ? { opacity: 0, pointerEvents: 'none' } : { opacity: 1, pointerEvents: 'auto' }}>
                 <div>
 
-                <Image src={BNBIcon} width={30} height={30} alt="ETH Icon" />
+                <Image src={BNBIcon} width={20} height={20} alt="BNB Icon" />
                 </div>
               
                   <div style={{ marginRight: 'auto', marginLeft: 'auto' }}>

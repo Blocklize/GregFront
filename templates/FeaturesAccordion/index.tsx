@@ -30,10 +30,13 @@ const FeaturesAccordion = () => {
     CustomizeImage
   ]
 
+
+
+
   const [option, setOption] = React.useState(0)
 
   const router = useRouter();
-
+ 
   const { locale } = router;
 
   const t = locale === 'en' ? en : pt
@@ -41,12 +44,12 @@ const FeaturesAccordion = () => {
   return (
     <section className={Styles.featuresAccordion}>
       <div className="container">
-        <div className={Styles.featuresAccordion__content}>
           <Title
             id='featuresAccordion-title'
             className={Styles.featuresAccordion__title}
             text={t.resourcesGreg}
           />
+        <div className={Styles.featuresAccordion__content}>
           <Paragraph
             id='featuresAccordion-desc'
             className={Styles.featuresAccordion__desc}
@@ -60,13 +63,16 @@ const FeaturesAccordion = () => {
           <div className="col-lg-10">
             <div className={`${Styles.accordion} row`}>
               <div className="col-lg-6 d-flex justify-content-center">
-                <Image
-                  src={images[option]}
-                  width={485}
-                  height={undefined}
-                  alt="Picture"
-                  className={Styles.accordion__image}
-                />
+              
+               <Image
+                    src={images[option]}
+                    width={485}
+                    height={undefined}
+                    alt="Picture"
+                    className={Styles.accordion__image}
+                  /> 
+                
+               
               </div>
               <div className="col-lg-6">
                 <div

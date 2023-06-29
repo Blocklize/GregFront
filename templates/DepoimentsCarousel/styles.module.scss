@@ -2,13 +2,16 @@
 
 .depoimentsCarousel {
     &__content {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        flex-wrap: wrap;
+        text-align: center;
     }
 
-    &__title,
+    &__title {
+        font-size: 3rem !important;
+        text-align: center;
+        @media (max-width: 992px) {
+            font-size: 2rem !important
+        }
+    }
     &__desc {
         width: 100% !important;
         text-align: start;
