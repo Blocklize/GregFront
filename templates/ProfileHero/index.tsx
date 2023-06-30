@@ -21,6 +21,7 @@ import UnderlinedMenu from '@/components/molecules/UnderlinedMenu/UnderlinedMenu
 import ChainsDropdown from '@/components/molecules/ChainsDropdown/ChainsDropdown'
 import PaymentSection from '@/components/molecules/PaymentSection/PaymentSection'
 import SellCheckout from '@/components/organisms/SellCheckout/SellCheckout'
+import TransferToken from '@/components/molecules/TransferToken/TransferToken'
 
 type TokensProps = {
   contract_address: string,
@@ -105,8 +106,8 @@ const ProfileHero = () => {
   const [selected, setSelected] = React.useState('TOKENS');
   const [buy, setBuy] = React.useState<boolean>()
   const [sell, setSell] = React.useState<boolean>()
+  const [transfer, setTransfer] = React.useState<boolean>()
   const address = info?.walletAddress
-
   React.useEffect(() => {
 
     async function getWalletBalance() {
@@ -224,7 +225,7 @@ const ProfileHero = () => {
                   text='Vender'
                
                   hidden={false}
-                  onClick={() => { setStep(2); setSell(true) }}
+                  onClick={() => { setStep(1); setSell(false) }}
                   className={`${Styles.profileAlternative} fw-bold w-100 mb-2`}
                 />
                 <Button
@@ -232,8 +233,8 @@ const ProfileHero = () => {
                   label='Transferir'
                   text='Transferir'
                   hidden={false}
-                  disabled
-                  onClick={() => { console.log("Click") }}
+                 
+                  onClick={() => { setTransfer(false); setStep(1) }}
                   className={`${Styles.profileAlternative} fw-bold w-100 mb-2`}
                 />
               </div>
@@ -266,7 +267,7 @@ const ProfileHero = () => {
                         hidden={false}
                         id='backToTokens'
                         label='Clique para voltar a seção de compra'
-                        onClick={() => { setStep(1); setBuy(false); setSell(false); }}
+                        onClick={() => { setStep(1); setBuy(false); setSell(false); setTransfer(false) }}
                         text='Clique para voltar a seção de compra'
                         className={Styles.alternative2}
                       />}
@@ -304,10 +305,10 @@ const ProfileHero = () => {
                       <div>
 
                         {step == 0 && <TokenList tokens={tokens as TokensProps} props={props} coins={coins} setCoins={setCoins} setProps={setProps} setStep={setStep} />}
-                        {step == 1 && <TokenInfo tokens={props} setCoins={setCoins} coins={coins} allTokens={allTokens} setStep={setStep} value={value} setValue={setValue} dollarCot={dollarCot} setDollarCot={setDollarCot} buy={buy} setBuy={setBuy} sell={sell} setSell={setSell} />}
+                        {step == 1 && <TokenInfo  setTransfer={setTransfer} tokens={props} setCoins={setCoins} coins={coins} allTokens={allTokens} setStep={setStep} value={value} setValue={setValue} dollarCot={dollarCot} setDollarCot={setDollarCot} buy={buy} setBuy={setBuy} sell={sell} setSell={setSell} />}
                         {buy && <Checkout tokens={coins} value={value} dollarCot={dollarCot as number} setStep={setStep} />}
                         {sell && <SellCheckout tokens={coins} value={value} dollarCot={dollarCot as number} setStep={setStep} setSell={setSell} />}
-                        {step == 4 && <PaymentSection />}
+                        {transfer && <TransferToken tokens={coins} value={value} dollarCot={dollarCot as number} />}
                       </div> :
                       <NFTList result={nfts as EvmNft[]} />}
                   </div>
