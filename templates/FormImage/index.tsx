@@ -10,6 +10,7 @@ import Isologo from '@/assets/img/simbolo-padrao.png'
 import Illustration from '@/assets/img/group.svg'
 import Loginform from '@/components/organisms/LoginForm'
 
+
 const FormImage = () => {
   return (
     <section className={Styles.formImage}>

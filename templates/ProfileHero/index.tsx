@@ -37,6 +37,17 @@ type TokensProps = {
   quote_rate_24h: number
 }[]
 
+const MATIC = {
+  contract_ticker_symbol: 'MATIC',
+  contract_address: '0x85f138bfEE4ef8e540890CFb48F620571d67Eda3',
+  contract_name: 'Matic Token',
+  balance: 0.0000,
+  balance_24h: 0,
+  logo_url: 'abuaba',
+  quote_rate: 2,
+  quote_rate_24h: 2,
+}
+
 const AVAX = {
   contract_ticker_symbol: 'AVAX',
   contract_address: '0x85f138bfEE4ef8e540890CFb48F620571d67Eda3',
@@ -118,6 +129,7 @@ const ProfileHero = () => {
           .then((res) => res.json())
           .then((json) => {
             setTokens(json.data?.items)
+           
             setCoins(json.data?.items[0])
           })
           .catch((error) => {
@@ -135,6 +147,10 @@ const ProfileHero = () => {
   }, [chain]);
 
   const allTokens = [DAI, CRV, AAVE, COMP, AVAX, ...tokens]
+  const filteredTokens = allTokens.filter((token, index, self) => {
+    const foundIndex = self.findIndex((t) => t.contract_ticker_symbol === token.contract_ticker_symbol);
+    return foundIndex === index;
+  });
   const [props, setProps] = React.useState(tokens)
   const [value, setValue] = React.useState(props)
   const [dollarCot, setDollarCot] = React.useState<number>()
@@ -154,7 +170,7 @@ const ProfileHero = () => {
       }
     };
     runApp()
-  }, [text])
+  }, [evm])
 
 
 
@@ -223,7 +239,7 @@ const ProfileHero = () => {
                   id='cta'
                   label='Vender'
                   text='Vender'
-               
+
                   hidden={false}
                   onClick={() => { setStep(1); setSell(false) }}
                   className={`${Styles.profileAlternative} fw-bold w-100 mb-2`}
@@ -233,7 +249,7 @@ const ProfileHero = () => {
                   label='Transferir'
                   text='Transferir'
                   hidden={false}
-                 
+
                   onClick={() => { setTransfer(false); setStep(1) }}
                   className={`${Styles.profileAlternative} fw-bold w-100 mb-2`}
                 />
@@ -304,8 +320,8 @@ const ProfileHero = () => {
                     {selected == 'TOKENS' ?
                       <div>
 
-                        {step == 0 && <TokenList tokens={tokens as TokensProps} props={props} coins={coins} setCoins={setCoins} setProps={setProps} setStep={setStep} />}
-                        {step == 1 && <TokenInfo  setTransfer={setTransfer} tokens={props} setCoins={setCoins} coins={coins} allTokens={allTokens} setStep={setStep} value={value} setValue={setValue} dollarCot={dollarCot} setDollarCot={setDollarCot} buy={buy} setBuy={setBuy} sell={sell} setSell={setSell} />}
+                        {step == 0 && <TokenList tokens={filteredTokens as TokensProps} props={props} coins={coins} setCoins={setCoins} setProps={setProps} setStep={setStep} />}
+                        {step == 1 && <TokenInfo setTransfer={setTransfer} tokens={props} setCoins={setCoins} coins={coins} allTokens={allTokens} setStep={setStep} value={value} setValue={setValue} dollarCot={dollarCot} setDollarCot={setDollarCot} buy={buy} setBuy={setBuy} sell={sell} setSell={setSell} />}
                         {buy && <Checkout tokens={coins} value={value} dollarCot={dollarCot as number} setStep={setStep} />}
                         {sell && <SellCheckout tokens={coins} value={value} dollarCot={dollarCot as number} setStep={setStep} setSell={setSell} />}
                         {transfer && <TransferToken tokens={coins} value={value} dollarCot={dollarCot as number} />}

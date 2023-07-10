@@ -132,7 +132,7 @@ export default function Checkout({ tokens, setStep, value, dollarCot }: Props) {
                           id='cta-comprar'
                           label='Call to Action'
                           hidden={false}
-                          text="CONTINUA"
+                          text="CONTINUAR"
                           className={`${Styles.customCTA} me-3`}
                           onClick={() => {
                             setPay(true)

@@ -9,8 +9,66 @@ import Twitter from '@/assets/img/twitter-white.png'
 import Facebook from '@/assets/img/facebook-white.png'
 import Logo from '@/assets/img/logo-branco.png'
 import FormFeedback from '@/components/molecules/FormFeedback'
+import { api } from '@/utils/functions/api'
+import { useRouter } from 'next/router'
+import UserContext from '@/context/UserContext'
 
 const Loginform = () => {
+  const router = useRouter()
+  const [token, setToken] = React.useState()
+  const { userInfo, loggedIn } = React.useContext(UserContext)
+  const [info, setUserInfo] = userInfo
+  const [logged, setLoggedIn] = loggedIn
+  const [isLoading, setIsLoading] = React.useState(false)
+  async function handleLoginGoogle(url: string) {
+    setIsLoading(true)
+   
+
+    const config = {
+      method: 'get',
+      url: `https://greg-api.blocklize.io/auth/google/redirect${url}`,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }
+
+    await api(config)
+      .then((res) => {
+       
+        setToken(res.data.accessToken)
+        if (res.data.accessToken && res.data.refreshToken) {
+          localStorage.setItem('accessToken', res.data.accessToken)
+          localStorage.setItem('refreshToken', res.data.refreshToken)
+          setUserInfo(res.data.usuarioInfo)
+          setLoggedIn(true)
+          // router.push('/carteira')
+        } else {
+          router.push("/login")
+        }
+       
+        
+      })
+      .catch((err) => {
+        console.log(err)
+        setTimeout(() => {
+          setIsLoading(false)
+        }, 3500) // Aguarda 2 segundos antes de executar a função
+      })
+  }
+  React.useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search)
+    const code = urlParams.get('code')
+   
+    if (code) {
+      const url = window.location.href
+      const loginIndex = url.indexOf('login')
+      const afterLogin = url.substring(loginIndex + 'login'.length)
+
+    
+      handleLoginGoogle(afterLogin)
+    }
+  }, [])
+
   const [email, setEmail] = React.useState('')
   const [loading, setLoading] = React.useState(false)
   const [feedback, setFeedback] = React.useState<boolean | null>(null)
@@ -44,6 +102,7 @@ const Loginform = () => {
 
   return (
     <article className={`${Styles.loginForm} ${handleLoading()}`}>
+
       <div className={Styles.loginForm__header}>
         Sign in
       </div>
@@ -53,13 +112,16 @@ const Loginform = () => {
             <h2 className={Styles.socialLogin__title}>
               Use your social login
             </h2>
-            <Link href="#">
+            <Link href="https://greg-api.blocklize.io/auth/google/login">
               <div className={Styles.socialLogin__option}>
                 <Image
                   src={Google}
                   width={30}
                   height={undefined}
                   alt="Picture"
+                  onClick={() => {
+                    window.location.href = 'https://greg-api.blocklize.io/auth/google/login'
+                  }}
                 />
               </div>
             </Link>
