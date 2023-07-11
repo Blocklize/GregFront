@@ -110,46 +110,7 @@ const TokenList = ({ tokens, props, setProps, setStep, coins, setCoins }: Props)
               </div>
             )
           })}
-          <div onClick={(() => {
-
-            setCoins(AVAX)
-            setStep(1)
-          })} className={Styles.token}>
-
-            <CoinWallet onClick={setStep} props={AVAX} />
-          </div>
-          <div onClick={(() => {
-
-            setCoins(AAVE)
-            setStep(1)
-          })} className={Styles.token}>
-
-            <CoinWallet onClick={setStep} props={AAVE} />
-          </div>
-          <div onClick={(() => {
-
-            setCoins(CRV)
-            setStep(1)
-          })} className={Styles.token}>
-
-            <CoinWallet onClick={setStep} props={CRV} />
-          </div>
-          <div onClick={(() => {
-
-            setCoins(DAI)
-            setStep(1)
-          })} className={Styles.token}>
-
-            <CoinWallet onClick={setStep} props={DAI} />
-          </div>
-          <div onClick={(() => {
-
-            setCoins(COMP)
-            setStep(1)
-          })} className={Styles.token}>
-
-            <CoinWallet onClick={setStep} props={COMP} />
-          </div>
+       
         </div>
       
       {/* <TokenInfo tokens={tokens} />  */}

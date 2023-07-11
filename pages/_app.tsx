@@ -22,6 +22,7 @@ export default function App({ Component, pageProps }: AppProps) {
       }
     }
     if (token) {
+     
       fetch('https://greg-api.blocklize.io/auth/userInfo', config)
         .then(resp => resp.json())
         .then(json => {
